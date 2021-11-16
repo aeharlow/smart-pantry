@@ -42,5 +42,9 @@ abstract class Item{
         return;
     }
 
-    
+    public String toString(){
+        String ret;
+        ret = name + ", quantity: " + quantity + ", experation date: " + exp_date.toString();
+        return ret;
+    }
 }
