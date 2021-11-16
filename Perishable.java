@@ -9,4 +9,17 @@ abstract class Perishable extends Item{
     public boolean getIsFrozen(){ return is_frozen; }
 
     public void getIsFrozen(boolean f){ is_frozen = f;}
+
+    public String toString(){
+        String f = new String();
+        if(is_frozen)
+            f = "yes";
+        else
+            f = "no";
+
+        String ret = new String();;
+        ret = getName() + " - quantity: " + getQuantity() + ", experation date: " + 
+            getExpDate().toString() + ", frozen: " + f;
+        return ret;
+    }
 }
