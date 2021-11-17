@@ -1,4 +1,4 @@
-abstract class Nonperishable extends Item{
+class Nonperishable extends Item{
 
     public Nonperishable(String n, String t, int sl, int q){
         super(n, t, sl, q);
