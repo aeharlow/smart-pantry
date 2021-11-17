@@ -1,4 +1,4 @@
-abstract class Perishable extends Item{
+class Perishable extends Item{
     boolean is_frozen;
     
     public Perishable(String n, String t, int sl, int q, boolean f){
