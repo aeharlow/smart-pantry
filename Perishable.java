@@ -1,8 +1,8 @@
 class Perishable extends Item{
     boolean is_frozen;
     
-    public Perishable(String n, String t, int sl, int q, boolean f){
-        super(n, t, sl, q);
+    public Perishable(String n, int sl, int q, boolean f){
+        super(n, sl, q);
         is_frozen = f;
     }
 
