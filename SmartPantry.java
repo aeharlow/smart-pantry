@@ -62,8 +62,7 @@ public class SmartPantry {
 
             }
 
-            System.out.println();
-            System.out.println("Please enter another command.");
+            System.out.println("\nPlease enter another command.");
         }
         
     }
