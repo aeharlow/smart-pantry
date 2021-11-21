@@ -1,7 +1,7 @@
 class Nonperishable extends Item{
 
-    public Nonperishable(String n, String t, int sl, int q){
-        super(n, t, sl, q);
+    public Nonperishable(String n, int sl, int q){
+        super(n, sl, q);
     }
 
     /***************************************************
