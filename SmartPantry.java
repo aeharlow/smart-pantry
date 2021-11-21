@@ -16,9 +16,8 @@ public class SmartPantry {
         displayWelcome();
 
         String command = new String();
-        Boolean cont = true;
 
-        while(cont){
+        while(true){
             command = scan.nextLine();
             command = command.toLowerCase();
 
@@ -54,7 +53,7 @@ public class SmartPantry {
 
             } else if(command.equals("quit") || command.equals("q")){
 
-                cont = false;
+                break;
 
             } else{
 
@@ -86,11 +85,32 @@ public class SmartPantry {
 
     public static boolean addPerishable(){
         System.out.println("adding perishable");
+
         return false;
     }
 
     public static boolean addNonPerishable(){
-        System.out.println("adding perishable");
+    
+        System.out.println("What type of item are you adding");
+        String t = scan.nextLine();
+
+        System.out.println("What item are you adding?");
+        String n = scan.nextLine();
+
+        System.out.println("How many are you adding?");
+        int q = scan.nextInt();
+        scan.nextLine();
+
+        // look up shelf life in the data base
+
+        int sl = 5;
+
+        Nonperishable np = new Nonperishable(n, t, sl, q);
+
+        System.out.println("You have just added:");
+
+        System.out.println(np.toString());
+
         return false;
     }
 
