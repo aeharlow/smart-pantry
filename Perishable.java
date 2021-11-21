@@ -17,9 +17,14 @@ class Perishable extends Item{
         else
             f = "no";
 
-        String ret = new String();;
-        ret = getName() + " - quantity: " + getQuantity() + ", experation date: " + 
-            getExpDate().toString() + ", frozen: " + f;
-        return ret;
+        // String ret = new String();;
+        // ret = getName() + " - quantity: " + getQuantity() + ", experation date: " + 
+        //     getExpDate().toString() + ", frozen: " + f;
+
+        String temp_ret = new String();;
+        temp_ret = getName() + " - quantity: " + getQuantity() + ", shelf life: " + 
+            getShelfLife() + "days, frozen: " + f;
+
+        return temp_ret;
     }
 }
