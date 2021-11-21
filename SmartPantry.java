@@ -99,10 +99,6 @@ public class SmartPantry {
             return false;
         }
 
-
-        System.out.println("What type of item are you adding");
-        String t = scan.nextLine();
-
         System.out.println("What item are you adding?");
         String n = scan.nextLine();
 
@@ -125,7 +121,7 @@ public class SmartPantry {
         // look up shelf life in the data base
         int sl = 5;
 
-        Perishable p = new Perishable(n, t, sl, q, f);
+        Perishable p = new Perishable(n, sl, q, f);
 
         System.out.println("You have just added:");
         System.out.println(p.toString());
@@ -140,9 +136,6 @@ public class SmartPantry {
             System.out.println("Not enough room!");
             return false;
         }
-    
-        System.out.println("What type of item are you adding");
-        String t = scan.nextLine();
 
         System.out.println("What item are you adding?");
         String n = scan.nextLine();
@@ -155,7 +148,7 @@ public class SmartPantry {
 
         int sl = 5;
 
-        Nonperishable np = new Nonperishable(n, t, sl, q);
+        Nonperishable np = new Nonperishable(n, sl, q);
 
         System.out.println("You have just added:");
 
