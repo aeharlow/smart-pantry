@@ -41,7 +41,7 @@ public class SmartPantry {
 
             } else if (command.equals("edit item") || command.equals("e")){
 
-                editItem();;
+                editItem();
 
             } else if(command.equals("display pantry") || command.equals("d")){
 
