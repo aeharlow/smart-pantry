@@ -13,22 +13,47 @@ public class SmartPantry {
             command = scan.nextLine();
             command = command.toLowerCase();
 
-            if(command.equals("add item")){
-                System.out.println("You have selected to add new item.");
-            } else if (command.equals("remove item")){
-                System.out.println("You have selected to remove item.");
-            } else if (command.equals("edit item")){
-                System.out.println("You have selected to edit an item.");
+            if(command.equals("add item") || command.equals("a")){
+
+                System.out.println("Is your item perishable or nonperishable?");
+                command = scan.nextLine();
+                command = command.toLowerCase();
+                if(command.equals("perishable") || command.equals("p")){
+                    addPerishable();
+                } else if(command.equals("nonperishable") || command.equals("n")){
+                    addNonPerishable();
+                } else{
+                    System.out.println("Bad command!");
+                }
+
+            } else if (command.equals("remove item") || command.equals("r")){
+
+                removeItem();
+
+            } else if (command.equals("edit item") || command.equals("e")){
+
+                editItem();;
+
             } else if(command.equals("display pantry")){
-                System.out.println("You have selected to display the pantry.");
-            } else if(command.equals("help")){
+
+               displayPantry();
+
+            } else if(command.equals("help") || command.equals("h")){
+
                 System.out.println();
                 displayHelp();
-            } else if(command.equals("quit")){
+
+            } else if(command.equals("quit") || command.equals("q")){
+
                 cont = false;
+
             } else{
-                System.out.println("Bad command! Please enter another command.");
+
+                System.out.println("Bad command!");
+
             }
+
+            System.out.println("Please enter another command.");
         } while(cont);
         
     }
@@ -48,8 +73,31 @@ public class SmartPantry {
         System.out.println("To see the commands again, enter \"help\"");
         System.out.println("To quit, enter \"quit\"");
     }
-}
 
-// add item, remove item, edit item, check inventory
+    public static boolean addPerishable(){
+        System.out.println("adding perishable");
+        return false;
+    }
+
+    public static boolean addNonPerishable(){
+        System.out.println("adding perishable");
+        return false;
+    }
+
+    public static boolean removeItem(){
+        System.out.println("You have selected to remove item.");
+        return false;
+    }
+
+    public static boolean editItem(){
+        System.out.println("You have selected to remove item.");
+        return false;
+    }
+
+    public static boolean displayPantry(){
+        System.out.println("You have selected to display the pantry.");
+        return false;
+    }
+}
 
 // we want to sort the items in order from soonest exp date 
