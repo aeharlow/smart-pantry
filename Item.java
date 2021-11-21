@@ -2,15 +2,13 @@ import java.util.*;
 
 abstract class Item{
     private String name;
-    private String type;
     private int shelf_life;
     private int quantity;
     private Date exp_date;
     private Date purch_date;
 
-    public Item(String n, String t, int sl, int q){
+    public Item(String n, int sl, int q){
         name = n;
-        type = t;
         shelf_life = sl;
         quantity = q;
         exp_date = calcExp(sl);
@@ -24,7 +22,6 @@ abstract class Item{
 
     // getters
     public String getName(){ return name; }
-    public String getType(){ return type; }
     public int getShelfLife(){ return shelf_life; }
     public int getQuantity(){ return quantity; }
     public Date getExpDate(){ return exp_date; }
@@ -32,7 +29,6 @@ abstract class Item{
 
     // setters
     public void setName(String n){ name = n; }
-    public void setType(String c){ type = c; }
     public void setShelfLife(int sl){ shelf_life = sl; }
     public void setQuanlity(int q){ quantity = q; }
     public void setExpDate(Date d){ exp_date = d; }

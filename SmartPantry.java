@@ -1,8 +1,19 @@
 import java.util.*;
+import java.io.*;
 
 public class SmartPantry {
-    static Scanner scan = new Scanner(System.in);
+    static Scanner scan;
+    static Perishable[] perishItems;
+    static Nonperishable[] nonperishItems;
+    static int numPerish;
+    static int numNonperish;
     public static void main(String[] args) {
+        
+        scan = new Scanner(System.in);
+        perishItems = new Perishable[15];
+        nonperishItems = new Nonperishable[15];
+        numPerish = 0;
+        numNonperish = 0;
 
         // check the current date upon start up and run a check 
         // to see if anything has expired since the last boot up
@@ -84,8 +95,10 @@ public class SmartPantry {
     }
 
     public static boolean addPerishable(){
-        System.out.println("What type of item are you adding");
-        String t = scan.nextLine();
+        if(numPerish >= 15){
+            System.out.println("Not enough room!");
+            return false;
+        }
 
         System.out.println("What item are you adding?");
         String n = scan.nextLine();
@@ -107,22 +120,45 @@ public class SmartPantry {
         }
 
         // look up shelf life in the data base
-
         int sl = 5;
 
-        Perishable p = new Perishable(n, t, sl, q, f);
+        Perishable p = new Perishable(n, sl, q, f);
 
         System.out.println("You have just added:");
-
         System.out.println(p.toString());
+                
+        // This is the logic for creating the file for perishable, and writing to the file when adding the file
+        File peri = new File("perishable.txt"); 
+        String adding = p.toString();
+        try{
+            if(peri.createNewFile()){
+                BufferedWriter writer = new BufferedWriter(new FileWriter("perishable.txt"));
+                writer.write(adding);
+                writer.close();
+            }
+            else{
+                BufferedWriter writer = new BufferedWriter(new FileWriter("perishable.txt"));
+                writer.write(adding);
+                writer.close();
+            }
+        }
+        catch(IOException e){
 
-        return false;
+        }
+
+        //Writing to the file ends here.
+
+        perishItems[numPerish] = p;
+        numPerish++;  
+        return true;
     }
 
     public static boolean addNonPerishable(){
-    
-        System.out.println("What type of item are you adding");
-        String t = scan.nextLine();
+
+        if(numNonperish >= 15){
+            System.out.println("Not enough room!");
+            return false;
+        }
 
         System.out.println("What item are you adding?");
         String n = scan.nextLine();
@@ -135,13 +171,15 @@ public class SmartPantry {
 
         int sl = 5;
 
-        Nonperishable np = new Nonperishable(n, t, sl, q);
+        Nonperishable np = new Nonperishable(n, sl, q);
 
         System.out.println("You have just added:");
 
         System.out.println(np.toString());
 
-        return false;
+        nonperishItems[numNonperish] = np;
+        numNonperish++;  
+        return true;
     }
 
     public static boolean removeItem(){
@@ -155,8 +193,21 @@ public class SmartPantry {
     }
 
     public static boolean displayPantry(){
-        System.out.println("You have selected to display the pantry.");
-        return false;
+        System.out.println();
+        System.out.println("Perishable items:");
+
+        for(int i = 0; i < numPerish; i++){
+            System.out.println(perishItems[i].toString());
+        }
+        System.out.println();
+
+        System.out.println("Nonperishable items:");
+
+        for(int i = 0; i < numNonperish; i++){
+            System.out.println(nonperishItems[i].toString());
+        }
+
+        return true;
     }
 }
 
