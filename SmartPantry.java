@@ -84,7 +84,37 @@ public class SmartPantry {
     }
 
     public static boolean addPerishable(){
-        System.out.println("adding perishable");
+        System.out.println("What type of item are you adding");
+        String t = scan.nextLine();
+
+        System.out.println("What item are you adding?");
+        String n = scan.nextLine();
+
+        System.out.println("How many are you adding?");
+        int q = scan.nextInt();
+        scan.nextLine();
+
+        System.out.println("Are you freezing this item?");
+        String fs = scan.nextLine();
+        fs = fs.toLowerCase();
+        
+        boolean f = false;
+
+        if(fs.equals("yes") || fs.equals("y")){
+            f = true;
+        } else if(fs.equals("no") || fs.equals("n")){
+            f = false;
+        }
+
+        // look up shelf life in the data base
+
+        int sl = 5;
+
+        Perishable p = new Perishable(n, t, sl, q, f);
+
+        System.out.println("You have just added:");
+
+        System.out.println(p.toString());
 
         return false;
     }
