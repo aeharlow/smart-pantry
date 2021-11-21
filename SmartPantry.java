@@ -9,7 +9,7 @@ public class SmartPantry {
         String command = new String();
         Boolean cont = true;
 
-        do{
+        while(cont){
             command = scan.nextLine();
             command = command.toLowerCase();
 
@@ -53,13 +53,15 @@ public class SmartPantry {
 
             }
 
+            System.out.println();
             System.out.println("Please enter another command.");
-        } while(cont);
+        }
         
     }
     
     public static void displayWelcome(){
-        System.out.println("Welcome to SmartPantry!");
+        System.out.println();
+        System.out.println("----- Welcome to SmartPantry! -----");
         System.out.println();
         System.out.println("Please enter one of the following commands:");
         displayHelp();
