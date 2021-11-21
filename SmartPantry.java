@@ -1,4 +1,5 @@
 import java.util.*;
+import java.io.*;
 
 public class SmartPantry {
     static Scanner scan;
@@ -129,6 +130,27 @@ public class SmartPantry {
 
         System.out.println("You have just added:");
         System.out.println(p.toString());
+                
+        // This is the logic for creating the file for perishable, and writing to the file when adding the file
+        File peri = new File("perishable.txt"); 
+        String adding = p.toString();
+        try{
+            if(peri.createNewFile()){
+                BufferedWriter writer = new BufferedWriter(new FileWriter("perishable.txt"));
+                writer.write(adding);
+                writer.close();
+            }
+            else{
+                BufferedWriter writer = new BufferedWriter(new FileWriter("perishable.txt"));
+                writer.write(adding);
+                writer.close();
+            }
+        }
+        catch(IOException e){
+
+        }
+
+        //Writing to the file ends here.
 
         perishItems[numPerish] = p;
         numPerish++;  
@@ -136,6 +158,7 @@ public class SmartPantry {
     }
 
     public static boolean addNonPerishable(){
+
         if(numNonperish >= 15){
             System.out.println("Not enough room!");
             return false;
@@ -192,10 +215,6 @@ public class SmartPantry {
         }
 
         return true;
-    }
-
-    public static void printZZ(){
-        System.out.println("This is ZZ");
     }
 }
 
