@@ -1,0 +1,10 @@
+chicken,2,182.5
+beef,4,91.25
+bannanas,4,15.5
+apples,6,50.6
+brocolli,4,91.25
+green beans,4,91.25
+milk,6,1
+cheese,186,
+toast,14,6.64
+bagels,14,6.64
