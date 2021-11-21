@@ -4,6 +4,15 @@ public class SmartPantry {
     static Scanner scan = new Scanner(System.in);
     public static void main(String[] args) {
 
+        // check the current date upon start up and run a check 
+        // to see if anything has expired since the last boot up
+
+        // if anything is expired display that it has exipred
+
+        // if anytihng is close to expiring
+        // print a warning for the user letting them know
+        // we have to decide on the threshold for when to warn the user
+
         displayWelcome();
 
         String command = new String();
