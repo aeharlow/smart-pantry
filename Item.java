@@ -43,8 +43,12 @@ abstract class Item{
     }
 
     public String toString(){
-        String ret;
-        ret = name + " - quantity: " + quantity + ", experation date: " + exp_date.toString();
-        return ret;
+        //String ret;
+        //ret = name + " - quantity: " + quantity + ", experation date: " + exp_date.toString();
+
+        String temp_ret;
+        temp_ret = name + " - quantity: " + quantity + ", shelf life: " + shelf_life + " days";
+
+        return temp_ret;
     }
 }
