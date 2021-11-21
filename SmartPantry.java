@@ -193,6 +193,10 @@ public class SmartPantry {
 
         return true;
     }
+
+    public static void printZZ(){
+        System.out.println("This is ZZ");
+    }
 }
 
 // we want to sort the items in order from soonest exp date 
