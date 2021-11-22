@@ -153,4 +153,17 @@ public class DBManager {
         else return false;
     }
 
+    public static boolean clearDB (String fileName){
+        try{
+            BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, false));
+            writer.write("");
+            writer.close();
+            return true;
+        }
+        catch(IOException e){
+            e.getStackTrace();
+        }
+        return false;
+    } 
+
 }
