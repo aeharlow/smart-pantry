@@ -3,7 +3,27 @@ import java.io.*;
 
 public class DBManager {
     
-
+    public static String[] getItem (String fileName, String item){
+        File inputFile = new File (fileName);
+        String[] returnArray;
+        String currLine;
+        try{
+            BufferedReader reader = new BufferedReader (new FileReader(inputFile));
+            while ((currLine = reader.readLine())!= null){
+                String trimmed = currLine.trim();
+                returnArray = trimmed.split(",");
+                if (returnArray[0].equals(item)){
+                    reader.close();
+                    return returnArray;
+                } 
+            }
+            reader.close();
+        }
+        catch(Exception e){
+            e.getStackTrace();
+        }
+        return null;
+    }
 
     public static boolean writeToFile (String fileName, String toWrite){
         File inputFile = new File (toWrite);
