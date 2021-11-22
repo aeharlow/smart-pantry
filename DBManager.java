@@ -26,9 +26,8 @@ public class DBManager {
     }
 
     public static boolean writeToFile (String fileName, String toWrite){
-        File inputFile = new File (fileName);
         try{
-            BufferedWriter writer = new BufferedWriter(new FileWriter(inputFile));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(fileName,true));
             writer.write(toWrite);
             writer.newLine();
             writer.close();
@@ -41,7 +40,7 @@ public class DBManager {
     }
 
     public static boolean removeFromFile (String fileName, String itemToRemove){
-        File inputFile = new File (fileName);
+        File inputFile = new File(fileName);
         File tempFile = new File ("temp.txt");
         boolean foundFlag = false;
         try{
