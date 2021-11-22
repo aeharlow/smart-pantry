@@ -63,6 +63,9 @@ public class SmartPantry {
             } else if(command.equals("clear pantry")){
 
                 // completely wipe clean the pantry files
+                if(DBManager.clearDB("temp-perish-pantry.txt")) System.out.println("Done!");
+                if(DBManager.clearDB("temp-nonperish-pantry.txt")) System.out.println("Done!");
+                
 
             } else if(command.equals("help") || command.equals("h")){
 
