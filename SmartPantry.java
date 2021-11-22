@@ -127,26 +127,9 @@ public class SmartPantry {
         System.out.println("You have just added:");
         System.out.println(p.toString());
                 
-        // This is the logic for creating the file for perishable, and writing to the file when adding the file
-        File peri = new File("perishable.txt"); 
-        String adding = p.toString();
-        try{
-            if(peri.createNewFile()){
-                BufferedWriter writer = new BufferedWriter(new FileWriter("perishable.txt"));
-                writer.write(adding);
-                writer.close();
-            }
-            else{
-                BufferedWriter writer = new BufferedWriter(new FileWriter("perishable.txt"));
-                writer.write(adding);
-                writer.close();
-            }
-        }
-        catch(IOException e){
-
-        }
-
-        //Writing to the file ends here.
+ 
+        String adding = n + "," + sl + "," + q + "," + f;
+        DBManager.writeToFile("perishable.txt", adding);
 
         perishItems[numPerish] = p;
         numPerish++;  
