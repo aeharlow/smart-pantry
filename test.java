@@ -1,5 +1,7 @@
 public class test {
     public static void main(String[] args) {
-       System.out.println("This is the tester file for SmartPantry");
+
+        System.out.println("This is the tester file for SmartPantry");
+
     }
 }

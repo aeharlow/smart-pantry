@@ -1,0 +1,8 @@
+rice,-1,1
+oats,620,1
+black beans,730,1
+pinto beans,730,1
+paprika,1460,1
+cumin,1460,1
+canned peaches,558,1
+canned black beans,1460,1
