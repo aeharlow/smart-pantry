@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.spi.CalendarDataProvider;
 import java.io.*;
 
 public class SmartPantry {
@@ -7,6 +8,7 @@ public class SmartPantry {
     static Nonperishable[] nonperishItems;
     static int numPerish;
     static int numNonperish;
+    static Calendar currentDate;
     public static void main(String[] args) {
         
         scan = new Scanner(System.in);
@@ -14,6 +16,7 @@ public class SmartPantry {
         nonperishItems = new Nonperishable[15];
         numPerish = 0;
         numNonperish = 0;
+        currentDate = Calendar.getInstance();
 
         // check the current date upon start up and run a check 
         // to see if anything has expired since the last boot up
@@ -194,4 +197,75 @@ public class SmartPantry {
     }
 }
 
-// we want to sort the items in order from soonest exp date 
+/*********************************************************************
+    
+    reference for working with calender
+
+        currentDate = Calendar.getInstance();
+
+        int day, month, year;
+
+        day = currentDate.get(Calendar.DAY_OF_MONTH);
+        month = currentDate.get(Calendar.MONTH);
+        year = currentDate.get(Calendar.YEAR);
+
+        System.out.println();
+        //System.out.println(currentDate.toString());
+        System.out.println("day: " + day);
+        System.out.println("month: " + month);
+        System.out.println("year: " + year);
+
+
+        Calendar temp = Calendar.getInstance();
+
+        temp.set(2001, 5, 1);
+
+        day = temp.get(Calendar.DAY_OF_MONTH);
+        month = temp.get(Calendar.MONTH);
+        year = temp.get(Calendar.YEAR);
+
+        System.out.println();
+        //System.out.println(currentDate.toString());
+        System.out.println("day: " + day);
+        System.out.println("month: " + month);
+        System.out.println("year: " + year);
+
+
+        temp.add(Calendar.DATE, -15); 
+
+        day = temp.get(Calendar.DAY_OF_MONTH);
+        month = temp.get(Calendar.MONTH);
+        year = temp.get(Calendar.YEAR);
+
+        System.out.println();
+        //System.out.println(currentDate.toString());
+        System.out.println("day: " + day);
+        System.out.println("month: " + month);
+        System.out.println("year: " + year);
+
+        temp.add(Calendar.DATE, 30); 
+
+        day = temp.get(Calendar.DAY_OF_MONTH);
+        month = temp.get(Calendar.MONTH);
+        year = temp.get(Calendar.YEAR);
+
+        System.out.println();
+        //System.out.println(currentDate.toString());
+        System.out.println("day: " + day);
+        System.out.println("month: " + month);
+        System.out.println("year: " + year);
+
+        temp.add(Calendar.DATE, 365); 
+
+        day = temp.get(Calendar.DAY_OF_MONTH);
+        month = temp.get(Calendar.MONTH);
+        year = temp.get(Calendar.YEAR);
+
+        System.out.println();
+        //System.out.println(currentDate.toString());
+        System.out.println("day: " + day);
+        System.out.println("month: " + month);
+        System.out.println("year: " + year);    
+
+
+ *********************************************************************/
