@@ -117,8 +117,10 @@ public class SmartPantry {
         boolean f = false;
 
         if(fs.equals("yes") || fs.equals("y")){
+            fs = "y";
             f = true;
         } else if(fs.equals("no") || fs.equals("n")){
+            fs = "n";
             f = false;
         }
 
@@ -131,7 +133,7 @@ public class SmartPantry {
         System.out.println(p.toString());
                 
  
-        String adding = n + "," + sl + "," + q + "," + f;
+        String adding = n + "," + sl + "," + q + "," + fs;
         DBManager.writeToFile("perishable.txt", adding);
 
         perishItems[numPerish] = p;
