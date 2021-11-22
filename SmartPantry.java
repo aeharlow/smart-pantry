@@ -60,6 +60,10 @@ public class SmartPantry {
 
                displayPantry();
 
+            } else if(command.equals("clear pantry")){
+
+                // completely wipe clean the pantry files
+
             } else if(command.equals("help") || command.equals("h")){
 
                 System.out.println();
