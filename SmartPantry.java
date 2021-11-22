@@ -1,5 +1,4 @@
 import java.util.*;
-import java.util.spi.CalendarDataProvider;
 import java.io.*;
 
 public class SmartPantry {
@@ -8,17 +7,16 @@ public class SmartPantry {
     static Nonperishable[] nonperishItems;
     static int numPerish;
     static int numNonperish;
-    static Calendar currentDate;
+
     public static void main(String[] args) {
-        
+
         scan = new Scanner(System.in);
         perishItems = new Perishable[15];
         nonperishItems = new Nonperishable[15];
         numPerish = 0;
         numNonperish = 0;
-        currentDate = Calendar.getInstance();
 
-        // check the current date upon start up and run a check 
+        // check the current date upon start up and run a check
         // to see if anything has expired since the last boot up
 
         // if anything is expired display that it has exipred
@@ -31,35 +29,36 @@ public class SmartPantry {
 
         String command = new String();
 
-        while(true){
+        while (true) {
             command = scan.nextLine();
             command = command.toLowerCase();
 
-            if(command.equals("add item") || command.equals("a")){
+            if (command.equals("add item") || command.equals("a")) {
 
                 System.out.println("Is your item perishable or nonperishable?");
                 command = scan.nextLine();
                 command = command.toLowerCase();
-                if(command.equals("perishable") || command.equals("p")){
+                if (command.equals("perishable") || command.equals("p")) {
                     addPerishable();
-                } else if(command.equals("nonperishable") || command.equals("n")){
+                } else if (command.equals("nonperishable") || command.equals("n")) {
                     addNonPerishable();
-                } else{
+                } else {
                     System.out.println("Bad command!");
                 }
 
-            } else if (command.equals("remove item") || command.equals("r")){
+            } else if (command.equals("remove item") || command.equals("r")) {
 
                 removeItem();
 
-            } else if (command.equals("edit item") || command.equals("e")){
+            } else if (command.equals("edit item") || command.equals("e")) {
 
                 editItem();
 
-            } else if(command.equals("display pantry") || command.equals("d")){
+            } else if (command.equals("display pantry") || command.equals("d")) {
 
-               displayPantry();
+                displayPantry();
 
+<<<<<<< Updated upstream
             } else if(command.equals("clear pantry")){
 
                 // completely wipe clean the pantry files
@@ -68,15 +67,18 @@ public class SmartPantry {
                 
 
             } else if(command.equals("help") || command.equals("h")){
+=======
+            } else if (command.equals("help") || command.equals("h")) {
+>>>>>>> Stashed changes
 
                 System.out.println();
                 displayHelp();
 
-            } else if(command.equals("quit") || command.equals("q")){
+            } else if (command.equals("quit") || command.equals("q")) {
 
                 break;
 
-            } else{
+            } else {
 
                 System.out.println("Bad command!");
 
@@ -84,10 +86,10 @@ public class SmartPantry {
 
             System.out.println("\nPlease enter another command.");
         }
-        
+
     }
-    
-    public static void displayWelcome(){
+
+    public static void displayWelcome() {
         System.out.println();
         System.out.println("----- Welcome to SmartPantry! -----");
         System.out.println();
@@ -95,7 +97,7 @@ public class SmartPantry {
         displayHelp();
     }
 
-    public static void displayHelp(){
+    public static void displayHelp() {
         System.out.println("To add a new item, enter \"add item\"");
         System.out.println("To remove an item, enter \"remove item\"");
         System.out.println("To edit an item, enter \"edit item\"");
@@ -104,8 +106,8 @@ public class SmartPantry {
         System.out.println("To quit, enter \"quit\"");
     }
 
-    public static boolean addPerishable(){
-        if(numPerish >= 15){
+    public static boolean addPerishable() {
+        if (numPerish >= 15) {
             System.out.println("Not enough room!");
             return false;
         }
@@ -120,14 +122,20 @@ public class SmartPantry {
         System.out.println("Are you freezing this item?");
         String fs = scan.nextLine();
         fs = fs.toLowerCase();
-        
+
         boolean f = false;
 
+<<<<<<< Updated upstream
         if(fs.equals("yes") || fs.equals("y")){
             fs = "y";
             f = true;
         } else if(fs.equals("no") || fs.equals("n")){
             fs = "n";
+=======
+        if (fs.equals("yes") || fs.equals("y")) {
+            f = true;
+        } else if (fs.equals("no") || fs.equals("n")) {
+>>>>>>> Stashed changes
             f = false;
         }
 
@@ -138,19 +146,24 @@ public class SmartPantry {
 
         System.out.println("You have just added:");
         System.out.println(p.toString());
+<<<<<<< Updated upstream
                 
  
         String adding = n + "," + sl + "," + q + "," + fs;
+=======
+
+        String adding = n + "," + sl + "," + q + "," + f;
+>>>>>>> Stashed changes
         DBManager.writeToFile("perishable.txt", adding);
 
         perishItems[numPerish] = p;
-        numPerish++;  
+        numPerish++;
         return true;
     }
 
-    public static boolean addNonPerishable(){
+    public static boolean addNonPerishable() {
 
-        if(numNonperish >= 15){
+        if (numNonperish >= 15) {
             System.out.println("Not enough room!");
             return false;
         }
@@ -163,8 +176,13 @@ public class SmartPantry {
         scan.nextLine();
 
         // look up shelf life in the data base
+        String[] itemDB = DBManager.getItem("nonperishable-database.txt", n);
 
-        int sl = 5;
+        int sl = Integer.valueOf(itemDB[1]);
+
+        String itemToAddDB = n + "," + q + "," + sl;
+
+        DBManager.writeToFile("temp-nonperish-pantry.txt", itemToAddDB);
 
         Nonperishable np = new Nonperishable(n, sl, q);
 
@@ -173,32 +191,32 @@ public class SmartPantry {
         System.out.println(np.toString());
 
         nonperishItems[numNonperish] = np;
-        numNonperish++;  
+        numNonperish++;
         return true;
     }
 
-    public static boolean removeItem(){
+    public static boolean removeItem() {
         System.out.println("You have selected to remove item.");
         return false;
     }
 
-    public static boolean editItem(){
+    public static boolean editItem() {
         System.out.println("You have selected to remove item.");
         return false;
     }
 
-    public static boolean displayPantry(){
+    public static boolean displayPantry() {
         System.out.println();
         System.out.println("Perishable items:");
 
-        for(int i = 0; i < numPerish; i++){
+        for (int i = 0; i < numPerish; i++) {
             System.out.println(perishItems[i].toString());
         }
         System.out.println();
 
         System.out.println("Nonperishable items:");
 
-        for(int i = 0; i < numNonperish; i++){
+        for (int i = 0; i < numNonperish; i++) {
             System.out.println(nonperishItems[i].toString());
         }
 
@@ -206,75 +224,4 @@ public class SmartPantry {
     }
 }
 
-/*********************************************************************
-    
-    reference for working with calender
-
-        currentDate = Calendar.getInstance();
-
-        int day, month, year;
-
-        day = currentDate.get(Calendar.DAY_OF_MONTH);
-        month = currentDate.get(Calendar.MONTH);
-        year = currentDate.get(Calendar.YEAR);
-
-        System.out.println();
-        //System.out.println(currentDate.toString());
-        System.out.println("day: " + day);
-        System.out.println("month: " + month);
-        System.out.println("year: " + year);
-
-
-        Calendar temp = Calendar.getInstance();
-
-        temp.set(2001, 5, 1);
-
-        day = temp.get(Calendar.DAY_OF_MONTH);
-        month = temp.get(Calendar.MONTH);
-        year = temp.get(Calendar.YEAR);
-
-        System.out.println();
-        //System.out.println(currentDate.toString());
-        System.out.println("day: " + day);
-        System.out.println("month: " + month);
-        System.out.println("year: " + year);
-
-
-        temp.add(Calendar.DATE, -15); 
-
-        day = temp.get(Calendar.DAY_OF_MONTH);
-        month = temp.get(Calendar.MONTH);
-        year = temp.get(Calendar.YEAR);
-
-        System.out.println();
-        //System.out.println(currentDate.toString());
-        System.out.println("day: " + day);
-        System.out.println("month: " + month);
-        System.out.println("year: " + year);
-
-        temp.add(Calendar.DATE, 30); 
-
-        day = temp.get(Calendar.DAY_OF_MONTH);
-        month = temp.get(Calendar.MONTH);
-        year = temp.get(Calendar.YEAR);
-
-        System.out.println();
-        //System.out.println(currentDate.toString());
-        System.out.println("day: " + day);
-        System.out.println("month: " + month);
-        System.out.println("year: " + year);
-
-        temp.add(Calendar.DATE, 365); 
-
-        day = temp.get(Calendar.DAY_OF_MONTH);
-        month = temp.get(Calendar.MONTH);
-        year = temp.get(Calendar.YEAR);
-
-        System.out.println();
-        //System.out.println(currentDate.toString());
-        System.out.println("day: " + day);
-        System.out.println("month: " + month);
-        System.out.println("year: " + year);    
-
-
- *********************************************************************/
+// we want to sort the items in order from soonest exp date
