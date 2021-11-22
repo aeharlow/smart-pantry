@@ -1,2 +1,3 @@
-black beans,7,730
-paprika,7,1460
+black beans,3,6/1/22
+rice,2,1/1/24
+cumin,1,6/1/22
