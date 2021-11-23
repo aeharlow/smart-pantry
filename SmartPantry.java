@@ -1,21 +1,24 @@
+/**
+ *  SmartPantry.java
+ * 
+ *  SmartPantry is designed to automatically keep track of the items 
+ *  in the user's pantry and warn them when items have expired or if
+ *  an item is about to expire. 
+ * 
+ *  Developers:
+ *      Abdelazim Lokma - alokma@bu.edu
+ *      Zhizhou Xing - xzzjoe@bu.edu
+ *      Ashley Harlow - aeharlow@bu.edu
+ */
+
+
 import java.util.*;
-import java.util.spi.CalendarDataProvider;
-import java.io.*;
 
 public class SmartPantry {
     static Scanner scan;
-    static Perishable[] perishItems;
-    static Nonperishable[] nonperishItems;
-    static int numPerish;
-    static int numNonperish;
     static Calendar currentDate;
     public static void main(String[] args) {
-        
         scan = new Scanner(System.in);
-        perishItems = new Perishable[15];
-        nonperishItems = new Nonperishable[15];
-        numPerish = 0;
-        numNonperish = 0;
         currentDate = Calendar.getInstance();
 
         // check the current date upon start up and run a check 
@@ -87,6 +90,10 @@ public class SmartPantry {
         
     }
     
+    /*
+     *  displayWelcome() - displays a welcome message to teh user upon launch 
+     */
+
     private static void displayWelcome(){
         System.out.println();
         System.out.println("----- Welcome to SmartPantry! -----");
@@ -95,6 +102,9 @@ public class SmartPantry {
         displayHelp();
     }
 
+    /**
+     *  displayHelp() - prints all commands that the user can enter
+     */
     private static void displayHelp(){
         System.out.println("To add a new item, enter \"add item\"");
         System.out.println("To remove an item, enter \"remove item\"");
@@ -104,12 +114,12 @@ public class SmartPantry {
         System.out.println("To quit, enter \"quit\"");
     }
 
+    /**
+     *  addPerishable() - prompts the user to input the appropriate data for a
+     *                    perishable item, calculates the expiration date, and 
+     *                    adds the item to the perishable pantry file
+     */
     private static boolean addPerishable(){
-        if(numPerish >= 15){
-            System.out.println("Not enough room!");
-            return false;
-        }
-
         System.out.println("What item are you adding?");
         String n = scan.nextLine();
 
@@ -145,6 +155,11 @@ public class SmartPantry {
         return true;
     }
 
+    /**
+     *  addNonPerishable() - prompts the user to input the appropriate data for a
+     *                       nonperishable item, calculates the expiration date, and 
+     *                       adds the item to the nonperishable pantry file
+     */
     private static boolean addNonPerishable(){
 
         System.out.println("What item are you adding?");
@@ -161,34 +176,53 @@ public class SmartPantry {
         return true;
     }
 
+    /**
+     *  removeItem() - prompts the user to enter which item they would like to remove 
+     *                 from the pantry, scans the pantry for the oldest instance of the
+     *                 item and removes it from the pantry
+     */
     private static boolean removeItem(){
         System.out.println("You have selected to remove item.");
         return false;
     }
 
+    /**
+     *  editItem() - asks the user which item they would like to edit, how they would
+     *               like to edit it, and edits the pantry accordingly. Possible edits
+     *               include: removing some of an item, taking a perishable item out of
+     *               the freezer, and putting a perishable item in the freezer
+     */
     private static boolean editItem(){
         System.out.println("You have selected to remove item.");
         return false;
     }
 
+    /**
+     *  displayPantry() - displays the contents of the pantry to the user. The display is
+     *                    seperated between the perishable items and nonperishable items.
+     */
     private static boolean displayPantry(){
         System.out.println();
         System.out.println("Perishable items:");
 
-        for(int i = 0; i < numPerish; i++){
-            System.out.println(perishItems[i].toString());
-        }
-        System.out.println();
+        // print out perishable items
 
         System.out.println("Nonperishable items:");
 
-        for(int i = 0; i < numNonperish; i++){
-            System.out.println(nonperishItems[i].toString());
-        }
+        // print mout nonperishable items
 
         return true;
     }
 
+    /**
+     *  calcExpire(item, frozenFlag) - calculates the expiration date of a perishable item 
+     *                                 using the shelf life from the database. If the user
+     *                                 indicates that they are freezing the item, the  
+     *                                 calulated expiration date will adjust according to 
+     *                                 much longer the item is expected to last for. Returns
+     *                                 a string representing the expiration date in a 
+     *                                 MM/DD/YYYY format.
+     */
     private static String calcExpire (String item, boolean frozenFlag){
         Calendar expDate = Calendar.getInstance();
         String expString = new String();
@@ -217,7 +251,11 @@ public class SmartPantry {
         return expString;
     }
 
-    // this version pf calcExpire is for nonperishable items
+    /**
+     *  calcExpire(item) - calculates the expiration of nonperishable items using
+     *                     the shelf life from the database. Returns a String that
+     *                     represents the expiration date in a MM/DD/YYYY format.
+     */
     private static String calcExpire(String item){
         Calendar expDate = Calendar.getInstance(); 
         String expString = new String();
@@ -241,80 +279,5 @@ public class SmartPantry {
         expString = month + "/" + day + "/" + year;
 
         return expString;
-        
-
     }
 }
-
-/*********************************************************************
-    
-    reference for working with calender
-
-        currentDate = Calendar.getInstance();
-
-        int day, month, year;
-
-        day = currentDate.get(Calendar.DAY_OF_MONTH);
-        month = currentDate.get(Calendar.MONTH);
-        year = currentDate.get(Calendar.YEAR);
-
-        System.out.println();
-        //System.out.println(currentDate.toString());
-        System.out.println("day: " + day);
-        System.out.println("month: " + month);
-        System.out.println("year: " + year);
-
-
-        Calendar temp = Calendar.getInstance();
-
-        temp.set(2001, 5, 1);
-
-        day = temp.get(Calendar.DAY_OF_MONTH);
-        month = temp.get(Calendar.MONTH);
-        year = temp.get(Calendar.YEAR);
-
-        System.out.println();
-        //System.out.println(currentDate.toString());
-        System.out.println("day: " + day);
-        System.out.println("month: " + month);
-        System.out.println("year: " + year);
-
-
-        temp.add(Calendar.DATE, -15); 
-
-        day = temp.get(Calendar.DAY_OF_MONTH);
-        month = temp.get(Calendar.MONTH);
-        year = temp.get(Calendar.YEAR);
-
-        System.out.println();
-        //System.out.println(currentDate.toString());
-        System.out.println("day: " + day);
-        System.out.println("month: " + month);
-        System.out.println("year: " + year);
-
-        temp.add(Calendar.DATE, 30); 
-
-        day = temp.get(Calendar.DAY_OF_MONTH);
-        month = temp.get(Calendar.MONTH);
-        year = temp.get(Calendar.YEAR);
-
-        System.out.println();
-        //System.out.println(currentDate.toString());
-        System.out.println("day: " + day);
-        System.out.println("month: " + month);
-        System.out.println("year: " + year);
-
-        temp.add(Calendar.DATE, 365); 
-
-        day = temp.get(Calendar.DAY_OF_MONTH);
-        month = temp.get(Calendar.MONTH);
-        year = temp.get(Calendar.YEAR);
-
-        System.out.println();
-        //System.out.println(currentDate.toString());
-        System.out.println("day: " + day);
-        System.out.println("month: " + month);
-        System.out.println("year: " + year);    
-
-
- *********************************************************************/
