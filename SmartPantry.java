@@ -87,7 +87,7 @@ public class SmartPantry {
         
     }
     
-    public static void displayWelcome(){
+    private static void displayWelcome(){
         System.out.println();
         System.out.println("----- Welcome to SmartPantry! -----");
         System.out.println();
@@ -95,7 +95,7 @@ public class SmartPantry {
         displayHelp();
     }
 
-    public static void displayHelp(){
+    private static void displayHelp(){
         System.out.println("To add a new item, enter \"add item\"");
         System.out.println("To remove an item, enter \"remove item\"");
         System.out.println("To edit an item, enter \"edit item\"");
@@ -104,7 +104,7 @@ public class SmartPantry {
         System.out.println("To quit, enter \"quit\"");
     }
 
-    public static boolean addPerishable(){
+    private static boolean addPerishable(){
         if(numPerish >= 15){
             System.out.println("Not enough room!");
             return false;
@@ -148,46 +148,33 @@ public class SmartPantry {
         return true;
     }
 
-    public static boolean addNonPerishable(){
-
-        if(numNonperish >= 15){
-            System.out.println("Not enough room!");
-            return false;
-        }
+    private static boolean addNonPerishable(){
 
         System.out.println("What item are you adding?");
         String n = scan.nextLine();
 
         System.out.println("How many are you adding?");
-        int q = scan.nextInt();
-        scan.nextLine();
+        String q = scan.nextLine();
 
-        // look up shelf life in the data base
+        String expD = calcExpire(n);
 
-        int sl = 5;
-
-        Nonperishable np = new Nonperishable(n, sl, q);
-
-        System.out.println("You have just added:");
-
-        System.out.println(np.toString());
-
-        nonperishItems[numNonperish] = np;
-        numNonperish++;  
+        String adding = n + "," + q + "," + expD;
+        DBManager.writeToFile("perishable.txt", adding);
+ 
         return true;
     }
 
-    public static boolean removeItem(){
+    private static boolean removeItem(){
         System.out.println("You have selected to remove item.");
         return false;
     }
 
-    public static boolean editItem(){
+    private static boolean editItem(){
         System.out.println("You have selected to remove item.");
         return false;
     }
 
-    public static boolean displayPantry(){
+    private static boolean displayPantry(){
         System.out.println();
         System.out.println("Perishable items:");
 
@@ -203,6 +190,31 @@ public class SmartPantry {
         }
 
         return true;
+    }
+
+    // this version pf calcExpire is for nonperishable items
+    private static String calcExpire(String item){
+        Calendar expDate = Calendar.getInstance(); 
+        String expString = new String();
+
+        // update currentDate incase the program hasn't been closed recently
+        currentDate = Calendar.getInstance();
+
+        String[] itemData = DBManager.getItem("nonperishable-database.txt", item);
+
+        int sl = Integer.parseInt(itemData[1]);
+        
+        expDate.add(Calendar.DATE, sl);
+
+        int day, month, year;
+
+        day = expDate.get(Calendar.DAY_OF_MONTH);
+        month = expDate.get(Calendar.MONTH) + 1;
+        year = expDate.get(Calendar.YEAR);
+
+        expString = month + "/" + day + "/" + year;
+
+        return expString;
     }
 }
 
