@@ -132,19 +132,16 @@ public class SmartPantry {
         }
 
         // look up shelf life in the data base
-        int sl = 5;
+        String expD = calcExpire(n,f);
 
-        Perishable p = new Perishable(n, sl, q, f);
+        String adding = n + "," + q + "," + expD + "," + fs;
 
         System.out.println("You have just added:");
-        System.out.println(p.toString());
+        System.out.println(adding);
                 
  
-        String adding = n + "," + sl + "," + q + "," + fs;
-        DBManager.writeToFile("perishable.txt", adding);
 
-        perishItems[numPerish] = p;
-        numPerish++;  
+        DBManager.writeToFile("perishable.txt", adding);
         return true;
     }
 
@@ -203,6 +200,35 @@ public class SmartPantry {
         }
 
         return true;
+    }
+
+    private static String calcExpire (String item, boolean frozenFlag){
+        Calendar expDate = Calendar.getInstance();
+        String expString = new String();
+
+        currentDate = Calendar.getInstance();
+
+        String[] itemData = DBManager.getItem("perishable-database.txt", item);
+        int sl = Integer.parseInt(itemData[1]);
+        Double mul = 1.0;
+        if(frozenFlag){
+            mul = Double.parseDouble(itemData[2]);
+        }
+        
+        sl = (int)(sl * mul);
+        expDate.add(Calendar.DATE, sl);
+
+        int day, month, year;
+
+        day = expDate.get(Calendar.DAY_OF_MONTH);
+        month = expDate.get(Calendar.MONTH);
+        year = expDate.get(Calendar.YEAR);
+
+        expString = month + "/" + day + "/" + year;
+
+        return expString;
+        
+
     }
 }
 
