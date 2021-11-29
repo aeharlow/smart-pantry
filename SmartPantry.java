@@ -11,26 +11,17 @@
  *      Ashley Harlow - aeharlow@bu.edu
  */
 
-
 import java.util.*;
+import javax.swing.text.StyledEditorKit;
 
 public class SmartPantry {
     static Scanner scan;
     static Calendar currentDate;
     public static void main(String[] args) {
         scan = new Scanner(System.in);
-        currentDate = Calendar.getInstance();
-
-        // check the current date upon start up and run a check 
-        // to see if anything has expired since the last boot up
-
-        // if anything is expired display that it has exipred
-
-        // if anytihng is close to expiring
-        // print a warning for the user letting them know
-        // we have to decide on the threshold for when to warn the user
 
         displayWelcome();
+        checkExpired();
 
         String command = new String();
 
@@ -69,6 +60,9 @@ public class SmartPantry {
                 if(DBManager.clearDB("temp-perish-pantry.txt")) System.out.println("Done!");
                 if(DBManager.clearDB("temp-nonperish-pantry.txt")) System.out.println("Done!");
                 
+            } else if(command.equals("check expired") || command.equals("c")){
+
+                checkExpired();
 
             } else if(command.equals("help") || command.equals("h")){
 
@@ -84,10 +78,8 @@ public class SmartPantry {
                 System.out.println("Bad command!");
 
             }
-
             System.out.println("\nPlease enter another command.");
         }
-        
     }
     
     /*
@@ -110,6 +102,7 @@ public class SmartPantry {
         System.out.println("To remove an item, enter \"remove item\"");
         System.out.println("To edit an item, enter \"edit item\"");
         System.out.println("To display your pantry, enter \"display pantry\"");
+        System.out.println("To check for expired items, enter \"check expired\"");
         System.out.println("To see the commands again, enter \"help\"");
         System.out.println("To quit, enter \"quit\"");
     }
@@ -176,6 +169,8 @@ public class SmartPantry {
         return true;
     }
 
+    // ------------------------------------------------------------- REMOVE ITEM STILL ISNT DONE ---------------------------------------------------------------------------
+
     /**
      *  removeItem() - prompts the user to enter which item they would like to remove 
      *                 from the pantry, scans the pantry for the oldest instance of the
@@ -185,6 +180,8 @@ public class SmartPantry {
         System.out.println("You have selected to remove item.");
         return false;
     }
+
+    // ------------------------------------------------------------- EDIT ITEM STILL ISNT DONE ---------------------------------------------------------------------------
 
     /**
      *  editItem() - asks the user which item they would like to edit, how they would
@@ -196,6 +193,8 @@ public class SmartPantry {
         System.out.println("You have selected to remove item.");
         return false;
     }
+
+    // ------------------------------------------------------------- DISPLAY PANTRY STILL ISNT DONE ---------------------------------------------------------------------------
 
     /**
      *  displayPantry() - displays the contents of the pantry to the user. The display is
@@ -279,5 +278,25 @@ public class SmartPantry {
         expString = month + "/" + day + "/" + year;
 
         return expString;
+    }
+
+    // ------------------------------------------------------------- CHECK EXPIRED STILL ISNT DONE ---------------------------------------------------------------------------
+
+    /**
+     *  checkExpired() - goes through the pantry files and checks to see if any
+     *                   items have expired. If an item is expired it will print 
+     *                   a message stating so. If an item is nearing is expiration
+     *                   date, it will print a message warning the user to use the
+     *                   item soon before it expires
+     */
+    private static void checkExpired(){
+        currentDate = Calendar.getInstance();
+
+        // read each item in the pantry
+        // grab the expiration date and compare it to the current date
+
+        // if the expiration date has past, print a message to the user telling them to throw it away
+        // if the item is not expired but the number of days left the item has is less than or equal to the number of days, warn the user
+        // if nothing is expired or about to expire, print a message saying so
     }
 }
