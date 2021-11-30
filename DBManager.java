@@ -110,7 +110,7 @@ public class DBManager {
         else return false;
     }
 
-    public static boolean editItem (String fileName, String item, int toChange, boolean changeFrozen){
+    public static boolean editItem (String fileName, String[] itemArray){
         File inputFile = new File (fileName);
         File tempFile = new File ("tempEdit.txt");
         boolean foundFlag = false;
@@ -122,19 +122,23 @@ public class DBManager {
             while ((currLine = reader.readLine()) != null){
                 String trimmed = currLine.trim();
                 currArray = trimmed.split(",");
-                if (currArray[0].equals(item)) {
+                if (currArray[0].equals(itemArray[0])) {
                     //This if statement makes sure that we only delete the first instance of the item.
                     if(foundFlag == false){
                         foundFlag = true;
-                        if(changeFrozen){
-
+                        //If the edit item has 0 current item, remove the item.
+                        if (itemArray[1] == null){
+                            continue;
                         }
-                        int original_int = Integer.valueOf(currArray[1]);
-                        int new_int = original_int - toChange;
-                        if (new_int < 0) new_int = 0;
-                        String curr = currArray[0] + "," + Integer.toString(new_int) + "," + currArray[2] + "," + currArray[3];
-                        writer.write(curr + System.getProperty("line.separator"));
-                        continue;
+                        if (fileName.equals("perishable.txt")){
+                            String curr = itemArray[0] + "," + itemArray[1] + "," + itemArray[2] + "," + itemArray[3];
+                            writer.write(curr + System.getProperty("line.separator"));
+                            continue;
+                        }else{
+                            String curr = itemArray[0] + "," + itemArray[1] + "," + itemArray[2];
+                            writer.write(curr + System.getProperty("line.separator"));
+                            continue;
+                        }
                     }
                     writer.write(currLine + System.getProperty("line.separator"));
                     continue;
