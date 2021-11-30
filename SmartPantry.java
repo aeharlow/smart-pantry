@@ -330,7 +330,6 @@ public class SmartPantry {
         int day, month, year;
 
         day = expDate.get(Calendar.DAY_OF_MONTH);
-        month = expDate.get(Calendar.MONTH);
         month = expDate.get(Calendar.MONTH) + 1;
         year = expDate.get(Calendar.YEAR);
 
