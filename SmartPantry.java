@@ -164,7 +164,7 @@ public class SmartPantry {
         String expD = calcExpire(n);
 
         String adding = n + "," + q + "," + expD;
-        DBManager.writeToFile("perishable.txt", adding);
+        DBManager.writeToFile("nonperishable.txt", adding);
  
         return true;
     }
@@ -177,8 +177,28 @@ public class SmartPantry {
      *                 item and removes it from the pantry
      */
     private static boolean removeItem(){
-        System.out.println("You have selected to remove item.");
-        return false;
+        System.out.println("Are you removing a perishable item or a nonperishable item?");
+        String perish = scan.nextLine();
+
+        System.out.println("What item are you removing?");
+        String item = scan.nextLine();
+
+        if(perish.equals("perishable") || perish.equals("p")){
+            if(!DBManager.removeFromFile("perishable.txt", item)){
+                System.out.println("Sorry! We could not find that item!");
+                return false;
+            }
+        } else if (perish.equals("perishable") || perish.equals("p")){
+            if(!DBManager.removeFromFile("nonperishable.txt", item)){
+                System.out.println("Sorry! We could not find that item!");
+                return false;
+            }
+        } else{
+            System.out.println("Unknown command");
+            return false;
+        }
+
+        return true;
     }
 
     // ------------------------------------------------------------- EDIT ITEM STILL ISNT DONE ---------------------------------------------------------------------------
