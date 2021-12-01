@@ -11,7 +11,10 @@
  *      Ashley Harlow - aeharlow@bu.edu
  */
 
+import java.io.*;
 import java.util.*;
+
+import javax.print.event.PrintJobAdapter;
 import javax.swing.text.StyledEditorKit;
 
 public class SmartPantry{
@@ -401,7 +404,52 @@ public class SmartPantry{
      */
     private static void checkExpired(){
         currentDate = Calendar.getInstance();
-
+        try{
+            BufferedReader readerP = new BufferedReader (new FileReader("perishable.txt"));
+            BufferedReader readerNP = new BufferedReader (new FileReader("nonperishable.txt"));
+            String currLine;
+            try{
+                while ((currLine = readerP.readLine()) != null){
+                    String[] currArray = currLine.split(",");
+                    Calendar currDate = toCalendar(currArray[1]);
+                    int dayRemaining;
+                    if (dayRemaining < 0){
+                        String printString = currArray[0] + " has expired.";
+                        System.out.print(printString);
+                    }
+                    else if (dayRemaining ==0){
+                        String printString = currArray[0] + " expires today.";
+                        System.out.print(printString);
+                    }
+                    else if (dayRemaining <= 2){
+                        String printString = currArray[1] + " " + currArray[0] + " has " + dayRemaining + " days left."; 
+                        System.out.print(printString);
+                    }
+                }
+                while ((currLine = readerNP.readLine())!= null){
+                    String[] currArray = currLine.split(",");
+                    Calendar currDate = toCalendar(currArray[1]);
+                    int dayRemaining;
+                    if (dayRemaining < 0){
+                        String printString = currArray[0] + " has expired.";
+                        System.out.print(printString);
+                    }
+                    else if (dayRemaining ==0){
+                        String printString = currArray[0] + " expires today.";
+                        System.out.print(printString);
+                    }
+                    else if (dayRemaining <= 2){
+                        String printString = currArray[1] + " " + currArray[0] + " has " + dayRemaining + " days left."; 
+                        System.out.print(printString);
+                    }
+                }
+            }
+            catch(IOException e){
+                e.getStackTrace();
+            }
+        }catch(FileNotFoundException e){
+            e.getStackTrace();
+        }
         // read each item in the pantry
         // grab the expiration date and compare it to the current date
 
