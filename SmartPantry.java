@@ -14,9 +14,6 @@
 import java.io.*;
 import java.util.*;
 
-import javax.print.event.PrintJobAdapter;
-import javax.swing.text.StyledEditorKit;
-
 public class SmartPantry{
     static Scanner scan;
     static Calendar currentDate;
@@ -87,7 +84,7 @@ public class SmartPantry{
     }
     
     /*
-     *  displayWelcome() - displays a welcome message to teh user upon launch 
+     *  displayWelcome() - displays a welcome message to the user upon launch 
      */
 
     private static void displayWelcome(){
@@ -146,8 +143,6 @@ public class SmartPantry{
         System.out.println("You have just added:");
         System.out.println(adding);
                 
- 
-
         DBManager.writeToFile("perishable.txt", adding);
         return true;
     }
@@ -173,8 +168,6 @@ public class SmartPantry{
         return true;
     }
 
-    // ------------------------------------------------------------- REMOVE ITEM IS ALMOST DONE-ISH? ---------------------------------------------------------------------------
-
     /**
      *  removeItem() - prompts the user to enter which item they would like to remove 
      *                 from the pantry, scans the pantry for the oldest instance of the
@@ -192,7 +185,7 @@ public class SmartPantry{
                 System.out.println("Sorry! We could not find that item!");
                 return false;
             }
-        } else if (perish.equals("perishable") || perish.equals("p")){
+        } else if (perish.equals("nonperishable") || perish.equals("n")){
             System.out.println("What item are you removing?");
             String item = scan.nextLine();
 
@@ -391,7 +384,7 @@ public class SmartPantry{
 
         int sl = Integer.parseInt(itemData[1]);
         
-        expDate.add(Calendar.DATE, sl);
+        expDate.add(Calendar.DAY_OF_MONTH, sl);
 
         int day, month, year;
 
@@ -422,8 +415,8 @@ public class SmartPantry{
             try{
                 while ((currLine = readerP.readLine()) != null){
                     String[] currArray = currLine.split(",");
-                    Calendar currDate = toCalendar(currArray[1]);
-                    int dayRemaining;
+                    Calendar date = toCalendar(currArray[1]);
+                    int dayRemaining = daysUntil(currentDate, date);
                     if (dayRemaining < 0){
                         String printString = currArray[0] + " has expired.";
                         System.out.print(printString);
@@ -439,8 +432,8 @@ public class SmartPantry{
                 }
                 while ((currLine = readerNP.readLine())!= null){
                     String[] currArray = currLine.split(",");
-                    Calendar currDate = toCalendar(currArray[1]);
-                    int dayRemaining;
+                    Calendar date = toCalendar(currArray[1]);
+                    int dayRemaining = daysUntil(currentDate, date);
                     if (dayRemaining < 0){
                         String printString = currArray[0] + " has expired.";
                         System.out.print(printString);
@@ -469,6 +462,13 @@ public class SmartPantry{
         // if nothing is expired or about to expire, print a message saying so
     }
 
+    /**
+     *  toCalender(d) - takes in a string d that holds a date in the format
+     *                  "MM/DD/YYYY" and creates a Calender object with the
+     *                  same date for the sake of doing date arithmetic with
+     *                  the calender objects
+     */
+
     private static Calendar toCalendar(String d){
         Calendar date = Calendar.getInstance();
 
@@ -487,6 +487,11 @@ public class SmartPantry{
         return date;
     }
 
+    /**
+     *  toString(c) - takes in a calender object and creates a string of the
+     *                format "MM/DD/YYYY" with the same date for the sake of 
+     *                writing the date to the pantry files
+     */
     private static String toString(Calendar c){
         String date;
         int month, day, year;
@@ -500,6 +505,12 @@ public class SmartPantry{
         return date;
     }
 
+    /**
+     *  daysUntil(startDate, endDate) - finds the number of days between the 
+     *                                  Calenders startDate and endDate. If
+     *                                  the end date occurs before the startDate
+     *                                  the returned number of days will be negative
+     */
     private static int daysUntil(Calendar startDate, Calendar endDate){
         int days;
 
