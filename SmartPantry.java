@@ -11,6 +11,38 @@
  *      Ashley Harlow - aeharlow@bu.edu
  */
 
+
+
+
+/**
+ * ---------------------------------------- R E A D  M E ! ! ! ------------------------------------------
+ * 
+ * we should add a feature that destroys the pantry file if it
+ * becomes empty or we have to perform a check to see if there
+ * are no lines in the pantry because if we start up with pantry txt
+ * that is empty but exists we get an index out of bounds error 
+ * in check expired because it tries to read lines of a file thats empty
+ * 
+ * also the clear pantry command doesnt work, it doesnt delete the file 
+ * or wipe it clean
+ * 
+ * check expired doesnt work but idk why really, im not sure how we are 
+ * going to edit it though when it comes to the buffer reader because if 
+ * we are going to rewrite it i dont want to spend a bunch of time debugging it
+ * 
+ * display pantry doesnt work but thats because Abdel's implementation of it
+ * didnt push properly so if we can just grab that from somewhere and have 
+ * someone else push it then that should work
+ * 
+ * also please dont forget to comment your code, the rubric specifies that
+ * the prof wants fully commented code
+ * 
+ * ---------------------------------------- R E A D  M E ! ! ! ------------------------------------------
+ */
+
+
+
+
 import java.io.*;
 import java.util.*;
 
