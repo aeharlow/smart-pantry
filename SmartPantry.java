@@ -208,8 +208,6 @@ public class SmartPantry{
         return true;
     }
 
-    // ------------------------------------------------------------- EDIT ITEM STILL ISNT DONE ---------------------------------------------------------------------------
-
     /**
      *  editItem() - asks the user which item they would like to edit, how they would
      *               like to edit it, and edits the pantry accordingly. Possible edits
@@ -234,13 +232,18 @@ public class SmartPantry{
 
             System.out.println("You currently have " + item[1] + " " + item[0] + 
                 "\nWould you like to update this value?");
-            String responce = scan.nextLine();
+            String response = scan.nextLine();
 
-            if(responce.equals("yes") || responce.equals("y")){
+            if(response.equals("yes") || response.equals("y")){
                 System.out.println("Please enter the new value");
                 String val = scan.nextLine();
                 if(val.equals("0")){
                     item[1] = null;
+
+                    // if we get here the user just used the last of the item
+                    // there is no need to ask if they want to put it in the freezer
+                    DBManager.editItem("perishable.txt", item);
+                    return true;
                 } else{
                     item[1] = val;
                 }
@@ -249,8 +252,8 @@ public class SmartPantry{
             // ask if the user wants to remove the item from the freezer or put it in
             if(item[3].equals("y")){
                 System.out.println("This item is currently in the freezer, would you like to remove it?");
-                responce = scan.nextLine();
-                if(responce.equals("yes") || responce.equals("y")){
+                response = scan.nextLine();
+                if(response.equals("yes") || response.equals("y")){
                     item[3] = "n";
 
                     // change expiration date to tomorrow
@@ -261,19 +264,22 @@ public class SmartPantry{
             } else{
                 System.out.println("This item is currently not in the freezer," + 
                     " would you like to put it into the freezer?");
-                responce = scan.nextLine();
-                if(responce.equals("yes") || responce.equals("y")){
+                response = scan.nextLine();
+                if(response.equals("yes") || response.equals("y")){
                     item[3] = "y";
 
-                    // calculate new expiration date based on expiration date--------------------------------------------------------------------------------------
-                    Calendar tempDate = toCalendar(item[2]);
+                    // find the new experation date based on the remaining shelf life and
+                    // the item's freezer multiplier
+                    Calendar expDate = toCalendar(item[2]);
                     currentDate = Calendar.getInstance();
 
-                    int daysLeft;
+                    int daysLeft = daysUntil(currentDate, expDate);
+                    String[] itemData = DBManager.getItem("perishable-database.txt", item[0]);
+                    double mul = Double.parseDouble(itemData[2]);
+                    daysLeft = (int)(daysLeft * mul);
 
-                    //long end = tempDate.getTimeInMillis();
-                    //long start = startDate.getTimeInMillis();
-                    //daysLeft = TimeUnit.MILLISECONDS.toDays(Math.abs(end - start));
+                    expDate.add(Calendar.DAY_OF_MONTH, daysLeft);
+                    item[2] = toString(expDate);
                 }
             }
 
@@ -292,9 +298,9 @@ public class SmartPantry{
 
             System.out.println("You currently have " + item[1] + " " + item[0] + 
                 "\nWould you like to update this value?");
-            String responce = scan.nextLine();
+            String response = scan.nextLine();
 
-            if(responce.equals("yes") || responce.equals("y")){
+            if(response.equals("yes") || response.equals("y")){
                 System.out.println("Please enter the new value");
                 String val = scan.nextLine();
                 if(val.equals("0")){
@@ -492,5 +498,17 @@ public class SmartPantry{
         date = month + "/" + day + "/" + year;
 
         return date;
+    }
+
+    private static int daysUntil(Calendar startDate, Calendar endDate){
+        int days;
+
+        long startDateMilli = startDate.getTimeInMillis();
+        long endDateMilli = endDate.getTimeInMillis();
+
+        days = (int) (endDateMilli - startDateMilli);
+        days =  (days / (1000*60*60*24));
+
+        return days;
     }
 }
