@@ -249,15 +249,11 @@ public class SmartPantry{
                 responce = scan.nextLine();
                 if(responce.equals("yes") || responce.equals("y")){
                     item[3] = "n";
-                    // ------------------- UPDATE EXPIRE DATE --------------------------
 
-                    System.out.println("taking out of freezer");
-
+                    // change expiration date to tomorrow
                     Calendar tempDate = Calendar.getInstance();
                     tempDate.add(Calendar.DAY_OF_MONTH,1);
-                    item[3] = toString(tempDate);
-                    System.out.println(item[3]);
-
+                    item[2] = toString(tempDate);
                 }
             } else{
                 System.out.println("This item is currently not in the freezer," + 
@@ -265,7 +261,16 @@ public class SmartPantry{
                 responce = scan.nextLine();
                 if(responce.equals("yes") || responce.equals("y")){
                     item[3] = "y";
-                    // ------------------- UPDATE EXPIRE DATE --------------------------
+
+                    // calculate new expiration date based on expiration date--------------------------------------------------------------------------------------
+                    Calendar tempDate = toCalendar(item[2]);
+                    currentDate = Calendar.getInstance();
+
+                    int daysLeft;
+
+                    //long end = tempDate.getTimeInMillis();
+                    //long start = startDate.getTimeInMillis();
+                    //daysLeft = TimeUnit.MILLISECONDS.toDays(Math.abs(end - start));
                 }
             }
 
