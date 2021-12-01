@@ -13,33 +13,13 @@ public class DBManager {
         String[] retArray;
         String currLine;
 
-        if (fileName.equals("nonperishable-database.txt")) { // the file contains nonP items and should be printed a
-                                                             // specific way
+        if (fileName.equals("temp-nonperish-pantry.txt")) { // the file contains nonP items and should be printed a
+                                                            // specific way
 
-            String frozenVar;
+            System.out.println("");
             System.out.println("Here's a list of your non perishable items:  ");
-            try {
-                BufferedReader reader = new BufferedReader(new FileReader(inputFile));
-                while ((currLine = reader.readLine()) != null) {
-                    String trimmed = currLine.trim();
-                    retArray = trimmed.split(",");
-                    if (retArray[3].equals("no")) {
-                        frozenVar = "Not Frozen.";
-                    } else {
-                        frozenVar = "Frozen.";
-                    }
+            System.out.println("");
 
-                    System.out.println(retArray[0] + " - Quantity: " + retArray[1] + ", Exp. Date: " + retArray[2]
-                            + ", Days Left: ADD FUNC" + ", " + frozenVar);
-
-                }
-                reader.close();
-            } catch (Exception e) {
-                e.getStackTrace();
-            }
-
-        } else {
-            System.out.println("Here's a list of your perishable items: ");
             try {
                 BufferedReader reader = new BufferedReader(new FileReader(inputFile));
                 while ((currLine = reader.readLine()) != null) {
@@ -48,6 +28,32 @@ public class DBManager {
 
                     System.out.println(retArray[0] + " - Quantity: " + retArray[1] + ", Exp. Date: " + retArray[2]
                             + ", Days Left: ADD FUNC" + ".");
+                }
+                System.out.println("");
+                reader.close();
+            } catch (Exception e) {
+                e.getStackTrace();
+            }
+
+        } else {
+            String frozenVar;
+            System.out.println("");
+            System.out.println("Here's a list of your perishable items: ");
+            System.out.println("");
+            try {
+                BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+                while ((currLine = reader.readLine()) != null) {
+                    String trimmed = currLine.trim();
+                    retArray = trimmed.split(",");
+
+                    if (retArray[3].equals("no")) {
+                        frozenVar = "Not Frozen.";
+                    } else {
+                        frozenVar = "Frozen.";
+                    }
+
+                    System.out.println(retArray[0] + " - Quantity: " + retArray[1] + ", Exp. Date: " + retArray[2]
+                            + ", Days Left: ADD FUNC" + ", " + frozenVar);
 
                 }
                 reader.close();
