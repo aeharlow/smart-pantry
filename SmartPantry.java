@@ -19,7 +19,7 @@
  * 
  * we should add a feature that destroys the pantry file if it
  * becomes empty or we have to perform a check to see if there
- * are no lines in the pantry because if we start up with pantry txt
+ * are no lines in the pantry because if we start up with a pantry txt
  * that is empty but exists we get an index out of bounds error 
  * in check expired because it tries to read lines of a file thats empty
  * 
@@ -36,6 +36,12 @@
  * 
  * also please dont forget to comment your code, the rubric specifies that
  * the prof wants fully commented code
+ * 
+ * one more thing, what do we want to do with the actual read me file? do we 
+ * want to add like some quick documentation or something, maybe breifly touch
+ * on some of the things we had considered about how we wanted to write the code
+ * when we had our meetings? Maybe explain the assumptions we make about how the 
+ * user interacts with the program itself?
  * 
  * ---------------------------------------- R E A D  M E ! ! ! ------------------------------------------
  */
@@ -500,7 +506,6 @@ public class SmartPantry{
      *                  same date for the sake of doing date arithmetic with
      *                  the calender objects
      */
-
     private static Calendar toCalendar(String d){
         Calendar date = Calendar.getInstance();
 
