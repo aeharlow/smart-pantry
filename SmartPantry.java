@@ -14,10 +14,11 @@
 import java.util.*;
 import javax.swing.text.StyledEditorKit;
 
-public class SmartPantry {
+public class SmartPantry{
     static Scanner scan;
     static Calendar currentDate;
-    public static void main(String[] args) {
+
+    public static void main(String[] args){
         scan = new Scanner(System.in);
 
         displayWelcome();
@@ -217,6 +218,7 @@ public class SmartPantry {
         String perish = scan.nextLine();
 
         if(perish.equals("perishable") || perish.equals("p")){
+            System.out.println("editing perishable");
             System.out.println("What item would you like to edit?");
             String i = scan.nextLine();
 
@@ -234,26 +236,41 @@ public class SmartPantry {
             if(responce.equals("yes") || responce.equals("y")){
                 System.out.println("Please enter the new value");
                 String val = scan.nextLine();
-                item[1] = val;
+                if(val.equals("0")){
+                    item[1] = null;
+                } else{
+                    item[1] = val;
+                }
             }
 
             // ask if the user wants to remove the item from the freezer or put it in
-            if(item[2].equals("y")){
+            if(item[3].equals("y")){
                 System.out.println("This item is currently in the freezer, would you like to remove it?");
                 responce = scan.nextLine();
                 if(responce.equals("yes") || responce.equals("y")){
-                    item[2] = "n";
+                    item[3] = "n";
                     // ------------------- UPDATE EXPIRE DATE --------------------------
+
+                    System.out.println("taking out of freezer");
+
+                    Calendar tempDate = Calendar.getInstance();
+                    tempDate.add(Calendar.DAY_OF_MONTH,1);
+                    item[3] = toString(tempDate);
+                    System.out.println(item[3]);
+
                 }
             } else{
                 System.out.println("This item is currently not in the freezer," + 
                     " would you like to put it into the freezer?");
                 responce = scan.nextLine();
                 if(responce.equals("yes") || responce.equals("y")){
-                    item[2] = "y";
+                    item[3] = "y";
                     // ------------------- UPDATE EXPIRE DATE --------------------------
                 }
             }
+
+            DBManager.editItem("perishable.txt", item);
+
         } else if(perish.equals("nonperishable") || perish.equals("n")){
             System.out.println("What item would you like to edit?");
             String i = scan.nextLine();
@@ -272,8 +289,14 @@ public class SmartPantry {
             if(responce.equals("yes") || responce.equals("y")){
                 System.out.println("Please enter the new value");
                 String val = scan.nextLine();
-                item[1] = val;
+                if(val.equals("0")){
+                    item[1] = null;
+                } else{
+                    item[1] = val;
+                }
             }
+
+            DBManager.editItem("nonperishable.txt", item);
 
         } else{
             System.out.println("Unknown command");
@@ -359,7 +382,6 @@ public class SmartPantry {
         int day, month, year;
 
         day = expDate.get(Calendar.DAY_OF_MONTH);
-        month = expDate.get(Calendar.MONTH);
         month = expDate.get(Calendar.MONTH) + 1;
         year = expDate.get(Calendar.YEAR);
 
@@ -386,5 +408,36 @@ public class SmartPantry {
         // if the expiration date has past, print a message to the user telling them to throw it away
         // if the item is not expired but the number of days left the item has is less than or equal to the number of days, warn the user
         // if nothing is expired or about to expire, print a message saying so
+    }
+
+    private static Calendar toCalendar(String d){
+        Calendar date = Calendar.getInstance();
+
+        String[] dateInfo = d.split("/");
+
+        int day, month, year;
+
+        month = Integer.parseInt(dateInfo[0]) - 1;
+        day = Integer.parseInt(dateInfo[1]);
+        year = Integer.parseInt(dateInfo[2]);
+
+        date.set(Calendar.MONTH, month);
+        date.set(Calendar.DAY_OF_MONTH, day);
+        date.set(Calendar.YEAR, year);
+
+        return date;
+    }
+
+    private static String toString(Calendar c){
+        String date;
+        int month, day, year;
+
+        month = c.get(Calendar.MONTH) + 1;
+        day = c.get(Calendar.DAY_OF_MONTH);
+        year = c.get(Calendar.YEAR);
+
+        date = month + "/" + day + "/" + year;
+
+        return date;
     }
 }
