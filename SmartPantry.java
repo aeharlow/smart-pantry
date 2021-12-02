@@ -238,100 +238,112 @@ public class SmartPantry {
         String perish = scan.nextLine();
 
         if (perish.equals("perishable") || perish.equals("p")) {
-            System.out.println("editing perishable");
             System.out.println("What item would you like to edit?");
-            String i = scan.nextLine();
+            String item = scan.nextLine();
 
-            // look for the item
-            String[] item = DBManager.getItem("perishable.txt", i);
-            if (item == null) {
-                System.out.println("Sorry! We could not find that item!");
+            Perishable temp = null;
+            boolean found = false;
+
+            // look for the item user wants to edit
+            for(int i = 0; i < perishPantry.size(); i++){
+                temp = perishPantry.get(i);
+                if(temp.getName().equals(item)){
+                    found = true;
+                    break;
+                }
+            }
+            if(!found){
+                System.out.println("Sorry! We couldn't find that item in your pantry.");
                 return false;
             }
 
-            System.out.println("You currently have " + item[1] + " " + item[0] +
-                    "\nWould you like to update this value?");
+            System.out.println("You currently have " + temp.getQuantity() + " " + 
+                temp.getName() + "\nWould you like to update this value?");
             String response = scan.nextLine();
 
-            if (response.equals("yes") || response.equals("y")) {
+            if (response.equals("yes") || response.equals("y")){
                 System.out.println("Please enter the new value");
-                String val = scan.nextLine();
-                if (val.equals("0")) {
-                    item[1] = null;
-
-                    // if we get here the user just used the last of the item
-                    // there is no need to ask if they want to put it in the freezer
-                    DBManager.editItem("perishable.txt", item);
+                int val = scan.nextInt();
+                scan.nextLine();
+                if (val == 0){
+                    // they have finshed the item
+                    perishPantry.remove(temp);
+                    // if they finished the item skip asking about frozen
                     return true;
                 } else {
-                    item[1] = val;
+                    temp.setQuantity(val);
                 }
             }
 
             // ask if the user wants to remove the item from the freezer or put it in
-            if (item[3].equals("y")) {
+            if (temp.getIsFrozen()) {
                 System.out.println("This item is currently in the freezer, would you like to remove it?");
                 response = scan.nextLine();
                 if (response.equals("yes") || response.equals("y")) {
-                    item[3] = "n";
+                    // take it out of the frezzer
+                    temp.setIsFrozen(false);
 
                     // change expiration date to tomorrow
                     Calendar tempDate = Calendar.getInstance();
                     tempDate.add(Calendar.DAY_OF_MONTH, 1);
-                    item[2] = toString(tempDate);
+                    temp.setExpire(tempDate);
                 }
             } else {
                 System.out.println("This item is currently not in the freezer," +
                         " would you like to put it into the freezer?");
                 response = scan.nextLine();
                 if (response.equals("yes") || response.equals("y")) {
-                    item[3] = "y";
+                    temp.setIsFrozen(true);
 
                     // find the new experation date based on the remaining shelf life and
                     // the item's freezer multiplier
-                    Calendar expDate = toCalendar(item[2]);
-                    currentDate = Calendar.getInstance();
+                    Calendar currExp = temp.getExpDate();
+                    Calendar newExp = Calendar.getInstance();
+                    
+                    int daysLeft = daysUntil(newExp, currExp);
+                    double mult = temp.getMult();
+                    daysLeft = (int) (daysLeft * mult);
+                    newExp.add(Calendar.DAY_OF_MONTH, daysLeft);
 
-                    int daysLeft = daysUntil(currentDate, expDate);
-                    String[] itemData = DBManager.getItem("perishable-database.txt", item[0]);
-                    double mul = Double.parseDouble(itemData[2]);
-                    daysLeft = (int) (daysLeft * mul);
-
-                    expDate.add(Calendar.DAY_OF_MONTH, daysLeft);
-                    item[2] = toString(expDate);
+                    temp.setExpire(newExp);
                 }
             }
-
-            DBManager.editItem("perishable.txt", item);
-
         } else if (perish.equals("nonperishable") || perish.equals("n")) {
             System.out.println("What item would you like to edit?");
-            String i = scan.nextLine();
+            String item = scan.nextLine();
 
-            // look for the item
-            String[] item = DBManager.getItem("nonperishable.txt", i);
-            if (item == null) {
-                System.out.println("Sorry! We could not find that item!");
+            Nonperishable temp = null;
+            boolean found = false;
+
+            // look for the item user wants to edit
+            for(int i = 0; i < nonperishPantry.size(); i++){
+                temp = nonperishPantry.get(i);
+                if(temp.getName().equals(item)){
+                    found = true;
+                    break;
+                }
+            }
+            if(!found){
+                System.out.println("Sorry! We couldn't find that item in your pantry.");
                 return false;
             }
 
-            System.out.println("You currently have " + item[1] + " " + item[0] +
-                    "\nWould you like to update this value?");
+            System.out.println("You currently have " + temp.getQuantity() + " " + 
+                temp.getName() + "\nWould you like to update this value?");
             String response = scan.nextLine();
 
-            if (response.equals("yes") || response.equals("y")) {
+            if (response.equals("yes") || response.equals("y")){
                 System.out.println("Please enter the new value");
-                String val = scan.nextLine();
-                if (val.equals("0")) {
-                    item[1] = null;
-                } else {
-                    item[1] = val;
+                int val = scan.nextInt();
+                scan.nextLine();
+                if (val == 0){
+                    // they have finished the item
+                    nonperishPantry.remove(temp);
+                } else{
+                    temp.setQuantity(val);
                 }
             }
-
-            DBManager.editItem("nonperishable.txt", item);
-
-        } else {
+        } else{
             System.out.println("Unknown command");
             return false;
         }
