@@ -424,7 +424,8 @@ public class SmartPantry {
                 break;
             }
             else if (dayRemaining == 0){
-                String printString =  nextItem.getQuantity() + " " + nextItem.getName() + " expires today";
+                String printString =  nextItem.getQuantity() + " " + 
+                    nextItem.getName() + " expires today";
                 System.out.println(printString);
                 periCount ++;
                 continue;
@@ -432,22 +433,26 @@ public class SmartPantry {
             else if (dayRemaining == 1){
                 periCount ++;
                 if (nextItem.getQuantity() == 1){
-                    String printString =  nextItem.getQuantity() + " " + nextItem.getName() + " expires in " + dayRemaining + " day";
+                    String printString =  nextItem.getQuantity() + " " + 
+                        nextItem.getName() + " expires in " + dayRemaining + " day";
                     System.out.println(printString);
                 }
                 else{
-                    String printString =  nextItem.getQuantity() + " " + nextItem.getName() + " expire in " + dayRemaining + " day";
+                    String printString =  nextItem.getQuantity() + " " + 
+                        nextItem.getName() + " expire in " + dayRemaining + " day";
                     System.out.println(printString);
                 }
             }
             else{
                 periCount ++;
                 if (nextItem.getQuantity() == 1){
-                    String printString =  nextItem.getQuantity() + " " + nextItem.getName() + " expires in " + dayRemaining + " days";
+                    String printString =  nextItem.getQuantity() + " " + 
+                        nextItem.getName() + " expires in " + dayRemaining + " days";
                     System.out.println(printString);
                 }
                 else{
-                    String printString =  nextItem.getQuantity() + " " + nextItem.getName() + " expire in " + dayRemaining + " days";
+                    String printString =  nextItem.getQuantity() + " " + 
+                        nextItem.getName() + " expire in " + dayRemaining + " days";
                     System.out.println(printString);
                 } 
             }   
@@ -464,29 +469,34 @@ public class SmartPantry {
             }
             else if (dayRemaining == 0){
                 nonperiCount ++;
-                String printString =  nextItem.getQuantity() + " " + nextItem.getName() + " expires today";
+                String printString =  nextItem.getQuantity() + " " + 
+                    nextItem.getName() + " expires today";
                 System.out.println(printString);
                 continue;
             }
             else if (dayRemaining == 1){
                 nonperiCount ++;
                 if (nextItem.getQuantity() == 1){
-                    String printString =  nextItem.getQuantity() + " " + nextItem.getName() + " expires in " + dayRemaining + " day";
+                    String printString =  nextItem.getQuantity() + " " + 
+                        nextItem.getName() + " expires in " + dayRemaining + " day";
                     System.out.println(printString);
                 }
                 else{
-                    String printString =  nextItem.getQuantity() + " " + nextItem.getName() + " expire in " + dayRemaining + " day";
+                    String printString =  nextItem.getQuantity() + " " + 
+                        nextItem.getName() + " expire in " + dayRemaining + " day";
                     System.out.println(printString);
                 }
             }
             else{
                 nonperiCount++;
                 if (nextItem.getQuantity() == 1){
-                    String printString =  nextItem.getQuantity() + " " + nextItem.getName() + " expires in " + dayRemaining + " days";
+                    String printString =  nextItem.getQuantity() + " " + 
+                        nextItem.getName() + " expires in " + dayRemaining + " days";
                     System.out.println(printString);
                 }
                 else{
-                    String printString =  nextItem.getQuantity() + " " + nextItem.getName() + " expire in " + dayRemaining + " days";
+                    String printString =  nextItem.getQuantity() + " " + 
+                        nextItem.getName() + " expire in " + dayRemaining + " days";
                     System.out.println(printString);
                 } 
             }  
