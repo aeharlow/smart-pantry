@@ -594,3 +594,21 @@ public class SmartPantry{
         return days;
     }
 }
+
+/**
+ *      so pretty much what we should do is edit this to use the perishable
+ *      and nonperishable objects to act as a buffer between the text files
+ *      and smartPantry it self 
+ * 
+ *      "working directly with text files is unrealistic"
+ * 
+ *      whenever we want to work with an item we will create an instance of
+ *      it using the information from the text files, whenever we update anything
+ *      using those objects we should rewrite it to the txt files
+ * 
+ *      i think we also need to make perishable and nonperishable pantry objects
+ *      that can act as an interface between the pantry text files and SmartPantry
+ *      This should probably include a pantry interface 
+ * 
+ *      we should also change item into an interface i think
+ */
