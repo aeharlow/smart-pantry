@@ -362,12 +362,23 @@ public class SmartPantry {
     private static boolean displayPantry() {
         System.out.println();
         System.out.println("Perishable items:");
+        System.out.println();
 
         // print out perishable items
 
-        for (int i = 0; i < perishPantry.size();)
+        for (int i = 0; i < perishPantry.size(); i++) {
+            System.out.println(perishPantry.get(i).toString());
+        }
 
-            System.out.println("Nonperishable items:");
+        System.out.println("-------------------------------------------");
+
+        System.out.println();
+        System.out.println("Nonperishable items:");
+        System.out.println();
+
+        for (int i = 0; i < nonperishPantry.size(); i++) {
+            System.out.println(nonperishPantry.get(i).toString());
+        }
 
         // print mout nonperishable items
 
