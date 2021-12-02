@@ -164,23 +164,14 @@ public class SmartPantry {
 
         boolean f = false;
 
-        if (fs.equals("yes") || fs.equals("y")) {
-            fs = "y";
+        if (fs.equals("yes") || fs.equals("y"))
             f = true;
-        } else if (fs.equals("no") || fs.equals("n")) {
-            fs = "n";
+        else if (fs.equals("no") || fs.equals("n"))
             f = false;
-        }
 
-        // look up shelf life in the data base
-        String expD = calcExpire(n, f);
+        Perishable temp = new Perishable(n, q, f);
+        perishPantry.add(temp);
 
-        String adding = n + "," + q + "," + expD + "," + fs;
-
-        System.out.println("You have just added:");
-        System.out.println(adding);
-
-        DBManager.writeToFile("perishable.txt", adding);
         return true;
     }
 
@@ -195,13 +186,11 @@ public class SmartPantry {
         String n = scan.nextLine();
 
         System.out.println("How many are you adding?");
-        String q = scan.nextLine();
+        int q = scan.nextInt();
+        scan.nextLine();
 
-        String expD = calcExpire(n);
-
-        String adding = n + "," + q + "," + expD;
-        DBManager.writeToFile("nonperishable.txt", adding);
-
+        Nonperishable temp = new Nonperishable(n, q);
+        nonperishPantry.add(temp);
         return true;
     }
 
@@ -372,72 +361,6 @@ public class SmartPantry {
         // print mout nonperishable items
 
         return true;
-    }
-
-    /**
-     * calcExpire(item, frozenFlag) - calculates the expiration date of a perishable
-     * item
-     * using the shelf life from the database. If the user
-     * indicates that they are freezing the item, the
-     * calulated expiration date will adjust according to
-     * much longer the item is expected to last for. Returns
-     * a string representing the expiration date in a
-     * MM/DD/YYYY format.
-     */
-    private static String calcExpire(String item, boolean frozenFlag) {
-        Calendar expDate = Calendar.getInstance();
-        String expString = new String();
-
-        currentDate = Calendar.getInstance();
-
-        String[] itemData = DBManager.getItem("perishable-database.txt", item);
-        int sl = Integer.parseInt(itemData[1]);
-        Double mul = 1.0;
-        if (frozenFlag) {
-            mul = Double.parseDouble(itemData[2]);
-        }
-
-        sl = (int) (sl * mul);
-        expDate.add(Calendar.DATE, sl);
-
-        int day, month, year;
-
-        day = expDate.get(Calendar.DAY_OF_MONTH);
-        month = expDate.get(Calendar.MONTH) + 1;
-        year = expDate.get(Calendar.YEAR);
-
-        expString = month + "/" + day + "/" + year;
-
-        return expString;
-    }
-
-    /**
-     * calcExpire(item) - calculates the expiration of nonperishable items using
-     * the shelf life from the database. Returns a String that
-     * represents the expiration date in a MM/DD/YYYY format.
-     */
-    private static String calcExpire(String item) {
-        Calendar expDate = Calendar.getInstance();
-        String expString = new String();
-
-        // update currentDate incase the program hasn't been closed recently
-        currentDate = Calendar.getInstance();
-
-        String[] itemData = DBManager.getItem("nonperishable-database.txt", item);
-
-        int sl = Integer.parseInt(itemData[1]);
-
-        expDate.add(Calendar.DAY_OF_MONTH, sl);
-
-        int day, month, year;
-
-        day = expDate.get(Calendar.DAY_OF_MONTH);
-        month = expDate.get(Calendar.MONTH) + 1;
-        year = expDate.get(Calendar.YEAR);
-
-        expString = month + "/" + day + "/" + year;
-
-        return expString;
     }
 
     // ------------------------------------------------------------- CHECK EXPIRED
