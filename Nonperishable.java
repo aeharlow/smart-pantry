@@ -1,9 +1,9 @@
 import java.util.*;
 
 class Nonperishable implements Item{
-    String name;
-    int quantity;
-    Calendar exp_date;
+    private String name;
+    private int quantity;
+    private Calendar exp_date;
 
     public Nonperishable(String n, int q){
         name = n;
@@ -18,7 +18,7 @@ class Nonperishable implements Item{
     
     // setters
     public void setName(String n){ name = n; }
-    public void setQuanlity(int q){ quantity = q; }
+    public void setQuantity(int q){ quantity = q; }
     public void setExpire(Calendar d){ exp_date = d; }
 
     /**
@@ -35,8 +35,8 @@ class Nonperishable implements Item{
         return expDate;
     }
 
-    public void edit(){
-        return;
+    public String toDBString(){
+        return null;
     }
 
     public String toString(){
