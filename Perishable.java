@@ -1,10 +1,10 @@
 import java.util.*;
 
 class Perishable implements Item{
-    String name;
-    int quantity;
-    Calendar exp_date;
-    boolean is_frozen;
+    private String name;
+    private int quantity;
+    private Calendar exp_date;
+    private boolean is_frozen;
     
     public Perishable(String n, int q, boolean f){
         name = n;
@@ -18,12 +18,17 @@ class Perishable implements Item{
     public int getQuantity(){ return quantity; }
     public Calendar getExpDate(){ return exp_date; }
     public boolean getIsFrozen(){ return is_frozen; }
+    public double getMult(){
+        String[] itemData = DBManager.getItem("perishable-database.txt", name);
+        Double mult = Double.parseDouble(itemData[2]);
+        return mult;
+    }
 
     // setters
     public void setName(String n){ name = n; }
-    public void setQuanlity(int q){ quantity = q; }
+    public void setQuantity(int q){ quantity = q; }
     public void setExpire(Calendar d){ exp_date = d; }
-    public void getIsFrozen(boolean f){ is_frozen = f;}
+    public void setIsFrozen(boolean f){ is_frozen = f;}
 
      /**
      * calcExpire() - calculates the expiration date of a perishable item
@@ -39,7 +44,7 @@ class Perishable implements Item{
         int sl = Integer.parseInt(itemData[1]);
         Double mul = 1.0;
         if(is_frozen) {
-            mul = Double.parseDouble(itemData[2]);
+            mul = getMult();
         }
 
         sl = (int) (sl * mul);
@@ -48,8 +53,8 @@ class Perishable implements Item{
         return expDate;
     }
 
-    public void edit(){
-        return;
+    public String toDBString(){
+        return null;
     }
 
     public String toString(){
