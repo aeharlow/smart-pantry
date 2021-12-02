@@ -496,41 +496,24 @@ public class SmartPantry {
      * same date for the sake of doing date arithmetic with
      * the calender objects
      */
-    private static Calendar toCalendar(String d) {
-        Calendar date = Calendar.getInstance();
+    
+    // private static Calendar toCalendar(String d) {
+    //     Calendar date = Calendar.getInstance();
 
-        String[] dateInfo = d.split("/");
+    //     String[] dateInfo = d.split("/");
 
-        int day, month, year;
+    //     int day, month, year;
 
-        month = Integer.parseInt(dateInfo[0]) - 1;
-        day = Integer.parseInt(dateInfo[1]);
-        year = Integer.parseInt(dateInfo[2]);
+    //     month = Integer.parseInt(dateInfo[0]) - 1;
+    //     day = Integer.parseInt(dateInfo[1]);
+    //     year = Integer.parseInt(dateInfo[2]);
 
-        date.set(Calendar.MONTH, month);
-        date.set(Calendar.DAY_OF_MONTH, day);
-        date.set(Calendar.YEAR, year);
+    //     date.set(Calendar.MONTH, month);
+    //     date.set(Calendar.DAY_OF_MONTH, day);
+    //     date.set(Calendar.YEAR, year);
 
-        return date;
-    }
-
-    /**
-     * toString(c) - takes in a calender object and creates a string of the
-     * format "MM/DD/YYYY" with the same date for the sake of
-     * writing the date to the pantry files
-     */
-    private static String toString(Calendar c) {
-        String date;
-        int month, day, year;
-
-        month = c.get(Calendar.MONTH) + 1;
-        day = c.get(Calendar.DAY_OF_MONTH);
-        year = c.get(Calendar.YEAR);
-
-        date = month + "/" + day + "/" + year;
-
-        return date;
-    }
+    //     return date;
+    // }
 
     /**
      * daysUntil(startDate, endDate) - finds the number of days between the
