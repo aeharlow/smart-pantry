@@ -55,6 +55,8 @@ import java.util.*;
 public class SmartPantry{
     static Scanner scan;
     static Calendar currentDate;
+    static Perishable[] perishPantry;
+    static Nonperishable[] nonperishPantry;
 
     public static void main(String[] args){
         scan = new Scanner(System.in);
