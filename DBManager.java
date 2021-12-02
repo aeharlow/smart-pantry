@@ -225,4 +225,38 @@ public class DBManager {
         return creation;
     }
 
+    public static void arrayToDB (LinkedList<Item> array){
+        Item currItem;
+        if (array.peek().getClass() == Perishable.class){
+            try{
+                BufferedWriter writerP = new BufferedWriter(new FileWriter("perishable.txt"));
+                while ((currItem = array.pop())!=null){
+                    String stringToWrite = currItem.toString();
+                    writerP.write(stringToWrite + System.getProperty("line.separator"));
+
+                }
+                writerP.close();
+            }
+            catch(IOException e){
+                e.getStackTrace();
+            }
+        }
+        else{
+            try{
+                BufferedWriter writerNP = new BufferedWriter(new FileWriter("nonperishable.txt"));
+                while ((currItem = array.pop())!=null){
+                    String stringToWrite = currItem.toString();
+                    writerNP.write(stringToWrite + System.getProperty("line.separator"));
+
+                }
+                writerNP.close();
+            }
+            catch(IOException e){
+                e.getStackTrace();
+            }
+        }
+
+
+    }
+
 }
