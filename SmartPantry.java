@@ -1,3 +1,4 @@
+
 /**
  *  SmartPantry.java
  * 
@@ -10,9 +11,6 @@
  *      Zhizhou Xing - xzzjoe@bu.edu
  *      Ashley Harlow - aeharlow@bu.edu
  */
-
-
-
 
 /**
  * ---------------------------------------- R E A D  M E ! ! ! ------------------------------------------
@@ -46,19 +44,16 @@
  * ---------------------------------------- R E A D  M E ! ! ! ------------------------------------------
  */
 
-
-
-
 import java.io.*;
 import java.util.*;
 
-public class SmartPantry{
+public class SmartPantry {
     static Scanner scan;
     static Calendar currentDate;
-    static Perishable[] perishPantry;
-    static Nonperishable[] nonperishPantry;
+    static LinkedList<Perishable> perishPantry;
+    static LinkedList<Nonperishable> nonperishPantry;
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         scan = new Scanner(System.in);
 
         displayWelcome();
@@ -66,55 +61,57 @@ public class SmartPantry{
 
         String command = new String();
 
-        while(true){
+        while (true) {
             command = scan.nextLine();
             command = command.toLowerCase();
 
-            if(command.equals("add item") || command.equals("a")){
+            if (command.equals("add item") || command.equals("a")) {
 
                 System.out.println("Is your item perishable or nonperishable?");
                 command = scan.nextLine();
                 command = command.toLowerCase();
-                if(command.equals("perishable") || command.equals("p")){
+                if (command.equals("perishable") || command.equals("p")) {
                     addPerishable();
-                } else if(command.equals("nonperishable") || command.equals("n")){
+                } else if (command.equals("nonperishable") || command.equals("n")) {
                     addNonPerishable();
-                } else{
+                } else {
                     System.out.println("Bad command!");
                 }
 
-            } else if (command.equals("remove item") || command.equals("r")){
+            } else if (command.equals("remove item") || command.equals("r")) {
 
                 removeItem();
 
-            } else if (command.equals("edit item") || command.equals("e")){
+            } else if (command.equals("edit item") || command.equals("e")) {
 
                 editItem();
 
-            } else if(command.equals("display pantry") || command.equals("d")){
+            } else if (command.equals("display pantry") || command.equals("d")) {
 
-               displayPantry();
+                displayPantry();
 
-            } else if(command.equals("clear pantry")){
+            } else if (command.equals("clear pantry")) {
 
                 // completely wipe clean the pantry files
-                if(DBManager.clearDB("temp-perish-pantry.txt")) System.out.println("Done!");
-                if(DBManager.clearDB("temp-nonperish-pantry.txt")) System.out.println("Done!");
-                
-            } else if(command.equals("check expired") || command.equals("c")){
+                if (DBManager.clearDB("temp-perish-pantry.txt"))
+                    System.out.println("Done!");
+                if (DBManager.clearDB("temp-nonperish-pantry.txt"))
+                    System.out.println("Done!");
+
+            } else if (command.equals("check expired") || command.equals("c")) {
 
                 checkExpired();
 
-            } else if(command.equals("help") || command.equals("h")){
+            } else if (command.equals("help") || command.equals("h")) {
 
                 System.out.println();
                 displayHelp();
 
-            } else if(command.equals("quit") || command.equals("q")){
+            } else if (command.equals("quit") || command.equals("q")) {
 
                 break;
 
-            } else{
+            } else {
 
                 System.out.println("Unknown command");
 
@@ -122,12 +119,12 @@ public class SmartPantry{
             System.out.println("\nPlease enter another command.");
         }
     }
-    
+
     /*
-     *  displayWelcome() - displays a welcome message to the user upon launch 
+     * displayWelcome() - displays a welcome message to the user upon launch
      */
 
-    private static void displayWelcome(){
+    private static void displayWelcome() {
         System.out.println();
         System.out.println("----- Welcome to SmartPantry! -----");
         System.out.println();
@@ -136,9 +133,9 @@ public class SmartPantry{
     }
 
     /**
-     *  displayHelp() - prints all commands that the user can enter
+     * displayHelp() - prints all commands that the user can enter
      */
-    private static void displayHelp(){
+    private static void displayHelp() {
         System.out.println("To add a new item, enter \"add item\"");
         System.out.println("To remove an item, enter \"remove item\"");
         System.out.println("To edit an item, enter \"edit item\"");
@@ -149,11 +146,11 @@ public class SmartPantry{
     }
 
     /**
-     *  addPerishable() - prompts the user to input the appropriate data for a
-     *                    perishable item, calculates the expiration date, and 
-     *                    adds the item to the perishable pantry file
+     * addPerishable() - prompts the user to input the appropriate data for a
+     * perishable item, calculates the expiration date, and
+     * adds the item to the perishable pantry file
      */
-    private static boolean addPerishable(){
+    private static boolean addPerishable() {
         System.out.println("What item are you adding?");
         String n = scan.nextLine();
 
@@ -164,35 +161,35 @@ public class SmartPantry{
         System.out.println("Are you freezing this item?");
         String fs = scan.nextLine();
         fs = fs.toLowerCase();
-        
+
         boolean f = false;
 
-        if(fs.equals("yes") || fs.equals("y")){
+        if (fs.equals("yes") || fs.equals("y")) {
             fs = "y";
             f = true;
-        } else if(fs.equals("no") || fs.equals("n")){
+        } else if (fs.equals("no") || fs.equals("n")) {
             fs = "n";
             f = false;
         }
 
         // look up shelf life in the data base
-        String expD = calcExpire(n,f);
+        String expD = calcExpire(n, f);
 
         String adding = n + "," + q + "," + expD + "," + fs;
 
         System.out.println("You have just added:");
         System.out.println(adding);
-                
+
         DBManager.writeToFile("perishable.txt", adding);
         return true;
     }
 
     /**
-     *  addNonPerishable() - prompts the user to input the appropriate data for a
-     *                       nonperishable item, calculates the expiration date, and 
-     *                       adds the item to the nonperishable pantry file
+     * addNonPerishable() - prompts the user to input the appropriate data for a
+     * nonperishable item, calculates the expiration date, and
+     * adds the item to the nonperishable pantry file
      */
-    private static boolean addNonPerishable(){
+    private static boolean addNonPerishable() {
 
         System.out.println("What item are you adding?");
         String n = scan.nextLine();
@@ -204,36 +201,36 @@ public class SmartPantry{
 
         String adding = n + "," + q + "," + expD;
         DBManager.writeToFile("nonperishable.txt", adding);
- 
+
         return true;
     }
 
     /**
-     *  removeItem() - prompts the user to enter which item they would like to remove 
-     *                 from the pantry, scans the pantry for the oldest instance of the
-     *                 item and removes it from the pantry
+     * removeItem() - prompts the user to enter which item they would like to remove
+     * from the pantry, scans the pantry for the oldest instance of the
+     * item and removes it from the pantry
      */
-    private static boolean removeItem(){
+    private static boolean removeItem() {
         System.out.println("Are you removing a perishable item or a nonperishable item?");
         String perish = scan.nextLine();
 
-        if(perish.equals("perishable") || perish.equals("p")){
+        if (perish.equals("perishable") || perish.equals("p")) {
             System.out.println("What item are you removing?");
             String item = scan.nextLine();
 
-            if(!DBManager.removeFromFile("perishable.txt", item)){
+            if (!DBManager.removeFromFile("perishable.txt", item)) {
                 System.out.println("Sorry! We could not find that item!");
                 return false;
             }
-        } else if (perish.equals("nonperishable") || perish.equals("n")){
+        } else if (perish.equals("nonperishable") || perish.equals("n")) {
             System.out.println("What item are you removing?");
             String item = scan.nextLine();
 
-            if(!DBManager.removeFromFile("nonperishable.txt", item)){
+            if (!DBManager.removeFromFile("nonperishable.txt", item)) {
                 System.out.println("Sorry! We could not find that item!");
                 return false;
             }
-        } else{
+        } else {
             System.out.println("Unknown command");
             return false;
         }
@@ -242,63 +239,63 @@ public class SmartPantry{
     }
 
     /**
-     *  editItem() - asks the user which item they would like to edit, how they would
-     *               like to edit it, and edits the pantry accordingly. Possible edits
-     *               include: removing some of an item, taking a perishable item out of
-     *               the freezer, and putting a perishable item in the freezer
+     * editItem() - asks the user which item they would like to edit, how they would
+     * like to edit it, and edits the pantry accordingly. Possible edits
+     * include: removing some of an item, taking a perishable item out of
+     * the freezer, and putting a perishable item in the freezer
      */
-    private static boolean editItem(){
+    private static boolean editItem() {
         System.out.println("Would you like to edit a perishable item or a nonperishable item?");
         String perish = scan.nextLine();
 
-        if(perish.equals("perishable") || perish.equals("p")){
+        if (perish.equals("perishable") || perish.equals("p")) {
             System.out.println("editing perishable");
             System.out.println("What item would you like to edit?");
             String i = scan.nextLine();
 
             // look for the item
             String[] item = DBManager.getItem("perishable.txt", i);
-            if(item == null){
+            if (item == null) {
                 System.out.println("Sorry! We could not find that item!");
                 return false;
             }
 
-            System.out.println("You currently have " + item[1] + " " + item[0] + 
-                "\nWould you like to update this value?");
+            System.out.println("You currently have " + item[1] + " " + item[0] +
+                    "\nWould you like to update this value?");
             String response = scan.nextLine();
 
-            if(response.equals("yes") || response.equals("y")){
+            if (response.equals("yes") || response.equals("y")) {
                 System.out.println("Please enter the new value");
                 String val = scan.nextLine();
-                if(val.equals("0")){
+                if (val.equals("0")) {
                     item[1] = null;
 
                     // if we get here the user just used the last of the item
                     // there is no need to ask if they want to put it in the freezer
                     DBManager.editItem("perishable.txt", item);
                     return true;
-                } else{
+                } else {
                     item[1] = val;
                 }
             }
 
             // ask if the user wants to remove the item from the freezer or put it in
-            if(item[3].equals("y")){
+            if (item[3].equals("y")) {
                 System.out.println("This item is currently in the freezer, would you like to remove it?");
                 response = scan.nextLine();
-                if(response.equals("yes") || response.equals("y")){
+                if (response.equals("yes") || response.equals("y")) {
                     item[3] = "n";
 
                     // change expiration date to tomorrow
                     Calendar tempDate = Calendar.getInstance();
-                    tempDate.add(Calendar.DAY_OF_MONTH,1);
+                    tempDate.add(Calendar.DAY_OF_MONTH, 1);
                     item[2] = toString(tempDate);
                 }
-            } else{
-                System.out.println("This item is currently not in the freezer," + 
-                    " would you like to put it into the freezer?");
+            } else {
+                System.out.println("This item is currently not in the freezer," +
+                        " would you like to put it into the freezer?");
                 response = scan.nextLine();
-                if(response.equals("yes") || response.equals("y")){
+                if (response.equals("yes") || response.equals("y")) {
                     item[3] = "y";
 
                     // find the new experation date based on the remaining shelf life and
@@ -309,7 +306,7 @@ public class SmartPantry{
                     int daysLeft = daysUntil(currentDate, expDate);
                     String[] itemData = DBManager.getItem("perishable-database.txt", item[0]);
                     double mul = Double.parseDouble(itemData[2]);
-                    daysLeft = (int)(daysLeft * mul);
+                    daysLeft = (int) (daysLeft * mul);
 
                     expDate.add(Calendar.DAY_OF_MONTH, daysLeft);
                     item[2] = toString(expDate);
@@ -318,34 +315,34 @@ public class SmartPantry{
 
             DBManager.editItem("perishable.txt", item);
 
-        } else if(perish.equals("nonperishable") || perish.equals("n")){
+        } else if (perish.equals("nonperishable") || perish.equals("n")) {
             System.out.println("What item would you like to edit?");
             String i = scan.nextLine();
 
             // look for the item
             String[] item = DBManager.getItem("nonperishable.txt", i);
-            if(item == null){
+            if (item == null) {
                 System.out.println("Sorry! We could not find that item!");
                 return false;
             }
 
-            System.out.println("You currently have " + item[1] + " " + item[0] + 
-                "\nWould you like to update this value?");
+            System.out.println("You currently have " + item[1] + " " + item[0] +
+                    "\nWould you like to update this value?");
             String response = scan.nextLine();
 
-            if(response.equals("yes") || response.equals("y")){
+            if (response.equals("yes") || response.equals("y")) {
                 System.out.println("Please enter the new value");
                 String val = scan.nextLine();
-                if(val.equals("0")){
+                if (val.equals("0")) {
                     item[1] = null;
-                } else{
+                } else {
                     item[1] = val;
                 }
             }
 
             DBManager.editItem("nonperishable.txt", item);
 
-        } else{
+        } else {
             System.out.println("Unknown command");
             return false;
         }
@@ -353,19 +350,24 @@ public class SmartPantry{
         return true;
     }
 
-    // ------------------------------------------------------------- DISPLAY PANTRY STILL ISNT DONE ---------------------------------------------------------------------------
+    // ------------------------------------------------------------- DISPLAY PANTRY
+    // STILL ISNT DONE
+    // ---------------------------------------------------------------------------
 
     /**
-     *  displayPantry() - displays the contents of the pantry to the user. The display is
-     *                    seperated between the perishable items and nonperishable items.
+     * displayPantry() - displays the contents of the pantry to the user. The
+     * display is
+     * seperated between the perishable items and nonperishable items.
      */
-    private static boolean displayPantry(){
+    private static boolean displayPantry() {
         System.out.println();
         System.out.println("Perishable items:");
 
         // print out perishable items
 
-        System.out.println("Nonperishable items:");
+        for (int i = 0; i < perishPantry.size();)
+
+            System.out.println("Nonperishable items:");
 
         // print mout nonperishable items
 
@@ -373,15 +375,16 @@ public class SmartPantry{
     }
 
     /**
-     *  calcExpire(item, frozenFlag) - calculates the expiration date of a perishable item 
-     *                                 using the shelf life from the database. If the user
-     *                                 indicates that they are freezing the item, the  
-     *                                 calulated expiration date will adjust according to 
-     *                                 much longer the item is expected to last for. Returns
-     *                                 a string representing the expiration date in a 
-     *                                 MM/DD/YYYY format.
+     * calcExpire(item, frozenFlag) - calculates the expiration date of a perishable
+     * item
+     * using the shelf life from the database. If the user
+     * indicates that they are freezing the item, the
+     * calulated expiration date will adjust according to
+     * much longer the item is expected to last for. Returns
+     * a string representing the expiration date in a
+     * MM/DD/YYYY format.
      */
-    private static String calcExpire (String item, boolean frozenFlag){
+    private static String calcExpire(String item, boolean frozenFlag) {
         Calendar expDate = Calendar.getInstance();
         String expString = new String();
 
@@ -390,11 +393,11 @@ public class SmartPantry{
         String[] itemData = DBManager.getItem("perishable-database.txt", item);
         int sl = Integer.parseInt(itemData[1]);
         Double mul = 1.0;
-        if(frozenFlag){
+        if (frozenFlag) {
             mul = Double.parseDouble(itemData[2]);
         }
-        
-        sl = (int)(sl * mul);
+
+        sl = (int) (sl * mul);
         expDate.add(Calendar.DATE, sl);
 
         int day, month, year;
@@ -409,12 +412,12 @@ public class SmartPantry{
     }
 
     /**
-     *  calcExpire(item) - calculates the expiration of nonperishable items using
-     *                     the shelf life from the database. Returns a String that
-     *                     represents the expiration date in a MM/DD/YYYY format.
+     * calcExpire(item) - calculates the expiration of nonperishable items using
+     * the shelf life from the database. Returns a String that
+     * represents the expiration date in a MM/DD/YYYY format.
      */
-    private static String calcExpire(String item){
-        Calendar expDate = Calendar.getInstance(); 
+    private static String calcExpire(String item) {
+        Calendar expDate = Calendar.getInstance();
         String expString = new String();
 
         // update currentDate incase the program hasn't been closed recently
@@ -423,7 +426,7 @@ public class SmartPantry{
         String[] itemData = DBManager.getItem("nonperishable-database.txt", item);
 
         int sl = Integer.parseInt(itemData[1]);
-        
+
         expDate.add(Calendar.DAY_OF_MONTH, sl);
 
         int day, month, year;
@@ -437,112 +440,117 @@ public class SmartPantry{
         return expString;
     }
 
-    // ------------------------------------------------------------- CHECK EXPIRED STILL ISNT DONE ---------------------------------------------------------------------------
+    // ------------------------------------------------------------- CHECK EXPIRED
+    // STILL ISNT DONE
+    // ---------------------------------------------------------------------------
 
     /**
-     *  checkExpired() - goes through the pantry files and checks to see if any
-     *                   items have expired. If an item is expired it will print 
-     *                   a message stating so. If an item is nearing is expiration
-     *                   date, it will print a message warning the user to use the
-     *                   item soon before it expires
-     *  
-     *  xzz'notes: Do we need to make sure statement printing follow SVA (subject-verb agreement)?
-     *                      tbh i dont really care about the grammer at this point lol
-     *             What to print if no pantry are nearning expiry?
-     *                      "Nothing is going to expire soon"? "Everything in your pantry is still fresh"?
-     *             Can I assume there will be empty file existing in the system for the first startup.
-     *                      i dont think so because as of right now, on the very first start up the user
-     *                      does not have either pantry file, they only have the data base files, so the
-     *                      DBManager creates those files if they dont exist yet, i guess we could just 
-     *                      add an empty file from the very begining and then work with the empty files 
-     *                      if that makese sense
-     *             Should I have a segement for printing expiry?
-     *                      wdym by a segment? 
+     * checkExpired() - goes through the pantry files and checks to see if any
+     * items have expired. If an item is expired it will print
+     * a message stating so. If an item is nearing is expiration
+     * date, it will print a message warning the user to use the
+     * item soon before it expires
+     * 
+     * xzz'notes: Do we need to make sure statement printing follow SVA
+     * (subject-verb agreement)?
+     * tbh i dont really care about the grammer at this point lol
+     * What to print if no pantry are nearning expiry?
+     * "Nothing is going to expire soon"? "Everything in your pantry is still
+     * fresh"?
+     * Can I assume there will be empty file existing in the system for the first
+     * startup.
+     * i dont think so because as of right now, on the very first start up the user
+     * does not have either pantry file, they only have the data base files, so the
+     * DBManager creates those files if they dont exist yet, i guess we could just
+     * add an empty file from the very begining and then work with the empty files
+     * if that makese sense
+     * Should I have a segement for printing expiry?
+     * wdym by a segment?
      */
-    private static void checkExpired(){
+    private static void checkExpired() {
         Calendar currentDate = Calendar.getInstance();
-        try{
-            BufferedReader readerP = new BufferedReader (new FileReader("perishable.txt"));
+        try {
+            BufferedReader readerP = new BufferedReader(new FileReader("perishable.txt"));
             String currLine;
             int counter = 0;
-            try{
-                while ((currLine = readerP.readLine()) != null){
+            try {
+                while ((currLine = readerP.readLine()) != null) {
                     String[] currArray = currLine.split(",");
                     Calendar date = toCalendar(currArray[2]);
                     int dayRemaining = daysUntil(currentDate, date);
-                    if (dayRemaining < 0){
+                    if (dayRemaining < 0) {
                         String printString = currArray[0] + " has expired.";
                         System.out.println(printString);
                         counter++;
-                    }
-                    else if (dayRemaining ==0){
+                    } else if (dayRemaining == 0) {
                         String printString = currArray[0] + " expires today.";
                         System.out.println(printString);
                         counter++;
-                    }
-                    else if (dayRemaining <= 2){
-                        String printString = currArray[1] + " " + currArray[0] + " has " + dayRemaining + " days left."; 
+                    } else if (dayRemaining <= 2) {
+                        String printString = currArray[1] + " " + currArray[0] + " has " + dayRemaining + " days left.";
                         System.out.println(printString);
                         counter++;
                     }
                 }
-                if (counter == 0) System.out.println("No perishable pantry will expire within 2 days.");
+                if (counter == 0)
+                    System.out.println("No perishable pantry will expire within 2 days.");
                 readerP.close();
-            }catch(IOException e){
+            } catch (IOException e) {
                 e.getStackTrace();
             }
-        }catch(FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             e.getStackTrace();
         }
-        try{
-            BufferedReader readerNP = new BufferedReader (new FileReader("nonperishable.txt"));
+        try {
+            BufferedReader readerNP = new BufferedReader(new FileReader("nonperishable.txt"));
             String currLine;
             int counter = 0;
-            try{    
-                while ((currLine = readerNP.readLine())!= null){
+            try {
+                while ((currLine = readerNP.readLine()) != null) {
                     String[] currArray = currLine.split(",");
                     Calendar date = toCalendar(currArray[2]);
                     int dayRemaining = daysUntil(currentDate, date);
-                    if (dayRemaining < 0){
+                    if (dayRemaining < 0) {
                         String printString = currArray[1] + currArray[0] + " has expired.";
                         System.out.println(printString);
-                        counter ++;
-                    }
-                    else if (dayRemaining ==0){
+                        counter++;
+                    } else if (dayRemaining == 0) {
                         String printString = currArray[0] + " expires today.";
                         System.out.println(printString);
-                        counter ++;
-                    }
-                    else if (dayRemaining <= 2){
-                        String printString = currArray[1] + " " + currArray[0] + " has " + dayRemaining + " days left."; 
+                        counter++;
+                    } else if (dayRemaining <= 2) {
+                        String printString = currArray[1] + " " + currArray[0] + " has " + dayRemaining + " days left.";
                         System.out.println(printString);
-                        counter ++;
+                        counter++;
                     }
                 }
-                if (counter == 0) System.out.println("No nonperishable pantry will expire within 2 days.");
+                if (counter == 0)
+                    System.out.println("No nonperishable pantry will expire within 2 days.");
                 readerNP.close();
-            }catch(IOException e){
+            } catch (IOException e) {
                 System.out.println("nonperishable IOException!");
                 e.getStackTrace();
             }
-        }catch (FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             System.out.println("Nonperishable file not created yet!");
         }
         // read each item in the pantry
         // grab the expiration date and compare it to the current date
 
-        // if the expiration date has past, print a message to the user telling them to throw it away
-        // if the item is not expired but the number of days left the item has is less than or equal to the number of days, warn the user
+        // if the expiration date has past, print a message to the user telling them to
+        // throw it away
+        // if the item is not expired but the number of days left the item has is less
+        // than or equal to the number of days, warn the user
         // if nothing is expired or about to expire, print a message saying so
     }
 
     /**
-     *  toCalender(d) - takes in a string d that holds a date in the format
-     *                  "MM/DD/YYYY" and creates a Calender object with the
-     *                  same date for the sake of doing date arithmetic with
-     *                  the calender objects
+     * toCalender(d) - takes in a string d that holds a date in the format
+     * "MM/DD/YYYY" and creates a Calender object with the
+     * same date for the sake of doing date arithmetic with
+     * the calender objects
      */
-    private static Calendar toCalendar(String d){
+    private static Calendar toCalendar(String d) {
         Calendar date = Calendar.getInstance();
 
         String[] dateInfo = d.split("/");
@@ -561,11 +569,11 @@ public class SmartPantry{
     }
 
     /**
-     *  toString(c) - takes in a calender object and creates a string of the
-     *                format "MM/DD/YYYY" with the same date for the sake of 
-     *                writing the date to the pantry files
+     * toString(c) - takes in a calender object and creates a string of the
+     * format "MM/DD/YYYY" with the same date for the sake of
+     * writing the date to the pantry files
      */
-    private static String toString(Calendar c){
+    private static String toString(Calendar c) {
         String date;
         int month, day, year;
 
@@ -579,38 +587,38 @@ public class SmartPantry{
     }
 
     /**
-     *  daysUntil(startDate, endDate) - finds the number of days between the 
-     *                                  Calenders startDate and endDate. If
-     *                                  the end date occurs before the startDate
-     *                                  the returned number of days will be negative
+     * daysUntil(startDate, endDate) - finds the number of days between the
+     * Calenders startDate and endDate. If
+     * the end date occurs before the startDate
+     * the returned number of days will be negative
      */
-    private static int daysUntil(Calendar startDate, Calendar endDate){
+    private static int daysUntil(Calendar startDate, Calendar endDate) {
         int days;
 
         long startDateMilli = startDate.getTimeInMillis();
         long endDateMilli = endDate.getTimeInMillis();
 
         days = (int) (endDateMilli - startDateMilli);
-        days =  (days / (1000*60*60*24));
+        days = (days / (1000 * 60 * 60 * 24));
 
         return days;
     }
 }
 
 /**
- *      so pretty much what we should do is edit this to use the perishable
- *      and nonperishable objects to act as a buffer between the text files
- *      and smartPantry it self 
+ * so pretty much what we should do is edit this to use the perishable
+ * and nonperishable objects to act as a buffer between the text files
+ * and smartPantry it self
  * 
- *      "working directly with text files is unrealistic"
+ * "working directly with text files is unrealistic"
  * 
- *      whenever we want to work with an item we will create an instance of
- *      it using the information from the text files, whenever we update anything
- *      using those objects we should rewrite it to the txt files
+ * whenever we want to work with an item we will create an instance of
+ * it using the information from the text files, whenever we update anything
+ * using those objects we should rewrite it to the txt files
  * 
- *      i think we also need to make perishable and nonperishable pantry objects
- *      that can act as an interface between the pantry text files and SmartPantry
- *      This should probably include a pantry interface 
+ * i think we also need to make perishable and nonperishable pantry objects
+ * that can act as an interface between the pantry text files and SmartPantry
+ * This should probably include a pantry interface
  * 
- *      we should also change item into an interface i think
+ * we should also change item into an interface i think
  */
