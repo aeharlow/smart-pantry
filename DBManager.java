@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.LinkedList;
 
 public class DBManager {
 
@@ -186,6 +187,42 @@ public class DBManager {
             e.getStackTrace();
         }
         return false;
+    }
+
+    public static LinkedList<Item> createArray (String fileName){
+        LinkedList<Item> creation = new LinkedList<Item>();
+        try{
+            BufferedReader reader = new BufferedReader (new FileReader(fileName));
+            String currLine;
+            try{
+                while ((currLine = reader.readLine()) != null){
+                    String[] itemArray = currLine.split(",");
+                    String name = itemArray[0];
+                    int num = Integer.parseInt(itemArray[1]);
+                    if(fileName.equals("perishable.txt")){
+                        Boolean isFrozen;
+                        if (itemArray[3].equals("y")){
+                            isFrozen = true;
+                        }
+                        else{
+                            isFrozen = false;
+                        }
+                        Perishable itemToAdd = new Perishable (name,num,isFrozen);
+                        creation.add(itemToAdd);
+                    }
+                    else{
+                        Nonperishable itemtoAdd = new Nonperishable(name, num);
+                        creation.add(itemtoAdd);
+                    }
+                }
+                reader.close();
+            }catch(IOException e){
+                e.getStackTrace();
+            }
+        }catch(FileNotFoundException e){
+            System.out.println("File not found when trying to create instance array!");
+        }
+        return creation;
     }
 
 }
