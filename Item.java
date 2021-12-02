@@ -16,7 +16,7 @@ interface Item{
     public void setShelfLife(int sl);
     public void setQuanlity(int q);
 
-    public Date calcExp(int shelf_life);
+    public Calendar calcExp(int shelf_life);
     public void edit();
     public String toString();
 }
