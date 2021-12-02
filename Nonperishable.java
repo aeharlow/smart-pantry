@@ -28,11 +28,14 @@ class Nonperishable implements Item{
     public void setExpDate(Calendar d){ exp_date = d; }
     public void setPurchDate(Calendar d){ purch_date = d; }
 
-    private static Calendar calcExp(int sl){
+    public Calendar calcExp(int sl){
         Calendar ret = Calendar.getInstance();
         return ret;
     }
 
+    public void edit(){
+        return;
+    }
 
     public String toString(){
         //String ret;
