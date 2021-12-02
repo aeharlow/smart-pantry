@@ -3,21 +3,21 @@ import java.util.*;
 class Perishable implements Item{
     private String name;
     private int quantity;
-    private Calendar exp_date;
-    private boolean is_frozen;
+    private Calendar expDate;
+    private boolean isFrozen;
     
     public Perishable(String n, int q, boolean f){
         name = n;
         quantity = q;
-        exp_date = calcExp();
-        is_frozen = f;
+        expDate = calcExp();
+        isFrozen = f;
     }
 
     // getters
     public String getName(){ return name; }
     public int getQuantity(){ return quantity; }
-    public Calendar getExpDate(){ return exp_date; }
-    public boolean getIsFrozen(){ return is_frozen; }
+    public Calendar getExpDate(){ return expDate; }
+    public boolean getIsFrozen(){ return isFrozen; }
     public double getMult(){
         String[] itemData = DBManager.getItem("perishable-database.txt", name);
         Double mult = Double.parseDouble(itemData[2]);
@@ -27,8 +27,8 @@ class Perishable implements Item{
     // setters
     public void setName(String n){ name = n; }
     public void setQuantity(int q){ quantity = q; }
-    public void setExpire(Calendar d){ exp_date = d; }
-    public void setIsFrozen(boolean f){ is_frozen = f;}
+    public void setExpire(Calendar d){ expDate = d; }
+    public void setIsFrozen(boolean f){ isFrozen = f;}
 
      /**
      * calcExpire() - calculates the expiration date of a perishable item
@@ -43,7 +43,7 @@ class Perishable implements Item{
         String[] itemData = DBManager.getItem("perishable-database.txt", name);
         int sl = Integer.parseInt(itemData[1]);
         Double mul = 1.0;
-        if(is_frozen) {
+        if(isFrozen) {
             mul = getMult();
         }
 
@@ -54,25 +54,48 @@ class Perishable implements Item{
     }
 
     public String toDBString(){
-        return null;
+        String exp = calToStr(expDate);
+
+        String f;
+        if(isFrozen){
+            f = "y";
+        } else{
+            f = "n";
+        }
+
+        String ret = name + "," + quantity + "," + exp + "," + f;
+        return ret;
+    }
+
+    /**
+     * toString(c) - takes in a calender object and creates a string of the
+     * format "MM/DD/YYYY" with the same date for the sake of
+     * writing the date to the pantry files
+     */
+    private static String calToStr(Calendar c) {
+        String date;
+        int month, day, year;
+
+        month = c.get(Calendar.MONTH) + 1;
+        day = c.get(Calendar.DAY_OF_MONTH);
+        year = c.get(Calendar.YEAR);
+
+        date = month + "/" + day + "/" + year;
+
+        return date;
     }
 
     public String toString(){
         String f = new String();
-        if(is_frozen)
+        if(isFrozen)
             f = "yes";
         else
             f = "no";
 
-        // String ret = new String();;
-        // ret = getName() + " - quantity: " + getQuantity() + ", experation date: " + 
-        //     getExpDate().toString() + ", frozen: " + f;
+        String ret = new String();;
+        ret = getName() + " - quantity: " + getQuantity() + ", experation date: " + 
+            calToStr(expDate) + ", frozen: " + f;
 
-        String temp_ret = new String();;
-        temp_ret = getName() + " - quantity: " + getQuantity() + ", frozen: " + f;
-
-        //add exp date
-
-        return temp_ret;
+        return ret;
     }
 }
