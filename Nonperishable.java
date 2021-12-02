@@ -21,9 +21,18 @@ class Nonperishable implements Item{
     public void setQuanlity(int q){ quantity = q; }
     public void setExpire(Calendar d){ exp_date = d; }
 
+    /**
+     * calcExpire(item) - calculates the expiration of nonperishable items 
+     *                    using the shelf life from the database. 
+     */
     public Calendar calcExp(){
-        Calendar ret = Calendar.getInstance();
-        return ret;
+        Calendar expDate = Calendar.getInstance();
+
+        String[] itemData = DBManager.getItem("nonperishable-database.txt", name);
+        int sl = Integer.parseInt(itemData[1]);
+
+        expDate.add(Calendar.DAY_OF_MONTH, sl);
+        return expDate;
     }
 
     public void edit(){
