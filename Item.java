@@ -1,50 +1,22 @@
+/**
+ *  
+ */
+
 import java.util.*;
 
-abstract class Item{
-    private String name;
-    private int shelf_life;
-    private int quantity;
-    private Date exp_date;
-    private Date purch_date;
-
-    public Item(String n, int sl, int q){
-        name = n;
-        shelf_life = sl;
-        quantity = q;
-        exp_date = calcExp(sl);
-        purch_date = new Date(); // according to stackOverflow this initalizes with current date
-    }
-
-    private Date calcExp(int shelf_life){
-        // we add the shelf life to the purch_date to get expected exp date
-        return null;
-    }
-
+interface Item{
     // getters
-    public String getName(){ return name; }
-    public int getShelfLife(){ return shelf_life; }
-    public int getQuantity(){ return quantity; }
-    public Date getExpDate(){ return exp_date; }
-    public Date getPurchDate(){ return purch_date; } 
+    public String getName();
+    public int getShelfLife();
+    public int getQuantity();
+    public Calendar getExpDate();
 
     // setters
-    public void setName(String n){ name = n; }
-    public void setShelfLife(int sl){ shelf_life = sl; }
-    public void setQuanlity(int q){ quantity = q; }
-    public void setExpDate(Date d){ exp_date = d; }
-    public void setPurchDate(Date d){ purch_date = d; }
+    public void setName(String n);
+    public void setShelfLife(int sl);
+    public void setQuanlity(int q);
 
-    public void remind(){
-        return;
-    }
-
-    public String toString(){
-        //String ret;
-        //ret = name + " - quantity: " + quantity + ", experation date: " + exp_date.toString();
-
-        String temp_ret;
-        temp_ret = name + " - quantity: " + quantity + ", shelf life: " + shelf_life + " days";
-
-        return temp_ret;
-    }
+    public Date calcExp(int shelf_life);
+    public void edit();
+    public String toString();
 }
