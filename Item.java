@@ -12,10 +12,10 @@ interface Item{
 
     // setters
     public void setName(String n);
-    public void setQuanlity(int q);
+    public void setQuantity(int q);
     public void setExpire(Calendar e);
 
     public Calendar calcExp();
-    public void edit();
     public String toString();
+    public String toDBString();
 }
