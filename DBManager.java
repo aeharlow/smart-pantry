@@ -189,31 +189,48 @@ public class DBManager {
         return false;
     }
 
-    public static LinkedList<Item> createArray (String fileName){
-        LinkedList<Item> creation = new LinkedList<Item>();
+    public static LinkedList<Perishable> createPeriArray (){
+        LinkedList<Perishable> creation = new LinkedList<Perishable>();
         try{
-            BufferedReader reader = new BufferedReader (new FileReader(fileName));
+            BufferedReader reader = new BufferedReader (new FileReader("perishable.txt"));
             String currLine;
             try{
                 while ((currLine = reader.readLine()) != null){
                     String[] itemArray = currLine.split(",");
                     String name = itemArray[0];
                     int num = Integer.parseInt(itemArray[1]);
-                    if(fileName.equals("perishable.txt")){
-                        Boolean isFrozen;
-                        if (itemArray[3].equals("y")){
-                            isFrozen = true;
-                        }
-                        else{
-                            isFrozen = false;
-                        }
-                        Perishable itemToAdd = new Perishable (name,num,isFrozen);
-                        creation.add(itemToAdd);
+                    Boolean isFrozen;
+                    if (itemArray[3].equals("y")){
+                        isFrozen = true;
                     }
                     else{
-                        Nonperishable itemtoAdd = new Nonperishable(name, num);
-                        creation.add(itemtoAdd);
+                        isFrozen = false;
                     }
+                    Perishable itemToAdd = new Perishable (name,num,isFrozen);
+                    creation.add(itemToAdd);
+                }
+                reader.close();
+            }catch(IOException e){
+                e.getStackTrace();
+            }
+        }catch(FileNotFoundException e){
+            System.out.println("File not found when trying to create instance array!");
+        }
+        return creation;
+    }
+
+    public static LinkedList<Nonperishable> createNPArray (){
+        LinkedList<Nonperishable> creation = new LinkedList<Nonperishable>();
+        try{
+            BufferedReader reader = new BufferedReader (new FileReader("nonperishable.txt"));
+            String currLine;
+            try{
+                while ((currLine = reader.readLine()) != null){
+                    String[] itemArray = currLine.split(",");
+                    String name = itemArray[0];
+                    int num = Integer.parseInt(itemArray[1]);
+                    Nonperishable itemToAdd = new Nonperishable (name,num);
+                    creation.add(itemToAdd);
                 }
                 reader.close();
             }catch(IOException e){

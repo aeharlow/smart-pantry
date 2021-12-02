@@ -55,6 +55,8 @@ public class SmartPantry {
 
     public static void main(String[] args) {
         scan = new Scanner(System.in);
+        perishPantry = DBManager.createPeriArray();
+        nonperishPantry = DBManager.createNPArray();
 
         displayWelcome();
         checkExpired();
