@@ -25,9 +25,27 @@ class Perishable implements Item{
     public void setExpire(Calendar d){ exp_date = d; }
     public void getIsFrozen(boolean f){ is_frozen = f;}
 
+     /**
+     * calcExpire() - calculates the expiration date of a perishable item
+     *                using the shelf life from the database. If the user
+     *                indicates that they are freezing the item, the
+     *                calulated expiration date will adjust according to
+     *                much longer the item is expected to last for. 
+     */
     public Calendar calcExp(){
-        Calendar ret = Calendar.getInstance();
-        return ret;
+        Calendar expDate = Calendar.getInstance();
+
+        String[] itemData = DBManager.getItem("perishable-database.txt", name);
+        int sl = Integer.parseInt(itemData[1]);
+        Double mul = 1.0;
+        if(is_frozen) {
+            mul = Double.parseDouble(itemData[2]);
+        }
+
+        sl = (int) (sl * mul);
+        expDate.add(Calendar.DATE, sl);
+
+        return expDate;
     }
 
     public void edit(){
