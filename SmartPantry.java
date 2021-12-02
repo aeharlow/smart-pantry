@@ -445,9 +445,17 @@ public class SmartPantry{
      *                   item soon before it expires
      *  
      *  xzz'notes: Do we need to make sure statement printing follow SVA (subject-verb agreement)?
+     *                      tbh i dont really care about the grammer at this point lol
      *             What to print if no pantry are nearning expiry?
+     *                      "Nothing is going to expire soon"? "Everything in your pantry is still fresh"?
      *             Can I assume there will be empty file existing in the system for the first startup.
+     *                      i dont think so because as of right now, on the very first start up the user
+     *                      does not have either pantry file, they only have the data base files, so the
+     *                      DBManager creates those files if they dont exist yet, i guess we could just 
+     *                      add an empty file from the very begining and then work with the empty files 
+     *                      if that makese sense
      *             Should I have a segement for printing expiry?
+     *                      wdym by a segment? 
      */
     private static void checkExpired(){
         Calendar currentDate = Calendar.getInstance();
