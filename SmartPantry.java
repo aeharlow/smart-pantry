@@ -443,54 +443,80 @@ public class SmartPantry{
      *                   a message stating so. If an item is nearing is expiration
      *                   date, it will print a message warning the user to use the
      *                   item soon before it expires
+     *  
+     *  xzz'notes: Do we need to make sure statement printing follow SVA (subject-verb agreement)?
+     *             What to print if no pantry are nearning expiry?
+     *             Can I assume there will be empty file existing in the system for the first startup.
+     *             Should I have a segement for printing expiry?
      */
     private static void checkExpired(){
-        currentDate = Calendar.getInstance();
+        Calendar currentDate = Calendar.getInstance();
         try{
             BufferedReader readerP = new BufferedReader (new FileReader("perishable.txt"));
-            BufferedReader readerNP = new BufferedReader (new FileReader("nonperishable.txt"));
             String currLine;
+            int counter = 0;
             try{
                 while ((currLine = readerP.readLine()) != null){
                     String[] currArray = currLine.split(",");
-                    Calendar date = toCalendar(currArray[1]);
+                    Calendar date = toCalendar(currArray[2]);
                     int dayRemaining = daysUntil(currentDate, date);
                     if (dayRemaining < 0){
                         String printString = currArray[0] + " has expired.";
-                        System.out.print(printString);
+                        System.out.println(printString);
+                        counter++;
                     }
                     else if (dayRemaining ==0){
                         String printString = currArray[0] + " expires today.";
-                        System.out.print(printString);
+                        System.out.println(printString);
+                        counter++;
                     }
                     else if (dayRemaining <= 2){
                         String printString = currArray[1] + " " + currArray[0] + " has " + dayRemaining + " days left."; 
-                        System.out.print(printString);
+                        System.out.println(printString);
+                        counter++;
                     }
                 }
-                while ((currLine = readerNP.readLine())!= null){
-                    String[] currArray = currLine.split(",");
-                    Calendar date = toCalendar(currArray[1]);
-                    int dayRemaining = daysUntil(currentDate, date);
-                    if (dayRemaining < 0){
-                        String printString = currArray[0] + " has expired.";
-                        System.out.print(printString);
-                    }
-                    else if (dayRemaining ==0){
-                        String printString = currArray[0] + " expires today.";
-                        System.out.print(printString);
-                    }
-                    else if (dayRemaining <= 2){
-                        String printString = currArray[1] + " " + currArray[0] + " has " + dayRemaining + " days left."; 
-                        System.out.print(printString);
-                    }
-                }
-            }
-            catch(IOException e){
+                if (counter == 0) System.out.println("No perishable pantry will expire within 2 days.");
+                readerP.close();
+            }catch(IOException e){
                 e.getStackTrace();
             }
         }catch(FileNotFoundException e){
             e.getStackTrace();
+        }
+        try{
+            BufferedReader readerNP = new BufferedReader (new FileReader("nonperishable.txt"));
+            String currLine;
+            int counter = 0;
+            try{    
+                while ((currLine = readerNP.readLine())!= null){
+                    String[] currArray = currLine.split(",");
+                    Calendar date = toCalendar(currArray[2]);
+                    int dayRemaining = daysUntil(currentDate, date);
+                    if (dayRemaining < 0){
+                        String printString = currArray[1] + currArray[0] + " has expired.";
+                        System.out.println(printString);
+                        counter ++;
+                    }
+                    else if (dayRemaining ==0){
+                        String printString = currArray[0] + " expires today.";
+                        System.out.println(printString);
+                        counter ++;
+                    }
+                    else if (dayRemaining <= 2){
+                        String printString = currArray[1] + " " + currArray[0] + " has " + dayRemaining + " days left."; 
+                        System.out.println(printString);
+                        counter ++;
+                    }
+                }
+                if (counter == 0) System.out.println("No nonperishable pantry will expire within 2 days.");
+                readerNP.close();
+            }catch(IOException e){
+                System.out.println("nonperishable IOException!");
+                e.getStackTrace();
+            }
+        }catch (FileNotFoundException e){
+            System.out.println("Nonperishable file not created yet!");
         }
         // read each item in the pantry
         // grab the expiration date and compare it to the current date
