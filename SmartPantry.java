@@ -415,79 +415,85 @@ public class SmartPantry {
      */
     private static void checkExpired() {
         Calendar currentDate = Calendar.getInstance();
-        try {
-            BufferedReader readerP = new BufferedReader(new FileReader("perishable.txt"));
-            String currLine;
-            int counter = 0;
-            try {
-                while ((currLine = readerP.readLine()) != null) {
-                    String[] currArray = currLine.split(",");
-                    Calendar date = toCalendar(currArray[2]);
-                    int dayRemaining = daysUntil(currentDate, date);
-                    if (dayRemaining < 0) {
-                        String printString = currArray[0] + " has expired.";
-                        System.out.println(printString);
-                        counter++;
-                    } else if (dayRemaining == 0) {
-                        String printString = currArray[0] + " expires today.";
-                        System.out.println(printString);
-                        counter++;
-                    } else if (dayRemaining <= 2) {
-                        String printString = currArray[1] + " " + currArray[0] + " has " + dayRemaining + " days left.";
-                        System.out.println(printString);
-                        counter++;
-                    }
-                }
-                if (counter == 0)
-                    System.out.println("No perishable pantry will expire within 2 days.");
-                readerP.close();
-            } catch (IOException e) {
-                e.getStackTrace();
+        Item nextItem;
+        int periCount = 0;
+        while ((nextItem = perishPantry.pop()) != null){
+            Calendar expiryDate = nextItem.getExpDate();
+            int dayRemaining = daysUntil(currentDate,expiryDate);
+            if(dayRemaining > 3){
+                break;
             }
-        } catch (FileNotFoundException e) {
-            e.getStackTrace();
-        }
-        try {
-            BufferedReader readerNP = new BufferedReader(new FileReader("nonperishable.txt"));
-            String currLine;
-            int counter = 0;
-            try {
-                while ((currLine = readerNP.readLine()) != null) {
-                    String[] currArray = currLine.split(",");
-                    Calendar date = toCalendar(currArray[2]);
-                    int dayRemaining = daysUntil(currentDate, date);
-                    if (dayRemaining < 0) {
-                        String printString = currArray[1] + currArray[0] + " has expired.";
-                        System.out.println(printString);
-                        counter++;
-                    } else if (dayRemaining == 0) {
-                        String printString = currArray[0] + " expires today.";
-                        System.out.println(printString);
-                        counter++;
-                    } else if (dayRemaining <= 2) {
-                        String printString = currArray[1] + " " + currArray[0] + " has " + dayRemaining + " days left.";
-                        System.out.println(printString);
-                        counter++;
-                    }
-                }
-                if (counter == 0)
-                    System.out.println("No nonperishable pantry will expire within 2 days.");
-                readerNP.close();
-            } catch (IOException e) {
-                System.out.println("nonperishable IOException!");
-                e.getStackTrace();
+            else if (dayRemaining == 0){
+                String printString =  nextItem.getQuantity() + " " + nextItem.getName() + " expires today";
+                System.out.println(printString);
+                periCount ++;
+                continue;
             }
-        } catch (FileNotFoundException e) {
-            System.out.println("Nonperishable file not created yet!");
+            else if (dayRemaining == 1){
+                periCount ++;
+                if (nextItem.getQuantity() == 1){
+                    String printString =  nextItem.getQuantity() + " " + nextItem.getName() + " expires in " + dayRemaining + " day";
+                    System.out.println(printString);
+                }
+                else{
+                    String printString =  nextItem.getQuantity() + " " + nextItem.getName() + " expire in " + dayRemaining + " day";
+                    System.out.println(printString);
+                }
+            }
+            else{
+                periCount ++;
+                if (nextItem.getQuantity() == 1){
+                    String printString =  nextItem.getQuantity() + " " + nextItem.getName() + " expires in " + dayRemaining + " days";
+                    System.out.println(printString);
+                }
+                else{
+                    String printString =  nextItem.getQuantity() + " " + nextItem.getName() + " expire in " + dayRemaining + " days";
+                    System.out.println(printString);
+                } 
+            }   
         }
-        // read each item in the pantry
-        // grab the expiration date and compare it to the current date
-
-        // if the expiration date has past, print a message to the user telling them to
-        // throw it away
-        // if the item is not expired but the number of days left the item has is less
-        // than or equal to the number of days, warn the user
-        // if nothing is expired or about to expire, print a message saying so
+        if (periCount == 0){
+            System.out.print("No perishable items will expire in 3 days");
+        }
+        int nonperiCount = 0;
+        while ((nextItem = nonperishPantry.pop()) != null){
+            Calendar expiryDate = nextItem.getExpDate();
+            int dayRemaining = daysUntil(currentDate,expiryDate);
+            if(dayRemaining > 3){
+                break;
+            }
+            else if (dayRemaining == 0){
+                nonperiCount ++;
+                String printString =  nextItem.getQuantity() + " " + nextItem.getName() + " expires today";
+                System.out.println(printString);
+                continue;
+            }
+            else if (dayRemaining == 1){
+                nonperiCount ++;
+                if (nextItem.getQuantity() == 1){
+                    String printString =  nextItem.getQuantity() + " " + nextItem.getName() + " expires in " + dayRemaining + " day";
+                    System.out.println(printString);
+                }
+                else{
+                    String printString =  nextItem.getQuantity() + " " + nextItem.getName() + " expire in " + dayRemaining + " day";
+                    System.out.println(printString);
+                }
+            }
+            else{
+                nonperiCount++;
+                if (nextItem.getQuantity() == 1){
+                    String printString =  nextItem.getQuantity() + " " + nextItem.getName() + " expires in " + dayRemaining + " days";
+                    System.out.println(printString);
+                }
+                else{
+                    String printString =  nextItem.getQuantity() + " " + nextItem.getName() + " expire in " + dayRemaining + " days";
+                    System.out.println(printString);
+                } 
+            }  
+        }
+        if (nonperiCount == 0){
+            System.out.print("No nonperishable items will expire in 3 days");
+        }
     }
 
     /**
