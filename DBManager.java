@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.Calendar;
 import java.util.LinkedList;
 
 public class DBManager {
@@ -205,7 +206,9 @@ public class DBManager {
                     else{
                         isFrozen = false;
                     }
+                    Calendar expDate = toCalendar(itemArray[2]);
                     Perishable itemToAdd = new Perishable (name,num,isFrozen);
+                    itemToAdd.setExpire(expDate);
                     creation.add(itemToAdd);
                 }
                 reader.close();
@@ -229,6 +232,8 @@ public class DBManager {
                     String name = itemArray[0];
                     int num = Integer.parseInt(itemArray[1]);
                     Nonperishable itemToAdd = new Nonperishable (name,num);
+                    Calendar expDate = toCalendar(itemArray[2]);
+                    itemToAdd.setExpire(expDate);
                     creation.add(itemToAdd);
                 }
                 reader.close();
@@ -273,5 +278,24 @@ public class DBManager {
             }
         }
     }
+    private static Calendar toCalendar(String d) {
+        Calendar date = Calendar.getInstance();
+    
+
+        String[] dateInfo = d.split("/");
+    
+        int day, month, year;
+    
+        month = Integer.parseInt(dateInfo[0]) - 1;
+        day = Integer.parseInt(dateInfo[1]);
+        year = Integer.parseInt(dateInfo[2]);
+    
+        date.set(Calendar.MONTH, month);
+        date.set(Calendar.DAY_OF_MONTH, day);
+        date.set(Calendar.YEAR, year);
+    
+        return date;
+    }
+
 
 }
