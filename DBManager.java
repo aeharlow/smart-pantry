@@ -67,8 +67,7 @@ public class DBManager {
         try {
             BufferedReader reader = new BufferedReader(new FileReader(inputFile));
             while ((currLine = reader.readLine()) != null) {
-                String trimmed = currLine.trim();
-                returnArray = trimmed.split(",");
+                returnArray = currLine.split(",");
                 if (returnArray[0].equals(item)) {
                     reader.close();
                     return returnArray;
