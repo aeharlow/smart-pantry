@@ -132,15 +132,19 @@ class sortByExpP implements Comparator<Perishable> {
 
     // Method
     // Sorting in ascending order of roll number
-    public int compare(Perishable a, Perishable b) {
+    
+    @Override public int compare(Perishable a, Perishable b) {
 
         // let's sort the employee based on an id in ascending order
         // returns a negative integer, zero, or a positive integer as this perishable
         // exp date
         // is less than, equal to, or greater than the specified object.
-        if (a.getExpDate().after(b)) {
+        
+    
+
+        if (a.getExpDate().after(b.getExpDate())) {
             return 1;
-        } else if (a.getExpDate().before(b)) {
+        } else if (a.getExpDate().before(b.getExpDate())) {
             return -1;
         } else {
             return 0;
