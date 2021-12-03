@@ -65,9 +65,9 @@ public class SmartPantry {
             } else if (command.equals("clear pantry")) {
 
                 // completely wipe clean the pantry files
-                if (DBManager.clearDB("temp-perish-pantry.txt"))
+                if (DBManager.clearDB("perishable.txt"))
                     System.out.println("Done!");
-                if (DBManager.clearDB("temp-nonperish-pantry.txt"))
+                if (DBManager.clearDB("nonperishable.txt"))
                     System.out.println("Done!");
 
             } else if (command.equals("check expired") || command.equals("c")) {
@@ -137,15 +137,18 @@ public class SmartPantry {
         String fs = scan.nextLine();
         fs = fs.toLowerCase();
 
-        boolean f = false;
+        boolean f;
 
         if (fs.equals("yes") || fs.equals("y"))
             f = true;
-        else if (fs.equals("no") || fs.equals("n"))
+        else
             f = false;
 
         Perishable temp = new Perishable(n, q, f);
         perishPantry.add(temp);
+
+        System.out.print("You have just added: ");
+        System.out.println(temp.toString());
 
         sortList(true);
 
