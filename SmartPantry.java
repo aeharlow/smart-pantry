@@ -110,7 +110,7 @@ public class SmartPantry {
                 displayHelp();
 
             } else if (command.equals("quit") || command.equals("q")) {
-
+                DBManager.arrayToDB(perishPantry,nonperishPantry);
                 break;
 
             } else {
@@ -438,29 +438,15 @@ public class SmartPantry {
             }
             else if (dayRemaining == 1){
                 periCount ++;
-                if (nextItem.getQuantity() == 1){
-                    String printString =  nextItem.getQuantity() + " " + 
-                        nextItem.getName() + " expires in " + dayRemaining + " day";
-                    System.out.println(printString);
-                }
-                else{
-                    String printString =  nextItem.getQuantity() + " " + 
-                        nextItem.getName() + " expire in " + dayRemaining + " day";
-                    System.out.println(printString);
-                }
+                String printString =  nextItem.getQuantity() + " " + 
+                    nextItem.getName() + " will expires in " + dayRemaining + " day";
+                System.out.println(printString);
             }
             else{
                 periCount ++;
-                if (nextItem.getQuantity() == 1){
-                    String printString =  nextItem.getQuantity() + " " + 
-                        nextItem.getName() + " expires in " + dayRemaining + " days";
-                    System.out.println(printString);
-                }
-                else{
-                    String printString =  nextItem.getQuantity() + " " + 
-                        nextItem.getName() + " expire in " + dayRemaining + " days";
-                    System.out.println(printString);
-                } 
+                String printString =  nextItem.getQuantity() + " " + 
+                    nextItem.getName() + " will expire in " + dayRemaining + " days";
+                System.out.println(printString);
             }   
         }
         if (periCount == 0){
@@ -483,29 +469,15 @@ public class SmartPantry {
             }
             else if (dayRemaining == 1){
                 nonperiCount ++;
-                if (nextItem.getQuantity() == 1){
-                    String printString =  nextItem.getQuantity() + " " + 
-                        nextItem.getName() + " expires in " + dayRemaining + " day";
-                    System.out.println(printString);
-                }
-                else{
-                    String printString =  nextItem.getQuantity() + " " + 
-                        nextItem.getName() + " expire in " + dayRemaining + " day";
-                    System.out.println(printString);
-                }
+                String printString =  nextItem.getQuantity() + " " + 
+                    nextItem.getName() + "will expire in " + dayRemaining + " day";
+                System.out.println(printString);
             }
             else{
                 nonperiCount++;
-                if (nextItem.getQuantity() == 1){
-                    String printString =  nextItem.getQuantity() + " " + 
-                        nextItem.getName() + " expires in " + dayRemaining + " days";
-                    System.out.println(printString);
-                }
-                else{
-                    String printString =  nextItem.getQuantity() + " " + 
-                        nextItem.getName() + " expire in " + dayRemaining + " days";
-                    System.out.println(printString);
-                } 
+                String printString =  nextItem.getQuantity() + " " + 
+                    nextItem.getName() + " will expire in " + dayRemaining + " days";
+                System.out.println(printString); 
             }  
         }
         if (nonperiCount == 0){

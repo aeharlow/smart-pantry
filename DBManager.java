@@ -242,35 +242,32 @@ public class DBManager {
         return creation;
     }
 
-    public static void arrayToDB (LinkedList<Item> array){
+    public static void arrayToDB (LinkedList<Perishable> periList,LinkedList<Nonperishable> npList ){
         Item currItem;
-        if (array.peek().getClass() == Perishable.class){
-            try{
-                BufferedWriter writerP = new BufferedWriter(new FileWriter("perishable.txt"));
-                while ((currItem = array.pop())!=null){
-                    String stringToWrite = currItem.toDBString();
-                    writerP.write(stringToWrite + System.getProperty("line.separator"));
+        try{
+            BufferedWriter writerP = new BufferedWriter(new FileWriter("perishable.txt"));
+            for(int i = 0; i<periList.size(); i++){
+                currItem = periList.pop();
+                String stringToWrite = currItem.toDBString();
+                writerP.write(stringToWrite + System.getProperty("line.separator"));
 
-                }
-                writerP.close();
             }
-            catch(IOException e){
-                e.getStackTrace();
-            }
+            writerP.close();
         }
-        else{
-            try{
-                BufferedWriter writerNP = new BufferedWriter(new FileWriter("nonperishable.txt"));
-                while ((currItem = array.pop())!=null){
-                    String stringToWrite = currItem.toDBString();
-                    writerNP.write(stringToWrite + System.getProperty("line.separator"));
-
-                }
-                writerNP.close();
+        catch(IOException e){
+            e.getStackTrace();
+        }
+        try{
+            BufferedWriter writerNP = new BufferedWriter(new FileWriter("nonperishable.txt"));
+            for(int i = 0; i<npList.size(); i++){
+                currItem = npList.pop();
+                String stringToWrite = currItem.toDBString();
+                writerNP.write(stringToWrite + System.getProperty("line.separator"));
             }
-            catch(IOException e){
-                e.getStackTrace();
-            }
+            writerNP.close();
+        }
+        catch(IOException e){
+            e.getStackTrace();
         }
 
 
