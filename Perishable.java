@@ -121,7 +121,7 @@ class Perishable implements Item {
 
         String ret = new String();
         ;
-        ret = getName() + " - quantity: " + getQuantity() + ", experation date: " +
+        ret = getName() + " - quantity: " + getQuantity() + ", expiration date: " +
                 calToStr(expDate) + ", frozen: " + f;
 
         return ret;
