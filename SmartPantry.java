@@ -159,12 +159,12 @@ public class SmartPantry {
             f = false;
 
         Perishable temp = new Perishable(n, q, f);
-        perishPantry.add(temp);
+        perishPantry.addLast(temp);
 
         System.out.print("You have just added: ");
         System.out.println(temp.toString());
 
-        sortList(true);
+        //sortList(true);
 
         return true;
     }
@@ -184,9 +184,12 @@ public class SmartPantry {
         scan.nextLine();
 
         Nonperishable temp = new Nonperishable(n, q);
-        nonperishPantry.add(temp);
+        nonperishPantry.addLast(temp);
 
-        sortList(false);
+        System.out.print("You have just added: ");
+        System.out.println(temp.toString());
+
+        //sortList(false);
 
         return true;
     }
@@ -311,7 +314,7 @@ public class SmartPantry {
                     tempDate.add(Calendar.DAY_OF_MONTH, 1);
                     temp.setExpire(tempDate);
 
-                    sortList(true);
+                    //sortList(true);
                 }
             } else {
                 System.out.println("This item is currently not in the freezer," +
@@ -332,7 +335,7 @@ public class SmartPantry {
 
                     temp.setExpire(newExp);
 
-                    sortList(true);
+                    //sortList(true);
                 }
             }
         } else if (perish.equals("nonperishable") || perish.equals("n")) {
