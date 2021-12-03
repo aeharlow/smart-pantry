@@ -77,6 +77,10 @@ class Perishable implements Item {
         return expDate;
     }
 
+    /**
+     *  toDBString() - creates a string containing information about the
+     *                 object in the correct format for the pantry txt files
+     */
     public String toDBString() {
         String exp = calToStr(expDate);
 
