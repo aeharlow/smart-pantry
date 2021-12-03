@@ -328,10 +328,10 @@ public class SmartPantry {
                     Calendar currExp = temp.getExpDate();
                     Calendar newExp = Calendar.getInstance();
 
-                    int daysLeft = daysUntil(newExp, currExp);
+                    long daysLeft = daysUntil(newExp, currExp);
                     double mult = temp.getMult();
-                    daysLeft = (int) (daysLeft * mult);
-                    newExp.add(Calendar.DAY_OF_MONTH, daysLeft);
+                    daysLeft = (long) (daysLeft * mult);
+                    newExp.add(Calendar.DAY_OF_MONTH, (int)daysLeft);
 
                     temp.setExpire(newExp);
 
@@ -442,7 +442,7 @@ public class SmartPantry {
         for (int i = 0; i < perishPantry.size(); i++) {
             nextItem = perishPantry.get(i);
             Calendar expiryDate = nextItem.getExpDate();
-            int dayRemaining = daysUntil(currentDate, expiryDate);
+            long dayRemaining = daysUntil(currentDate, expiryDate);
             if (dayRemaining > 3) {
                 break;
             } else if (dayRemaining == 0) {
@@ -470,7 +470,7 @@ public class SmartPantry {
         for (int i = 0; i < nonperishPantry.size(); i++) {
             nextItem = nonperishPantry.get(i);
             Calendar expiryDate = nextItem.getExpDate();
-            int dayRemaining = daysUntil(currentDate, expiryDate);
+            long dayRemaining = daysUntil(currentDate, expiryDate);
             if (dayRemaining > 3) {
                 break;
             } else if (dayRemaining == 0) {
@@ -502,13 +502,13 @@ public class SmartPantry {
      * the end date occurs before the startDate
      * the returned number of days will be negative
      */
-    private static int daysUntil(Calendar startDate, Calendar endDate) {
-        int days;
+    private static long daysUntil(Calendar startDate, Calendar endDate) {
+        long days;
 
         long startDateMilli = startDate.getTimeInMillis();
         long endDateMilli = endDate.getTimeInMillis();
 
-        days = (int) (endDateMilli - startDateMilli);
+        days =  (endDateMilli - startDateMilli);
         days = (days / (1000 * 60 * 60 * 24));
 
         return days;
