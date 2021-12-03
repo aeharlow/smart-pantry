@@ -66,8 +66,10 @@ public class SmartPantry {
 
                 // completely wipe clean the pantry files
                 if (DBManager.clearDB("perishable.txt"))
+                    perishPantry.clear();
                     System.out.println("Done!");
                 if (DBManager.clearDB("nonperishable.txt"))
+                    nonperishPantry.clear();
                     System.out.println("Done!");
 
             } else if (command.equals("check expired") || command.equals("c")) {
@@ -83,7 +85,19 @@ public class SmartPantry {
                 DBManager.arrayToDB(perishPantry, nonperishPantry);
                 break;
 
-            } else {
+            } else if(command.equals("list") || command.equals("l")){
+                
+                for (int i = 0; i < perishPantry.size(); i++){
+                    String temp = perishPantry.get(i).toString();
+                    System.out.print(temp + ",");
+                }
+                for (int i = 0; i < nonperishPantry.size(); i++){
+                    String temp = nonperishPantry.get(i).toString();
+                    System.out.print(temp + ",");
+                }
+            }
+            
+            else {
 
                 System.out.println("Unknown command");
 
@@ -423,7 +437,7 @@ public class SmartPantry {
         Item nextItem;
         int periCount = 0;
         for (int i = 0; i < perishPantry.size(); i++) {
-            nextItem = perishPantry.pop();
+            nextItem = perishPantry.get(i);
             Calendar expiryDate = nextItem.getExpDate();
             int dayRemaining = daysUntil(currentDate, expiryDate);
             if (dayRemaining > 3) {
@@ -451,7 +465,7 @@ public class SmartPantry {
         }
         int nonperiCount = 0;
         for (int i = 0; i < nonperishPantry.size(); i++) {
-            nextItem = nonperishPantry.pop();
+            nextItem = nonperishPantry.get(i);
             Calendar expiryDate = nextItem.getExpDate();
             int dayRemaining = daysUntil(currentDate, expiryDate);
             if (dayRemaining > 3) {
