@@ -41,8 +41,10 @@ public class SmartPantry {
                 command = command.toLowerCase();
                 if (command.equals("perishable") || command.equals("p")) {
                     addPerishable();
+                    DBManager.arrayToDB(perishPantry, null);
                 } else if (command.equals("nonperishable") || command.equals("n")) {
                     addNonPerishable();
+                    DBManager.arrayToDB(null, nonperishPantry);
                 } else {
                     System.out.println("Bad command!");
                 }
@@ -54,6 +56,7 @@ public class SmartPantry {
             } else if (command.equals("edit item") || command.equals("e")) {
 
                 editItem();
+                DBManager.arrayToDB(perishPantry, nonperishPantry);
 
             } else if (command.equals("display pantry") || command.equals("d")) {
 
