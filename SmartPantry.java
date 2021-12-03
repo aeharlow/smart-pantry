@@ -12,39 +12,6 @@
  *      Ashley Harlow - aeharlow@bu.edu
  */
 
-/**
- * ---------------------------------------- R E A D  M E ! ! ! ------------------------------------------
- * 
- * we should add a feature that destroys the pantry file if it
- * becomes empty or we have to perform a check to see if there
- * are no lines in the pantry because if we start up with a pantry txt
- * that is empty but exists we get an index out of bounds error 
- * in check expired because it tries to read lines of a file thats empty
- * 
- * also the clear pantry command doesnt work, it doesnt delete the file 
- * or wipe it clean
- * 
- * check expired doesnt work but idk why really, im not sure how we are 
- * going to edit it though when it comes to the buffer reader because if 
- * we are going to rewrite it i dont want to spend a bunch of time debugging it
- * 
- * display pantry doesnt work but thats because Abdel's implementation of it
- * didnt push properly so if we can just grab that from somewhere and have 
- * someone else push it then that should work
- * 
- * also please dont forget to comment your code, the rubric specifies that
- * the prof wants fully commented code
- * 
- * one more thing, what do we want to do with the actual read me file? do we 
- * want to add like some quick documentation or something, maybe breifly touch
- * on some of the things we had considered about how we wanted to write the code
- * when we had our meetings? Maybe explain the assumptions we make about how the 
- * user interacts with the program itself?
- * 
- * ---------------------------------------- R E A D  M E ! ! ! ------------------------------------------
- */
-
-import java.io.*;
 import java.util.*;
 
 public class SmartPantry {
@@ -174,6 +141,8 @@ public class SmartPantry {
         Perishable temp = new Perishable(n, q, f);
         perishPantry.add(temp);
 
+        sortList(true);
+
         return true;
     }
 
@@ -193,6 +162,9 @@ public class SmartPantry {
 
         Nonperishable temp = new Nonperishable(n, q);
         nonperishPantry.add(temp);
+
+        sortList(false);
+
         return true;
     }
 
@@ -209,18 +181,44 @@ public class SmartPantry {
             System.out.println("What item are you removing?");
             String item = scan.nextLine();
 
-            if (!DBManager.removeFromFile("perishable.txt", item)) {
-                System.out.println("Sorry! We could not find that item!");
+            Perishable temp = null;
+            boolean found = false;
+
+            // look for the item user wants to edit
+            for (int i = 0; i < perishPantry.size(); i++) {
+                temp = perishPantry.get(i);
+                if (temp.getName().equals(item)) {
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                System.out.println("Sorry! We couldn't find that item in your pantry.");
                 return false;
             }
+
+            perishPantry.remove(temp);
         } else if (perish.equals("nonperishable") || perish.equals("n")) {
             System.out.println("What item are you removing?");
             String item = scan.nextLine();
 
-            if (!DBManager.removeFromFile("nonperishable.txt", item)) {
-                System.out.println("Sorry! We could not find that item!");
+            Nonperishable temp = null;
+            boolean found = false;
+
+            // look for the item user wants to edit
+            for (int i = 0; i < nonperishPantry.size(); i++) {
+                temp = nonperishPantry.get(i);
+                if (temp.getName().equals(item)) {
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                System.out.println("Sorry! We couldn't find that item in your pantry.");
                 return false;
             }
+
+            nonperishPantry.remove(temp);
         } else {
             System.out.println("Unknown command");
             return false;
@@ -289,6 +287,8 @@ public class SmartPantry {
                     Calendar tempDate = Calendar.getInstance();
                     tempDate.add(Calendar.DAY_OF_MONTH, 1);
                     temp.setExpire(tempDate);
+
+                    sortList(true);
                 }
             } else {
                 System.out.println("This item is currently not in the freezer," +
@@ -308,6 +308,8 @@ public class SmartPantry {
                     newExp.add(Calendar.DAY_OF_MONTH, daysLeft);
 
                     temp.setExpire(newExp);
+
+                    sortList(true);
                 }
             }
         } else if (perish.equals("nonperishable") || perish.equals("n")) {
@@ -360,7 +362,7 @@ public class SmartPantry {
      * the NP LL.
      */
 
-    private static void sortList(boolean IsPerishable) {
+    private static void sortList(boolean IsPerishable){
 
         if (IsPerishable == true) {
             perishPantry.sort(new sortByExpP());
@@ -368,10 +370,6 @@ public class SmartPantry {
             nonperishPantry.sort(new sortByExpNP());
         }
     }
-
-    // ------------------------------------------------------------- DISPLAY PANTRY
-    // STILL ISNT DONE
-    // ---------------------------------------------------------------------------
 
     /**
      * displayPantry() - displays the contents of the pantry to the user. The
@@ -404,32 +402,12 @@ public class SmartPantry {
         return true;
     }
 
-    // ------------------------------------------------------------- CHECK EXPIRED
-    // STILL ISNT DONE
-    // ---------------------------------------------------------------------------
-
     /**
      * checkExpired() - goes through the pantry files and checks to see if any
      * items have expired. If an item is expired it will print
      * a message stating so. If an item is nearing is expiration
      * date, it will print a message warning the user to use the
      * item soon before it expires
-     * 
-     * xzz'notes: Do we need to make sure statement printing follow SVA
-     * (subject-verb agreement)?
-     * tbh i dont really care about the grammer at this point lol
-     * What to print if no pantry are nearning expiry?
-     * "Nothing is going to expire soon"? "Everything in your pantry is still
-     * fresh"?
-     * Can I assume there will be empty file existing in the system for the first
-     * startup.
-     * i dont think so because as of right now, on the very first start up the user
-     * does not have either pantry file, they only have the data base files, so the
-     * DBManager creates those files if they dont exist yet, i guess we could just
-     * add an empty file from the very begining and then work with the empty files
-     * if that makese sense
-     * Should I have a segement for printing expiry?
-     * wdym by a segment?
      */
     private static void checkExpired() {
         System.out.println();
@@ -496,31 +474,6 @@ public class SmartPantry {
     }
 
     /**
-     * toCalender(d) - takes in a string d that holds a date in the format
-     * "MM/DD/YYYY" and creates a Calender object with the
-     * same date for the sake of doing date arithmetic with
-     * the calender objects
-     */
-
-    // private static Calendar toCalendar(String d) {
-    // Calendar date = Calendar.getInstance();
-
-    // String[] dateInfo = d.split("/");
-
-    // int day, month, year;
-
-    // month = Integer.parseInt(dateInfo[0]) - 1;
-    // day = Integer.parseInt(dateInfo[1]);
-    // year = Integer.parseInt(dateInfo[2]);
-
-    // date.set(Calendar.MONTH, month);
-    // date.set(Calendar.DAY_OF_MONTH, day);
-    // date.set(Calendar.YEAR, year);
-
-    // return date;
-    // }
-
-    /**
      * daysUntil(startDate, endDate) - finds the number of days between the
      * Calenders startDate and endDate. If
      * the end date occurs before the startDate
@@ -538,21 +491,3 @@ public class SmartPantry {
         return days;
     }
 }
-
-/**
- * so pretty much what we should do is edit this to use the perishable
- * and nonperishable objects to act as a buffer between the text files
- * and smartPantry it self
- * 
- * "working directly with text files is unrealistic"
- * 
- * whenever we want to work with an item we will create an instance of
- * it using the information from the text files, whenever we update anything
- * using those objects we should rewrite it to the txt files
- * 
- * i think we also need to make perishable and nonperishable pantry objects
- * that can act as an interface between the pantry text files and SmartPantry
- * This should probably include a pantry interface
- * 
- * we should also change item into an interface i think
- */
