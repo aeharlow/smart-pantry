@@ -110,7 +110,7 @@ public class SmartPantry {
                 displayHelp();
 
             } else if (command.equals("quit") || command.equals("q")) {
-                DBManager.arrayToDB(perishPantry,nonperishPantry);
+                DBManager.arrayToDB(perishPantry, nonperishPantry);
                 break;
 
             } else {
@@ -247,27 +247,27 @@ public class SmartPantry {
             boolean found = false;
 
             // look for the item user wants to edit
-            for(int i = 0; i < perishPantry.size(); i++){
+            for (int i = 0; i < perishPantry.size(); i++) {
                 temp = perishPantry.get(i);
-                if(temp.getName().equals(item)){
+                if (temp.getName().equals(item)) {
                     found = true;
                     break;
                 }
             }
-            if(!found){
+            if (!found) {
                 System.out.println("Sorry! We couldn't find that item in your pantry.");
                 return false;
             }
 
-            System.out.println("You currently have " + temp.getQuantity() + " " + 
-                temp.getName() + "\nWould you like to update this value?");
+            System.out.println("You currently have " + temp.getQuantity() + " " +
+                    temp.getName() + "\nWould you like to update this value?");
             String response = scan.nextLine();
 
-            if (response.equals("yes") || response.equals("y")){
+            if (response.equals("yes") || response.equals("y")) {
                 System.out.println("Please enter the new value");
                 int val = scan.nextInt();
                 scan.nextLine();
-                if (val == 0){
+                if (val == 0) {
                     // they have finshed the item
                     perishPantry.remove(temp);
                     // if they finished the item skip asking about frozen
@@ -301,7 +301,7 @@ public class SmartPantry {
                     // the item's freezer multiplier
                     Calendar currExp = temp.getExpDate();
                     Calendar newExp = Calendar.getInstance();
-                    
+
                     int daysLeft = daysUntil(newExp, currExp);
                     double mult = temp.getMult();
                     daysLeft = (int) (daysLeft * mult);
@@ -318,39 +318,55 @@ public class SmartPantry {
             boolean found = false;
 
             // look for the item user wants to edit
-            for(int i = 0; i < nonperishPantry.size(); i++){
+            for (int i = 0; i < nonperishPantry.size(); i++) {
                 temp = nonperishPantry.get(i);
-                if(temp.getName().equals(item)){
+                if (temp.getName().equals(item)) {
                     found = true;
                     break;
                 }
             }
-            if(!found){
+            if (!found) {
                 System.out.println("Sorry! We couldn't find that item in your pantry.");
                 return false;
             }
 
-            System.out.println("You currently have " + temp.getQuantity() + " " + 
-                temp.getName() + "\nWould you like to update this value?");
+            System.out.println("You currently have " + temp.getQuantity() + " " +
+                    temp.getName() + "\nWould you like to update this value?");
             String response = scan.nextLine();
 
-            if (response.equals("yes") || response.equals("y")){
+            if (response.equals("yes") || response.equals("y")) {
                 System.out.println("Please enter the new value");
                 int val = scan.nextInt();
                 scan.nextLine();
-                if (val == 0){
+                if (val == 0) {
                     // they have finished the item
                     nonperishPantry.remove(temp);
-                } else{
+                } else {
                     temp.setQuantity(val);
                 }
             }
-        } else{
+        } else {
             System.out.println("Unknown command");
             return false;
         }
 
         return true;
+    }
+
+    /**
+     * sortList() - this function will sort both the P and NP Linked Lists depending
+     * on the input.
+     * an input of True will result in the P LL being sorted, and false will sort
+     * the NP LL.
+     */
+
+    private static void sortList(boolean IsPerishable) {
+
+        if (IsPerishable == true) {
+            perishPantry.sort(new sortByExpP());
+        } else {
+            nonperishPantry.sort(new sortByExpNP());
+        }
     }
 
     // ------------------------------------------------------------- DISPLAY PANTRY
@@ -422,65 +438,59 @@ public class SmartPantry {
         Calendar currentDate = Calendar.getInstance();
         Item nextItem;
         int periCount = 0;
-        for (int i = 0; i < perishPantry.size(); i++){
+        for (int i = 0; i < perishPantry.size(); i++) {
             nextItem = perishPantry.pop();
             Calendar expiryDate = nextItem.getExpDate();
-            int dayRemaining = daysUntil(currentDate,expiryDate);
-            if(dayRemaining > 3){
+            int dayRemaining = daysUntil(currentDate, expiryDate);
+            if (dayRemaining > 3) {
                 break;
-            }
-            else if (dayRemaining == 0){
-                String printString =  nextItem.getQuantity() + " " + 
-                    nextItem.getName() + " expires today";
+            } else if (dayRemaining == 0) {
+                String printString = nextItem.getQuantity() + " " +
+                        nextItem.getName() + " expires today";
                 System.out.println(printString);
-                periCount ++;
+                periCount++;
                 continue;
-            }
-            else if (dayRemaining == 1){
-                periCount ++;
-                String printString =  nextItem.getQuantity() + " " + 
-                    nextItem.getName() + " will expires in " + dayRemaining + " day";
+            } else if (dayRemaining == 1) {
+                periCount++;
+                String printString = nextItem.getQuantity() + " " +
+                        nextItem.getName() + " will expires in " + dayRemaining + " day";
+                System.out.println(printString);
+            } else {
+                periCount++;
+                String printString = nextItem.getQuantity() + " " +
+                        nextItem.getName() + " will expire in " + dayRemaining + " days";
                 System.out.println(printString);
             }
-            else{
-                periCount ++;
-                String printString =  nextItem.getQuantity() + " " + 
-                    nextItem.getName() + " will expire in " + dayRemaining + " days";
-                System.out.println(printString);
-            }   
         }
-        if (periCount == 0){
+        if (periCount == 0) {
             System.out.println("No perishable items will expire in 3 days");
         }
         int nonperiCount = 0;
-        for (int i = 0; i<nonperishPantry.size(); i++){
+        for (int i = 0; i < nonperishPantry.size(); i++) {
             nextItem = nonperishPantry.pop();
             Calendar expiryDate = nextItem.getExpDate();
-            int dayRemaining = daysUntil(currentDate,expiryDate);
-            if(dayRemaining > 3){
+            int dayRemaining = daysUntil(currentDate, expiryDate);
+            if (dayRemaining > 3) {
                 break;
-            }
-            else if (dayRemaining == 0){
-                nonperiCount ++;
-                String printString =  nextItem.getQuantity() + " " + 
-                    nextItem.getName() + " expires today";
+            } else if (dayRemaining == 0) {
+                nonperiCount++;
+                String printString = nextItem.getQuantity() + " " +
+                        nextItem.getName() + " expires today";
                 System.out.println(printString);
                 continue;
-            }
-            else if (dayRemaining == 1){
-                nonperiCount ++;
-                String printString =  nextItem.getQuantity() + " " + 
-                    nextItem.getName() + "will expire in " + dayRemaining + " day";
+            } else if (dayRemaining == 1) {
+                nonperiCount++;
+                String printString = nextItem.getQuantity() + " " +
+                        nextItem.getName() + "will expire in " + dayRemaining + " day";
+                System.out.println(printString);
+            } else {
+                nonperiCount++;
+                String printString = nextItem.getQuantity() + " " +
+                        nextItem.getName() + " will expire in " + dayRemaining + " days";
                 System.out.println(printString);
             }
-            else{
-                nonperiCount++;
-                String printString =  nextItem.getQuantity() + " " + 
-                    nextItem.getName() + " will expire in " + dayRemaining + " days";
-                System.out.println(printString); 
-            }  
         }
-        if (nonperiCount == 0){
+        if (nonperiCount == 0) {
             System.out.println("No nonperishable items will expire in 3 days");
         }
     }
@@ -491,23 +501,23 @@ public class SmartPantry {
      * same date for the sake of doing date arithmetic with
      * the calender objects
      */
-    
+
     // private static Calendar toCalendar(String d) {
-    //     Calendar date = Calendar.getInstance();
+    // Calendar date = Calendar.getInstance();
 
-    //     String[] dateInfo = d.split("/");
+    // String[] dateInfo = d.split("/");
 
-    //     int day, month, year;
+    // int day, month, year;
 
-    //     month = Integer.parseInt(dateInfo[0]) - 1;
-    //     day = Integer.parseInt(dateInfo[1]);
-    //     year = Integer.parseInt(dateInfo[2]);
+    // month = Integer.parseInt(dateInfo[0]) - 1;
+    // day = Integer.parseInt(dateInfo[1]);
+    // year = Integer.parseInt(dateInfo[2]);
 
-    //     date.set(Calendar.MONTH, month);
-    //     date.set(Calendar.DAY_OF_MONTH, day);
-    //     date.set(Calendar.YEAR, year);
+    // date.set(Calendar.MONTH, month);
+    // date.set(Calendar.DAY_OF_MONTH, day);
+    // date.set(Calendar.YEAR, year);
 
-    //     return date;
+    // return date;
     // }
 
     /**
