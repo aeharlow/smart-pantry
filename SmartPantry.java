@@ -26,7 +26,7 @@ public class SmartPantry {
         nonperishPantry = DBManager.createNPArray();
 
         displayWelcome();
-        checkExpired();
+        checkExpired(false);
 
         String command = new String();
 
@@ -69,7 +69,7 @@ public class SmartPantry {
 
             } else if (command.equals("check expired") || command.equals("c")) {
 
-                checkExpired();
+                checkExpired(true);
 
             } else if (command.equals("help") || command.equals("h")) {
 
@@ -99,6 +99,9 @@ public class SmartPantry {
         System.out.println();
         System.out.println("Please enter one of the following commands:");
         displayHelp();
+        System.out.println();
+        System.out.println("-----------------------------------");
+        System.out.println();
     }
 
     /**
@@ -387,7 +390,7 @@ public class SmartPantry {
             System.out.println(perishPantry.get(i).toString());
         }
 
-        System.out.println("-------------------------------------------");
+        System.out.println("-----------------------------------");
 
         System.out.println();
         System.out.println("Nonperishable items:");
@@ -409,10 +412,7 @@ public class SmartPantry {
      * date, it will print a message warning the user to use the
      * item soon before it expires
      */
-    private static void checkExpired() {
-        System.out.println();
-        System.out.println("-----Pantry to expire within 3 days-----");
-        System.out.println();
+    private static void checkExpired(boolean userCall){
         Calendar currentDate = Calendar.getInstance();
         Item nextItem;
         int periCount = 0;
@@ -440,7 +440,7 @@ public class SmartPantry {
                 System.out.println(printString);
             }
         }
-        if (periCount == 0) {
+        if (periCount == 0 && userCall) {
             System.out.println("No perishable items will expire in 3 days");
         }
         int nonperiCount = 0;
@@ -468,7 +468,7 @@ public class SmartPantry {
                 System.out.println(printString);
             }
         }
-        if (nonperiCount == 0) {
+        if (nonperiCount == 0 && userCall) {
             System.out.println("No nonperishable items will expire in 3 days");
         }
     }
