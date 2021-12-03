@@ -247,7 +247,7 @@ public class DBManager {
             try{
                 BufferedWriter writerP = new BufferedWriter(new FileWriter("perishable.txt", false));
                 for(int i = 0; i<periList.size(); i++){
-                    currItem = periList.pop();
+                    currItem = periList.get(i);
                     String stringToWrite = currItem.toDBString();
                     writerP.write(stringToWrite + System.getProperty("line.separator"));
 
@@ -262,7 +262,7 @@ public class DBManager {
             try{
                 BufferedWriter writerNP = new BufferedWriter(new FileWriter("nonperishable.txt", false));
                 for(int i = 0; i<npList.size(); i++){
-                    currItem = npList.pop();
+                    currItem = npList.get(i);
                     String stringToWrite = currItem.toDBString();
                     writerNP.write(stringToWrite + System.getProperty("line.separator"));
                 }
