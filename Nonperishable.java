@@ -95,7 +95,7 @@ class Nonperishable implements Item {
 
     public String toString() {
         String ret;
-        ret = name + " - quantity: " + quantity + ", experation date: " + calToStr(expDate);
+        ret = name + " - quantity: " + quantity + ", expiration date: " + calToStr(expDate);
         return ret;
     }
 }
