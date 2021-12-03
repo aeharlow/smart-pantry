@@ -9,8 +9,8 @@ class Perishable implements Item {
     public Perishable(String n, int q, boolean f) {
         name = n;
         quantity = q;
-        expDate = calcExp();
         isFrozen = f;
+        expDate = calcExp();
     }
 
     // getters
