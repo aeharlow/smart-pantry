@@ -416,10 +416,14 @@ public class SmartPantry {
      * wdym by a segment?
      */
     private static void checkExpired() {
+        System.out.println();
+        System.out.println("-----Pantry to expire within 3 days-----");
+        System.out.println();
         Calendar currentDate = Calendar.getInstance();
         Item nextItem;
         int periCount = 0;
-        while ((nextItem = perishPantry.pop()) != null){
+        for (int i = 0; i < perishPantry.size(); i++){
+            nextItem = perishPantry.pop();
             Calendar expiryDate = nextItem.getExpDate();
             int dayRemaining = daysUntil(currentDate,expiryDate);
             if(dayRemaining > 3){
@@ -460,10 +464,11 @@ public class SmartPantry {
             }   
         }
         if (periCount == 0){
-            System.out.print("No perishable items will expire in 3 days");
+            System.out.println("No perishable items will expire in 3 days");
         }
         int nonperiCount = 0;
-        while ((nextItem = nonperishPantry.pop()) != null){
+        for (int i = 0; i<nonperishPantry.size(); i++){
+            nextItem = nonperishPantry.pop();
             Calendar expiryDate = nextItem.getExpDate();
             int dayRemaining = daysUntil(currentDate,expiryDate);
             if(dayRemaining > 3){
@@ -504,7 +509,7 @@ public class SmartPantry {
             }  
         }
         if (nonperiCount == 0){
-            System.out.print("No nonperishable items will expire in 3 days");
+            System.out.println("No nonperishable items will expire in 3 days");
         }
     }
 
