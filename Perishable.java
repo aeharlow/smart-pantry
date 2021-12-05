@@ -6,6 +6,12 @@ class Perishable implements Item {
     private Calendar expDate;
     private boolean isFrozen;
 
+    /**
+     * Creates a Perishable object
+     * @param n String representing the name of the item
+     * @param q int representing the quantity of the item
+     * @param f boolean representing if the user is freezing the item
+     */
     public Perishable(String n, int q, boolean f) {
         name = n;
         quantity = q;
@@ -13,44 +19,91 @@ class Perishable implements Item {
         expDate = calcExp();
     }
 
-    // getters
+    /**
+     * @return returns a String containing the name of the item
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * @return returns an int containing the quantity of the item
+     */
     public int getQuantity() {
         return quantity;
     }
 
+    /**
+     * @return returns a Calendar representing the expiration 
+     * date of the item
+     */
     public Calendar getExpDate() {
         return expDate;
     }
 
+    /**
+     * @return returns a boolean representing if the item is frozen
+     */
     public boolean getIsFrozen() {
         return isFrozen;
     }
 
+    /**
+     * @return returns a double containing the frozen multiplier
+     * of the item
+     */
     public double getMult() {
         String[] itemData = DBManager.getItem("perishable-database.txt", name);
         Double mult = Double.parseDouble(itemData[2]);
         return mult;
     }
 
-    // setters
+    /**
+     * Sets the name of an item
+     * @param n New name of the item
+     */
     public void setName(String n) {
         name = n;
     }
 
+    /**
+     * Sets the quantity of an item
+     * @param q New quantity of the item
+     */
     public void setQuantity(int q) {
         quantity = q;
     }
 
+    /**
+     * Sets the expiration date of an item
+     * @param d New expiration of the item, Java Calendar
+     */
     public void setExpire(Calendar d) {
         expDate = d;
     }
 
+    /**
+     * Sets the frozen flag of an item
+     * @param n New frozen status of the item
+     */
     public void setIsFrozen(boolean f) {
         isFrozen = f;
+    }
+
+    /**
+     * Searches the perishable database for a specific item
+     * @param name String representing the item to search the databases for.
+     * @return returns true if the item exists in the database.
+     */
+    public static boolean searchDatabase(String name){
+        boolean ret = false;
+        String[] itemData = DBManager.getItem("perishable-database.txt", name);
+
+        if(itemData != null){
+            ret = true;
+        }
+
+        return ret;
     }
 
     /**
@@ -64,6 +117,9 @@ class Perishable implements Item {
         Calendar expDate = Calendar.getInstance();
 
         String[] itemData = DBManager.getItem("perishable-database.txt", name);
+
+        
+
         int sl = Integer.parseInt(itemData[1]);
         Double mul = 1.0;
         if (isFrozen) {
