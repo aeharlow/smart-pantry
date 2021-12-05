@@ -489,6 +489,19 @@ public class SmartPantry {
             long dayRemaining = daysUntil(currentDate, expiryDate);
             if (dayRemaining > 3) {
                 break;
+            }else if (dayRemaining < 0){
+                if (nextItem.getQuantity() == 1){
+                    String printString = nextItem.getQuantity() + " " +
+                    nextItem.getName() + " has expired.";
+                    System.out.println(printString);
+                    periCount++;
+                }
+                else{
+                    String printString = nextItem.getQuantity() + " " +
+                    nextItem.getName() + " have expired.";
+                    System.out.println(printString);
+                    periCount++;
+                }
             } else if (dayRemaining == 0) {
                 String printString = nextItem.getQuantity() + " " +
                         nextItem.getName() + " expires today";
@@ -517,7 +530,21 @@ public class SmartPantry {
             long dayRemaining = daysUntil(currentDate, expiryDate);
             if (dayRemaining > 3) {
                 break;
-            } else if (dayRemaining == 0) {
+            }else if (dayRemaining < 0){
+                if (nextItem.getQuantity() == 1){
+                    String printString = nextItem.getQuantity() + " " +
+                    nextItem.getName() + " has expired.";
+                    System.out.println(printString);
+                    nonperiCount++;
+                }
+                else{
+                    String printString = nextItem.getQuantity() + " " +
+                    nextItem.getName() + " have expired.";
+                    System.out.println(printString);
+                    nonperiCount++;
+                }
+            }  
+            else if (dayRemaining == 0) {
                 nonperiCount++;
                 String printString = nextItem.getQuantity() + " " +
                         nextItem.getName() + " expires today";
