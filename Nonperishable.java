@@ -5,34 +5,59 @@ class Nonperishable implements Item {
     private int quantity;
     private Calendar expDate;
 
+    /**
+     * Creates a Nonperishable object
+     * @param n String representing the name of the item
+     * @param q int representing the quantity of the item
+     */
     public Nonperishable(String n, int q) {
         name = n;
         quantity = q;
         expDate = calcExp();
     }
 
-    // getters
+    /**
+     * @return returns a String containing the name of the item
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * @return returns an int containing the quantity of the item
+     */
     public int getQuantity() {
         return quantity;
     }
 
+    /**
+     * @return returns a Calendar representing the expiration 
+     * date of the item
+     */
     public Calendar getExpDate() {
         return expDate;
     }
 
-    // setters
+    /**
+     * Sets the name of an item
+     * @param n New name of the item
+     */
     public void setName(String n) {
         name = n;
     }
 
+    /**
+     * Sets the quantity of an item
+     * @param q New quantity of the item
+     */
     public void setQuantity(int q) {
         quantity = q;
     }
 
+    /**
+     * Sets the expiration date of an item
+     * @param d New expiration of the item, Java Calendar
+     */
     public void setExpire(Calendar d) {
         expDate = d;
     }
@@ -54,8 +79,10 @@ class Nonperishable implements Item {
     }
 
     /**
-     * calcExpire(item) - calculates the expiration of nonperishable items
-     * using the shelf life from the database.
+     * Calculates the expiration date of nonperishable items using the shelf 
+     * life from the database
+     * @return returns a Calender representing the expected expiration date
+     * of the item
      */
     public Calendar calcExp() {
         Calendar expDate = Calendar.getInstance();
@@ -68,8 +95,9 @@ class Nonperishable implements Item {
     }
 
     /**
-     *  toDBString() - creates a string containing information about the
-     *                 object in the correct format for the pantry txt files
+     * Creates a string containing all relevant information about 
+     * an item in the appropriate format to be written to the pantry file.
+     * @return returns a String in the proper format for the txt files
      */
     public String toDBString() {
         String exp = calToStr(expDate);
@@ -78,9 +106,11 @@ class Nonperishable implements Item {
     }
 
     /**
-     * toString(c) - takes in a calender object and creates a string of the
-     * format "MM/DD/YYYY" with the same date for the sake of
-     * writing the date to the pantry files
+     * Creates a string of the format "MM/DD/YYYY" with the same 
+     * date as the passed in Calendarfor the sake of writing the
+     * date to the pantry files
+     * @param c the Calendar object to be converted to a string
+     * @return returns the String version of the Calendar
      */
     private static String calToStr(Calendar c) {
         String date;
