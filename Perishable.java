@@ -107,18 +107,17 @@ class Perishable implements Item {
     }
 
     /**
-     * calcExpire() - calculates the expiration date of a perishable item
-     * using the shelf life from the database. If the user
-     * indicates that they are freezing the item, the
-     * calulated expiration date will adjust according to
+     * Calculates the expiration date of perishable items using the shelf 
+     * life from the database. If the user indicates that they are freezing 
+     * the item, the calulated expiration date will adjust according to how
      * much longer the item is expected to last for.
+     * @return returns a Calender representing the expected expiration date
+     * of the item
      */
     public Calendar calcExp() {
         Calendar expDate = Calendar.getInstance();
 
         String[] itemData = DBManager.getItem("perishable-database.txt", name);
-
-        
 
         int sl = Integer.parseInt(itemData[1]);
         Double mul = 1.0;
@@ -133,8 +132,9 @@ class Perishable implements Item {
     }
 
     /**
-     *  toDBString() - creates a string containing information about the
-     *                 object in the correct format for the pantry txt files
+     * Creates a string containing all relevant information about 
+     * an item in the appropriate format to be written to the pantry file.
+     * @return returns a String in the proper format for the txt files
      */
     public String toDBString() {
         String exp = calToStr(expDate);
@@ -151,9 +151,11 @@ class Perishable implements Item {
     }
 
     /**
-     * toString(c) - takes in a calender object and creates a string of the
-     * format "MM/DD/YYYY" with the same date for the sake of
-     * writing the date to the pantry files
+     * Creates a string of the format "MM/DD/YYYY" with the same 
+     * date as the passed in Calendarfor the sake of writing the
+     * date to the pantry files
+     * @param c the Calendar object to be converted to a string
+     * @return returns the String version of the Calendar
      */
     private static String calToStr(Calendar c) {
         String date;
@@ -168,6 +170,9 @@ class Perishable implements Item {
         return date;
     }
 
+    /**
+     * Prints out the information about a nonperishable item in a readable format
+     */
     public String toString() {
         String f = new String();
         if (isFrozen)
