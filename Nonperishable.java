@@ -37,18 +37,20 @@ class Nonperishable implements Item {
         expDate = d;
     }
 
-    public int compareTo(Item perish) {
-        // let's sort the employee based on an id in ascending order
-        // returns a negative integer, zero, or a positive integer as this perishable
-        // exp date
-        // is less than, equal to, or greater than the specified object.
-        if (this.expDate.after(perish)) {
-            return 1;
-        } else if (this.expDate.before(perish)) {
-            return -1;
-        } else {
-            return 0;
+    /**
+     * Searches the nonperishable database for a specific item
+     * @param name String representing the item to search the databases for.
+     * @return returns true if the item exists in the database.
+     */
+    public static boolean searchDatabase(String name){
+        boolean ret = false;
+        String[] itemData = DBManager.getItem("nonperishable-database.txt", name);
+
+        if(itemData != null){
+            ret = true;
         }
+
+        return ret;
     }
 
     /**
@@ -93,6 +95,23 @@ class Nonperishable implements Item {
         return date;
     }
 
+    public int compareTo(Item perish) {
+        // let's sort the employee based on an id in ascending order
+        // returns a negative integer, zero, or a positive integer as this perishable
+        // exp date
+        // is less than, equal to, or greater than the specified object.
+        if (this.expDate.after(perish)) {
+            return 1;
+        } else if (this.expDate.before(perish)) {
+            return -1;
+        } else {
+            return 0;
+        }
+    }
+
+    /**
+     * Prints out the information about a nonperishable item in a readable format
+     */
     public String toString() {
         String ret;
         ret = name + " - quantity: " + quantity + ", expiration date: " + calToStr(expDate);
