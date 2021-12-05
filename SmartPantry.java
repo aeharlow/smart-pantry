@@ -1,4 +1,3 @@
-
 /**
  *  SmartPantry.java
  * 
@@ -63,8 +62,9 @@ public class SmartPantry {
                 displayPantry();
 
             } else if (command.equals("clear pantry")) {
-
                 // completely wipe clean the pantry files
+                // this is helper command for development, the user is not
+                // expected to use it, so it is not mentioned in the help menu
                 if (DBManager.clearDB("perishable.txt"))
                     perishPantry.clear();
                     System.out.println("Done!");
@@ -86,7 +86,9 @@ public class SmartPantry {
                 break;
 
             } else if(command.equals("list") || command.equals("l")){
-                
+                // list the contents of the pantry linked lists
+                // this is helper command for development, the user is not
+                // expected to use it, so it is not mentioned in the help menu
                 for (int i = 0; i < perishPantry.size(); i++){
                     String temp = perishPantry.get(i).toString();
                     System.out.print(temp + ",");
@@ -96,7 +98,6 @@ public class SmartPantry {
                     System.out.print(temp + ",");
                 }
             }
-            
             else {
 
                 System.out.println("Unknown command");
@@ -106,10 +107,9 @@ public class SmartPantry {
         }
     }
 
-    /*
-     * displayWelcome() - displays a welcome message to the user upon launch
+    /**
+     *  Displays a welcome message for the user upon launch
      */
-
     private static void displayWelcome() {
         System.out.println();
         System.out.println("----- Welcome to SmartPantry! -----");
@@ -122,7 +122,7 @@ public class SmartPantry {
     }
 
     /**
-     * displayHelp() - prints all commands that the user can enter
+     *  Prints out all user commands
      */
     private static void displayHelp() {
         System.out.println("To add a new item, enter \"add item\"");
@@ -135,13 +135,21 @@ public class SmartPantry {
     }
 
     /**
-     * addPerishable() - prompts the user to input the appropriate data for a
-     * perishable item, calculates the expiration date, and
-     * adds the item to the perishable pantry file
+     * Prompts the user to enter appropriate data for adding a perishable
+     * item to their pantry and creates a perishable object using that data.
+     * The item is then added to the perishable pantry linked list and the 
+     * list is sorted by expiration date.
+     * @return returns true if the item was added successfully, returns 
+     * false if any errors occur or an unknown command is entered.
      */
     private static boolean addPerishable() {
         System.out.println("What item are you adding?");
         String n = scan.nextLine();
+
+        if(!Perishable.searchDatabase(n)){
+            System.out.println("Sorry that item doesn't exist in our databases yet!");
+            return false;
+        }
 
         System.out.println("How many are you adding?");
         int q = scan.nextInt();
@@ -155,9 +163,13 @@ public class SmartPantry {
 
         if (fs.equals("yes") || fs.equals("y"))
             f = true;
-        else
+        else if(fs.equals("no") || fs.equals("n"))
             f = false;
-
+        else{
+            System.out.println("Unknown command");
+            return false;
+        }
+            
         Perishable temp = new Perishable(n, q, f);
         perishPantry.addLast(temp);
 
@@ -169,15 +181,23 @@ public class SmartPantry {
         return true;
     }
 
-    /**
-     * addNonPerishable() - prompts the user to input the appropriate data for a
-     * nonperishable item, calculates the expiration date, and
-     * adds the item to the nonperishable pantry file
-     */
+     /**
+      * Prompts the user to enter appropriate data for adding a nonperishable
+     * item to their pantry and creates a nonperishable object using that data.
+     * The item is then added to the nonperishable pantry linked list and the 
+     * list is sorted by expiration date.
+     * @return returns true if the item was added successfully, returns 
+     * false if any errors occur or an unknown command is entered.
+      */
     private static boolean addNonPerishable() {
 
         System.out.println("What item are you adding?");
         String n = scan.nextLine();
+
+        if(!Nonperishable.searchDatabase(n)){
+            System.out.println("Sorry that item doesn't exist in our databases yet!");
+            return false;
+        }
 
         System.out.println("How many are you adding?");
         int q = scan.nextInt();
@@ -193,11 +213,13 @@ public class SmartPantry {
 
         return true;
     }
-
+    
     /**
-     * removeItem() - prompts the user to enter which item they would like to remove
-     * from the pantry, scans the pantry for the oldest instance of the
-     * item and removes it from the pantry
+     * Prompts the user to enter the item they would like to remove from either
+     * the perishable or nonperishable pantry. If there is more than one instance 
+     * of an item in the pantry the oldest instance is removed.
+     * @return returns true if the item is removed successfully, returns 
+     * false if any errors occur or an unknown command is entered.
      */
     private static boolean removeItem() {
         System.out.println("Are you removing a perishable item or a nonperishable item?");
@@ -253,12 +275,15 @@ public class SmartPantry {
         return true;
     }
 
-    /**
-     * editItem() - asks the user which item they would like to edit, how they would
-     * like to edit it, and edits the pantry accordingly. Possible edits
-     * include: removing some of an item, taking a perishable item out of
-     * the freezer, and putting a perishable item in the freezer
-     */
+     /**
+      * Propmts the user to enter which item they would like to edit. Both perishable
+      * and nonperishable objects give the user the option to edit the item's quantity.
+      * If the user is editing a perishable object, the user will be given the option to 
+      * change the object's frozen status. If the user changes the frozen status the object's
+      * expiration date will change, so the pantry list will be sorted again.
+      * @return returns true if the item was edited successfully, returns 
+      * false if any errors occur or an unknown command is entered.
+      */
     private static boolean editItem() {
         System.out.println("Would you like to edit a perishable item or a nonperishable item?");
         String perish = scan.nextLine();
@@ -299,7 +324,11 @@ public class SmartPantry {
                 } else {
                     temp.setQuantity(val);
                 }
-            }
+            } else if(response.equals("no") || response.equals("n"));
+              else {
+                System.out.println("Unknown command");
+                return false;
+              }
 
             // ask if the user wants to remove the item from the freezer or put it in
             if (temp.getIsFrozen()) {
@@ -315,6 +344,10 @@ public class SmartPantry {
                     temp.setExpire(tempDate);
 
                     sortList(true);
+                } else if(response.equals("no") || response.equals("n"));
+                else {
+                  System.out.println("Unknown command");
+                  return false;
                 }
             } else {
                 System.out.println("This item is currently not in the freezer," +
@@ -336,6 +369,10 @@ public class SmartPantry {
                     temp.setExpire(newExp);
 
                     sortList(true);
+                } else if(response.equals("no") || response.equals("n"));
+                else {
+                  System.out.println("Unknown command");
+                  return false;
                 }
             }
         } else if (perish.equals("nonperishable") || perish.equals("n")) {
@@ -372,6 +409,10 @@ public class SmartPantry {
                 } else {
                     temp.setQuantity(val);
                 }
+            } else if(response.equals("no") || response.equals("n"));
+            else {
+              System.out.println("Unknown command");
+              return false;
             }
         } else {
             System.out.println("Unknown command");
@@ -382,12 +423,11 @@ public class SmartPantry {
     }
 
     /**
-     * sortList() - this function will sort both the P and NP Linked Lists depending
-     * on the input.
-     * an input of True will result in the P LL being sorted, and false will sort
-     * the NP LL.
+     * Sorts either the perishable or nonperishable pantry linked list
+     * depending on the passed in boolean value.
+     * @param IsPerishable If true, sort the perishable pantry linked list,
+     * if false, sort the nonperishable pantry linked list
      */
-
     private static void sortList(boolean IsPerishable){
 
         if (IsPerishable == true) {
@@ -398,23 +438,24 @@ public class SmartPantry {
     }
 
     /**
-     * displayPantry() - displays the contents of the pantry to the user. The
-     * display is
-     * seperated between the perishable items and nonperishable items.
+     * Displays the contents of the pantry to the user. The display is split
+     * between perishable items and nonperisable items. The items are printed
+     * in order of soonest to expire to last to expire.
      */
-    private static boolean displayPantry() {
+    private static void displayPantry() {
+        // print out perishable items
         System.out.println();
         System.out.println("Perishable items:");
         System.out.println();
 
-        // print out perishable items
-
         for (int i = 0; i < perishPantry.size(); i++) {
             System.out.println(perishPantry.get(i).toString());
         }
+        System.out.println();
 
         System.out.println("-----------------------------------");
 
+        // print mout nonperishable items
         System.out.println();
         System.out.println("Nonperishable items:");
         System.out.println();
@@ -422,18 +463,21 @@ public class SmartPantry {
         for (int i = 0; i < nonperishPantry.size(); i++) {
             System.out.println(nonperishPantry.get(i).toString());
         }
-
-        // print mout nonperishable items
-
-        return true;
+        System.out.println();
     }
 
     /**
-     * checkExpired() - goes through the pantry files and checks to see if any
+     * Goes through the pantry files and checks to see if any
      * items have expired. If an item is expired it will print
      * a message stating so. If an item is nearing is expiration
      * date, it will print a message warning the user to use the
-     * item soon before it expires
+     * item soon before it expires. The threshold for the expiration
+     * warning is three days.
+     * @param userCall Upon start up we call this function to check for
+     * expired items, but we do not want to print anything if nothing is
+     * nearing expiration, but if the user requests to check for 
+     * expired items and nothing is to expire soon, we must print a
+     * statement saying so.
      */
     private static void checkExpired(boolean userCall){
         Calendar currentDate = Calendar.getInstance();
@@ -495,12 +539,13 @@ public class SmartPantry {
             System.out.println("No nonperishable items will expire in 3 days");
         }
     }
-
+ 
     /**
-     * daysUntil(startDate, endDate) - finds the number of days between the
-     * Calenders startDate and endDate. If
-     * the end date occurs before the startDate
-     * the returned number of days will be negative
+     * Calculates the number of days between two java Calendar dates
+     * @param startDate the first date
+     * @param endDate the second date
+     * @return A long value representing the number of dats between startDate
+     * and endDate. If endDate happens before startDate the returned value will be negative
      */
     private static long daysUntil(Calendar startDate, Calendar endDate) {
         long days;
