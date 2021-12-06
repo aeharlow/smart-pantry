@@ -577,12 +577,15 @@ public class SmartPantry {
     private static long daysUntil(Calendar startDate, Calendar endDate) {
         long days;
 
+        startDate.set(Calendar.HOUR_OF_DAY,0);
+        endDate.set(Calendar.HOUR_OF_DAY,0);
+
         long startDateMilli = startDate.getTimeInMillis();
         long endDateMilli = endDate.getTimeInMillis();
 
         days =  (endDateMilli - startDateMilli);
         days = (days / (1000 * 60 * 60 * 24));
 
-        return days;
+        return days+1;
     }
 }
