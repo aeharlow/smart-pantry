@@ -443,10 +443,15 @@ public class SmartPantry {
      * in order of soonest to expire to last to expire.
      */
     private static void displayPantry() {
+        
+        //quickly sort both lists before printing
+        sortList(true);
+        sortList(false);
+
         // print out perishable items
         System.out.println();
         System.out.println("Perishable items:");
-        System.out.println();
+        System.out.println();      
 
         for (int i = 0; i < perishPantry.size(); i++) {
             System.out.println(perishPantry.get(i).toString());
