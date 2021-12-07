@@ -4,5 +4,7 @@ black beans,730,1
 pinto beans,730,1
 paprika,1460,1
 cumin,1460,1
+nutmeg,1460,1
+cinnamon,1460,1
 canned peaches,558,1
 canned black beans,1460,1

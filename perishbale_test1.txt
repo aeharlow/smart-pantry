@@ -1,0 +1,1808 @@
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,n
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,y
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,n
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y
+chicken,3,12/9/2021,y
+orange,5,12/13/2021,n
+cabbage,1,2/20/2022,n
+lettuce,3,2/20/2022,y
+bagel,3,12/9/2021,y
+cheese,5,12/13/2021,n
+milk,1,2/20/2022,y
+green bean,3,2/20/2022,y

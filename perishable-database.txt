@@ -5,6 +5,10 @@ apple,6,50.6
 broccoli,4,91.25
 green bean,4,91.25
 milk,6,1
-cheese,186,
+cheese,186,1
 toast,14,6.64
 bagel,14,6.64
+orange,6,50
+pineapple,14,5
+lettuce,5,15
+cabbage,5,15
