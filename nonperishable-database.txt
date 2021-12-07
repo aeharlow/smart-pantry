@@ -8,3 +8,5 @@ nutmeg,1460,1
 cinnamon,1460,1
 canned peaches,558,1
 canned black beans,1460,1
+olive oil,730,1
+
