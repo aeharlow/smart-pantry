@@ -24,6 +24,10 @@ public class SmartPantry {
         perishPantry = DBManager.createPeriArray();
         nonperishPantry = DBManager.createNPArray();
 
+        //quickly sort both lists before continuing to ensure they are ordered
+        sortList(true);
+        sortList(false); 
+
         displayWelcome();
         checkExpired(false);
 
