@@ -28,8 +28,8 @@ public class SmartPantry {
         sortList(true);
         sortList(false); 
 
-        displayWelcome();
-        checkExpired(false);
+        displayWelcome(); //Print the welcome string
+        checkExpired(false); //check if any items are soon to expire
 
         String command = new String();
 
